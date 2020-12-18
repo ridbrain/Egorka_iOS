@@ -3,18 +3,37 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C034D642181BF5D8C843906 /* Pods_egorka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 138ECCF49FD36B4FAA50C664 /* Pods_egorka.framework */; };
+		E705CE74258CC776003AA401 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E705CE72258CC776003AA401 /* SplashViewController.swift */; };
+		E705CE75258CC776003AA401 /* SplashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E705CE73258CC776003AA401 /* SplashViewController.xib */; };
 		E7176AEE2580139900825F14 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7176AED2580139900825F14 /* AppDelegate.swift */; };
-		E7176AF02580139900825F14 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7176AEF2580139900825F14 /* SceneDelegate.swift */; };
-		E7176AF22580139900825F14 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7176AF12580139900825F14 /* ViewController.swift */; };
-		E7176AF52580139900825F14 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7176AF32580139900825F14 /* Main.storyboard */; };
 		E7176AF72580139D00825F14 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7176AF62580139D00825F14 /* Assets.xcassets */; };
 		E7176AFA2580139D00825F14 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7176AF82580139D00825F14 /* LaunchScreen.storyboard */; };
 		E7176B052580139D00825F14 /* egorkaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7176B042580139D00825F14 /* egorkaTests.swift */; };
 		E7176B102580139D00825F14 /* egorkaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7176B0F2580139D00825F14 /* egorkaUITests.swift */; };
+		E7176B3625801BB900825F14 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7176B3525801BB900825F14 /* Colors.xcassets */; };
+		E7176B4F2580CD9700825F14 /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7176B4E2580CD9700825F14 /* MainPresenter.swift */; };
+		E7176B572580CFE200825F14 /* GeneralRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7176B562580CFE200825F14 /* GeneralRouter.swift */; };
+		E7176B5C2580D05B00825F14 /* AssemblerBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7176B5B2580D05B00825F14 /* AssemblerBuilder.swift */; };
+		E7176B632580D62D00825F14 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7176B612580D62D00825F14 /* MainViewController.swift */; };
+		E7176B642580D62D00825F14 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7176B622580D62D00825F14 /* MainViewController.xib */; };
+		E7176B7B2581461B00825F14 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7176B7A2581461B00825F14 /* Extensions.swift */; };
+		E7176B9925815C6B00825F14 /* MainBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7176B9825815C6B00825F14 /* MainBottomSheet.swift */; };
+		E7176B9F25815C9100825F14 /* MainBottomSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7176B9E25815C9100825F14 /* MainBottomSheet.xib */; };
+		E7176BDA2582482700825F14 /* LocationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7176BD92582482600825F14 /* LocationHandler.swift */; };
+		E799D9B02583851F00FE4E62 /* Geocoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E799D9AF2583851F00FE4E62 /* Geocoder.swift */; };
+		E799D9C0258387AF00FE4E62 /* NetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E799D9BF258387AF00FE4E62 /* NetworkHandler.swift */; };
+		E799D9C525838CD900FE4E62 /* AnswersHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E799D9C425838CD900FE4E62 /* AnswersHandler.swift */; };
+		E799D9CF2584067E00FE4E62 /* MKMapDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E799D9CE2584067E00FE4E62 /* MKMapDelegate.swift */; };
+		E799D9D42584B34E00FE4E62 /* TextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E799D9D32584B34E00FE4E62 /* TextFieldDelegate.swift */; };
+		E799D9D92584BE0B00FE4E62 /* TableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E799D9D82584BE0B00FE4E62 /* TableViewDelegate.swift */; };
+		E799D9E12588CFEF00FE4E62 /* TypeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E799D9DF2588CFEF00FE4E62 /* TypeCollectionViewCell.swift */; };
+		E799D9E22588CFEF00FE4E62 /* TypeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E799D9E02588CFEF00FE4E62 /* TypeCollectionViewCell.xib */; };
+		E799D9EA2589515E00FE4E62 /* CollectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E799D9E92589515E00FE4E62 /* CollectionDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,11 +54,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0C30BC20F87B7B5417CF4B4A /* Pods-egorka.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-egorka.debug.xcconfig"; path = "Target Support Files/Pods-egorka/Pods-egorka.debug.xcconfig"; sourceTree = "<group>"; };
+		138ECCF49FD36B4FAA50C664 /* Pods_egorka.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_egorka.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DF5F713E78B77735A25E7EAB /* Pods-egorka.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-egorka.release.xcconfig"; path = "Target Support Files/Pods-egorka/Pods-egorka.release.xcconfig"; sourceTree = "<group>"; };
+		E705CE72258CC776003AA401 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		E705CE73258CC776003AA401 /* SplashViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SplashViewController.xib; sourceTree = "<group>"; };
 		E7176AEA2580139900825F14 /* egorka.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = egorka.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7176AED2580139900825F14 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E7176AEF2580139900825F14 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E7176AF12580139900825F14 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		E7176AF42580139900825F14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E7176AF62580139D00825F14 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E7176AF92580139D00825F14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E7176AFB2580139D00825F14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,6 +70,25 @@
 		E7176B0B2580139D00825F14 /* egorkaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = egorkaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7176B0F2580139D00825F14 /* egorkaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = egorkaUITests.swift; sourceTree = "<group>"; };
 		E7176B112580139D00825F14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E7176B3525801BB900825F14 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		E7176B4E2580CD9700825F14 /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
+		E7176B562580CFE200825F14 /* GeneralRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralRouter.swift; sourceTree = "<group>"; };
+		E7176B5B2580D05B00825F14 /* AssemblerBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssemblerBuilder.swift; sourceTree = "<group>"; };
+		E7176B612580D62D00825F14 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		E7176B622580D62D00825F14 /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		E7176B7A2581461B00825F14 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		E7176B9825815C6B00825F14 /* MainBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBottomSheet.swift; sourceTree = "<group>"; };
+		E7176B9E25815C9100825F14 /* MainBottomSheet.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainBottomSheet.xib; sourceTree = "<group>"; };
+		E7176BD92582482600825F14 /* LocationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHandler.swift; sourceTree = "<group>"; };
+		E799D9AF2583851F00FE4E62 /* Geocoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geocoder.swift; sourceTree = "<group>"; };
+		E799D9BF258387AF00FE4E62 /* NetworkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHandler.swift; sourceTree = "<group>"; };
+		E799D9C425838CD900FE4E62 /* AnswersHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswersHandler.swift; sourceTree = "<group>"; };
+		E799D9CE2584067E00FE4E62 /* MKMapDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKMapDelegate.swift; sourceTree = "<group>"; };
+		E799D9D32584B34E00FE4E62 /* TextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldDelegate.swift; sourceTree = "<group>"; };
+		E799D9D82584BE0B00FE4E62 /* TableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDelegate.swift; sourceTree = "<group>"; };
+		E799D9DF2588CFEF00FE4E62 /* TypeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeCollectionViewCell.swift; sourceTree = "<group>"; };
+		E799D9E02588CFEF00FE4E62 /* TypeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TypeCollectionViewCell.xib; sourceTree = "<group>"; };
+		E799D9E92589515E00FE4E62 /* CollectionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C034D642181BF5D8C843906 /* Pods_egorka.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +117,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		16F414AC1199F4B718F44E1C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				138ECCF49FD36B4FAA50C664 /* Pods_egorka.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AB8AC9492EB2797964CBB90D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0C30BC20F87B7B5417CF4B4A /* Pods-egorka.debug.xcconfig */,
+				DF5F713E78B77735A25E7EAB /* Pods-egorka.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		E705CE79258CC92A003AA401 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				E705CE72258CC776003AA401 /* SplashViewController.swift */,
+				E705CE73258CC776003AA401 /* SplashViewController.xib */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
 		E7176AE12580139900825F14 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +150,8 @@
 				E7176B032580139D00825F14 /* egorkaTests */,
 				E7176B0E2580139D00825F14 /* egorkaUITests */,
 				E7176AEB2580139900825F14 /* Products */,
+				AB8AC9492EB2797964CBB90D /* Pods */,
+				16F414AC1199F4B718F44E1C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,13 +168,14 @@
 		E7176AEC2580139900825F14 /* egorka */ = {
 			isa = PBXGroup;
 			children = (
-				E7176AED2580139900825F14 /* AppDelegate.swift */,
-				E7176AEF2580139900825F14 /* SceneDelegate.swift */,
-				E7176AF12580139900825F14 /* ViewController.swift */,
-				E7176AF32580139900825F14 /* Main.storyboard */,
-				E7176AF62580139D00825F14 /* Assets.xcassets */,
-				E7176AF82580139D00825F14 /* LaunchScreen.storyboard */,
 				E7176AFB2580139D00825F14 /* Info.plist */,
+				E7176AED2580139900825F14 /* AppDelegate.swift */,
+				E7176AF62580139D00825F14 /* Assets.xcassets */,
+				E7176B3525801BB900825F14 /* Colors.xcassets */,
+				E7176AF82580139D00825F14 /* LaunchScreen.storyboard */,
+				E799D9DD2588CB2500FE4E62 /* Cells */,
+				E7176B4B2580CBF700825F14 /* Handlers */,
+				E7176B4C2580CBFF00825F14 /* Pages */,
 			);
 			path = egorka;
 			sourceTree = "<group>";
@@ -128,6 +198,62 @@
 			path = egorkaUITests;
 			sourceTree = "<group>";
 		};
+		E7176B4B2580CBF700825F14 /* Handlers */ = {
+			isa = PBXGroup;
+			children = (
+				E7176B562580CFE200825F14 /* GeneralRouter.swift */,
+				E7176B5B2580D05B00825F14 /* AssemblerBuilder.swift */,
+				E7176B7A2581461B00825F14 /* Extensions.swift */,
+				E7176BD92582482600825F14 /* LocationHandler.swift */,
+				E799D9AF2583851F00FE4E62 /* Geocoder.swift */,
+				E799D9BF258387AF00FE4E62 /* NetworkHandler.swift */,
+				E799D9C425838CD900FE4E62 /* AnswersHandler.swift */,
+				E799D9CE2584067E00FE4E62 /* MKMapDelegate.swift */,
+				E799D9D32584B34E00FE4E62 /* TextFieldDelegate.swift */,
+				E799D9D82584BE0B00FE4E62 /* TableViewDelegate.swift */,
+				E799D9E92589515E00FE4E62 /* CollectionDelegate.swift */,
+			);
+			path = Handlers;
+			sourceTree = "<group>";
+		};
+		E7176B4C2580CBFF00825F14 /* Pages */ = {
+			isa = PBXGroup;
+			children = (
+				E705CE79258CC92A003AA401 /* Splash */,
+				E7176B602580D61A00825F14 /* Main */,
+			);
+			path = Pages;
+			sourceTree = "<group>";
+		};
+		E7176B602580D61A00825F14 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				E7176B9825815C6B00825F14 /* MainBottomSheet.swift */,
+				E7176B4E2580CD9700825F14 /* MainPresenter.swift */,
+				E7176B612580D62D00825F14 /* MainViewController.swift */,
+				E7176B9E25815C9100825F14 /* MainBottomSheet.xib */,
+				E7176B622580D62D00825F14 /* MainViewController.xib */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		E799D9DD2588CB2500FE4E62 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				E799D9DE2588CE8600FE4E62 /* Type */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		E799D9DE2588CE8600FE4E62 /* Type */ = {
+			isa = PBXGroup;
+			children = (
+				E799D9DF2588CFEF00FE4E62 /* TypeCollectionViewCell.swift */,
+				E799D9E02588CFEF00FE4E62 /* TypeCollectionViewCell.xib */,
+			);
+			path = Type;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +261,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E7176B142580139D00825F14 /* Build configuration list for PBXNativeTarget "egorka" */;
 			buildPhases = (
+				FD2CED20109969B423F9390F /* [CP] Check Pods Manifest.lock */,
 				E7176AE62580139900825F14 /* Sources */,
 				E7176AE72580139900825F14 /* Frameworks */,
 				E7176AE82580139900825F14 /* Resources */,
+				A8A08315407A96C79E19694C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -231,9 +359,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7176B3625801BB900825F14 /* Colors.xcassets in Resources */,
 				E7176AFA2580139D00825F14 /* LaunchScreen.storyboard in Resources */,
 				E7176AF72580139D00825F14 /* Assets.xcassets in Resources */,
-				E7176AF52580139900825F14 /* Main.storyboard in Resources */,
+				E7176B9F25815C9100825F14 /* MainBottomSheet.xib in Resources */,
+				E799D9E22588CFEF00FE4E62 /* TypeCollectionViewCell.xib in Resources */,
+				E705CE75258CC776003AA401 /* SplashViewController.xib in Resources */,
+				E7176B642580D62D00825F14 /* MainViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,14 +385,70 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		A8A08315407A96C79E19694C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-egorka/Pods-egorka-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-egorka/Pods-egorka-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-egorka/Pods-egorka-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FD2CED20109969B423F9390F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-egorka-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E7176AE62580139900825F14 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7176AF22580139900825F14 /* ViewController.swift in Sources */,
+				E799D9D92584BE0B00FE4E62 /* TableViewDelegate.swift in Sources */,
+				E799D9D42584B34E00FE4E62 /* TextFieldDelegate.swift in Sources */,
+				E705CE74258CC776003AA401 /* SplashViewController.swift in Sources */,
 				E7176AEE2580139900825F14 /* AppDelegate.swift in Sources */,
-				E7176AF02580139900825F14 /* SceneDelegate.swift in Sources */,
+				E7176B7B2581461B00825F14 /* Extensions.swift in Sources */,
+				E7176B572580CFE200825F14 /* GeneralRouter.swift in Sources */,
+				E799D9E12588CFEF00FE4E62 /* TypeCollectionViewCell.swift in Sources */,
+				E799D9C0258387AF00FE4E62 /* NetworkHandler.swift in Sources */,
+				E7176B5C2580D05B00825F14 /* AssemblerBuilder.swift in Sources */,
+				E7176B9925815C6B00825F14 /* MainBottomSheet.swift in Sources */,
+				E799D9C525838CD900FE4E62 /* AnswersHandler.swift in Sources */,
+				E799D9EA2589515E00FE4E62 /* CollectionDelegate.swift in Sources */,
+				E7176B4F2580CD9700825F14 /* MainPresenter.swift in Sources */,
+				E7176B632580D62D00825F14 /* MainViewController.swift in Sources */,
+				E799D9B02583851F00FE4E62 /* Geocoder.swift in Sources */,
+				E7176BDA2582482700825F14 /* LocationHandler.swift in Sources */,
+				E799D9CF2584067E00FE4E62 /* MKMapDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,14 +484,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		E7176AF32580139900825F14 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E7176AF42580139900825F14 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		E7176AF82580139D00825F14 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -366,7 +546,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -421,7 +601,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -433,39 +613,47 @@
 		};
 		E7176B152580139D00825F14 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0C30BC20F87B7B5417CF4B4A /* Pods-egorka.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7YC7Z97AQ2;
 				INFOPLIST_FILE = egorka/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ru.ridbrain.egorka;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ridbrain.egorka;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		E7176B162580139D00825F14 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DF5F713E78B77735A25E7EAB /* Pods-egorka.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7YC7Z97AQ2;
 				INFOPLIST_FILE = egorka/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ru.ridbrain.egorka;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ridbrain.egorka;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
