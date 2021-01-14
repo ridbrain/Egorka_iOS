@@ -11,6 +11,7 @@ import FINNBottomSheet
 
 protocol MainViewProtocol: UIViewController {
     
+    var presenter: MainPresenterProtocol? { get set }
     var mapView: MKMapView! { get set }
     var pinImage: UIImageView! { get set }
     var logo: UIImageView! { get set }
@@ -24,9 +25,7 @@ protocol MainBottomViewProtocol: UIView {
     var fromField: UITextField! { get set }
     var whereField: UITextField! { get set }
     var tableView: UITableView! { get set }
-    var collectionView: UICollectionView! { get set }
     
-    func showCollection(show: Bool)
     func showTable(show: Bool, extra: CGFloat)
     func showButton(show: Bool)
     func showWhere(show: Bool)
@@ -35,10 +34,11 @@ protocol MainBottomViewProtocol: UIView {
 
 protocol MainPresenterProtocol: class {
     
-    init(router: GeneralRouterProtocol, view: MainViewProtocol)
+    init(router: GeneralRouterProtocol, model: MainModeleProtocol, view: MainViewProtocol)
     
     func viewDidLoad()
     func viewWillAppear()
+    func viewWillDisappear()
     func keyboardWillShow(_ notification: Notification)
     func hideKeyboard()
     func settMapKit()
@@ -48,13 +48,31 @@ protocol MainPresenterProtocol: class {
     func regionDidChangeAnimated()
     func textDidChange()
     func selectAddress()
+    func openNewOrder()
+    
+}
+
+protocol MainModeleProtocol: class {
+    
+    var fromAddress: Address? { get set }
+    var whereAddress: Address? { get set }
+    var dateStart: Int? { get set }
+    
+}
+
+class MainModel: MainModeleProtocol {
+    
+    var fromAddress: Address?
+    var whereAddress: Address?
+    var dateStart: Int?
     
 }
 
 class MainPresenter: MainPresenterProtocol {
-
+    
     weak var view: MainViewProtocol?
     var router: GeneralRouterProtocol?
+    var model: MainModeleProtocol?
     var bottomView: MainBottomViewProtocol!
     var bottomSheet: BottomSheetView!
     var location: LocationHandeler!
@@ -64,12 +82,14 @@ class MainPresenter: MainPresenterProtocol {
     var tableViewDelegate: TableViewDelegate!
     var collectionDelegate: CollectionDelegate!
     
-    var fromAddress: Address?
-    var whereAddress: Address?
+    var fromDone: Bool = false
+    var whereDone: Bool = false
+    
     var keyboardHide: Bool = true
     
-    required init(router: GeneralRouterProtocol, view: MainViewProtocol) {
+    required init(router: GeneralRouterProtocol, model: MainModeleProtocol, view: MainViewProtocol) {
         self.view = view
+        self.model = model
         self.router = router
     }
     
@@ -87,30 +107,31 @@ class MainPresenter: MainPresenterProtocol {
     
     func viewWillAppear() {
         
+        view?.enableHero()
+        
         bottomView = MainBottomSheet()
         bottomSheet = BottomSheetView(contentView: bottomView, contentHeights: bottomView.contetntHeight)
         
         DispatchQueue.global(qos: .background).async {
             sleep(1)
-            DispatchQueue.main.async { [self] in
-                bottomSheet.present(in: (view?.view)!, targetIndex: 0)
-            }
+            DispatchQueue.main.async { [self] in bottomSheet.present(in: (view?.view)!, targetIndex: 0)}
         }
         
         bottomView.fromField.delegate = textFieldDelegate
         bottomView.whereField.delegate = textFieldDelegate
         
-        bottomView.collectionView.register(TypeCollectionViewCell.nib, forCellWithReuseIdentifier: TypeCollectionViewCell.reuseID)
-        bottomView.collectionView.dataSource = collectionDelegate
-        bottomView.collectionView.delegate = collectionDelegate
-        
         bottomView.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         bottomView.tableView.dataSource = tableViewDelegate
         bottomView.tableView.delegate = tableViewDelegate
         
-        bottomView.showCollection(show: true)
         bottomView.showTable(show: false, extra: 0)
-        bottomView.showButton(show: false)
+        bottomView.showButton(show: true)
+        
+    }
+    
+    func viewWillDisappear() {
+        
+        view?.disableHero()
         
     }
     
@@ -154,6 +175,18 @@ class MainPresenter: MainPresenterProtocol {
             name: NSNotification.Name(rawValue: "pressNewAddtress"),
             object: nil)
         
+//        notificationCenter.addObserver(
+//            self,
+//            selector: #selector(didRouteLaid),
+//            name: NSNotification.Name(rawValue: "didRouteLaid"),
+//            object: nil)
+        
+        notificationCenter.addObserver(
+            self,
+            selector: #selector(openNewOrder),
+            name: NSNotification.Name(rawValue: "pressPrice"),
+            object: nil)
+        
     }
     
     func settMapKit() {
@@ -171,9 +204,7 @@ class MainPresenter: MainPresenterProtocol {
         
         if keyboardHide {
             
-            bottomView.showCollection(show: false)
             bottomView.showButton(show: false)
-            
             bottomSheet.transition(to: 1)
             
             if textFieldDelegate.identifier == "from" {
@@ -181,12 +212,75 @@ class MainPresenter: MainPresenterProtocol {
                 bottomView.showWhere(show: false)
                 bottomView.showTable(show: true, extra: 60)
                 
+                if fromDone {
+                    
+                    let alert = UIAlertController(
+                        title: "Хотите изменить маршрут доставки?",
+                        message:  "",
+                        preferredStyle: .alert)
+                    
+                    alert.addAction(UIAlertAction(
+                        title: "Нет",
+                        style: .default,
+                        handler: {(alert) in
+                            
+                            self.hideKeyboard()
+                            self.view?.dismiss(animated: true, completion: nil)
+                            
+                        }))
+                    
+                    alert.addAction(UIAlertAction(
+                        title: "Да",
+                        style: .destructive,
+                        handler: {(alert) in
+                            
+                            self.removeFrom()
+                            self.view?.dismiss(animated: true, completion: nil)
+                            
+                        }))
+                    
+                    view?.present(alert, animated: true, completion: nil)
+                    
+                }
+                
             } else if textFieldDelegate.identifier == "where" {
                 
                 bottomView.showWhere(show: true)
                 bottomView.showTable(show: true, extra: 120)
+                
+                if whereDone {
+                    
+                    let alert = UIAlertController(
+                        title: "Хотите изменить маршрут доставки?",
+                        message:  "",
+                        preferredStyle: .alert)
+                    
+                    alert.addAction(UIAlertAction(
+                        title: "Нет",
+                        style: .default,
+                        handler: {(alert) in
+                            
+                            self.hideKeyboard()
+                            self.view?.dismiss(animated: true, completion: nil)
+                            
+                        }))
+                    
+                    alert.addAction(UIAlertAction(
+                        title: "Да",
+                        style: .destructive,
+                        handler: {(alert) in
+                            
+                            self.removeWhere()
+                            self.view?.dismiss(animated: true, completion: nil)
+                            
+                        }))
+                    
+                    view?.present(alert, animated: true, completion: nil)
+                    
+                }
 
             }
+            
             
         }
         
@@ -201,10 +295,9 @@ class MainPresenter: MainPresenterProtocol {
             bottomView.endEditing(true)
             bottomSheet.transition(to: 0)
             
-            bottomView.showCollection(show: true)
             bottomView.showTable(show: false, extra: 0)
             bottomView.showWhere(show: true)
-            bottomView.showButton(show: false)
+            bottomView.showButton(show: true)
             
             keyboardHide = true
             
@@ -232,14 +325,66 @@ class MainPresenter: MainPresenterProtocol {
         
         let coordinate = mapDelegate.location
         
-        MyGeocoder.getAddress(coordinate: coordinate!) { address in
-            Network.getAddress(address: address) { addresses in
-                self.fromAddress = addresses[0]
-                self.bottomView.fromField.text = addresses[0].Name
-                self.tableViewDelegate.addresses = addresses
-                self.bottomView.tableView.reloadData()
+        if fromDone {
+            
+            let alert = UIAlertController(
+                title: "Хотите изменить маршрут доставки?",
+                message:  "",
+                preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(
+                title: "Нет",
+                style: .default,
+                handler: {(alert) in
+                    
+                    self.mapDelegate.setMapRect()
+                    self.view?.dismiss(animated: true, completion: nil)
+                    
+                }))
+            
+            alert.addAction(UIAlertAction(
+                title: "Да",
+                style: .destructive,
+                handler: {(alert) in
+                    
+                    self.removeFrom()
+                    self.view?.dismiss(animated: true, completion: nil)
+                    
+                }))
+            
+            view?.present(alert, animated: true, completion: nil)
+            
+        } else {
+            
+            MyGeocoder.getAddress(coordinate: coordinate!) { address in
+                Network.getAddress(address: address) { addresses in
+                    self.model!.fromAddress = addresses[0]
+                    self.bottomView.fromField.text = addresses[0].Name
+                    self.tableViewDelegate.addresses = addresses
+                    self.bottomView.tableView.reloadData()
+                }
             }
+            
         }
+        
+    }
+    
+    func removeFrom() {
+        
+        view?.mapView.removeOverlays((view?.mapView.overlays)!)
+        view?.mapView.removeAnnotations((view?.mapView.annotations)!)
+        
+        fromDone = false
+        view?.pinImage.isHidden = false
+        
+    }
+    
+    func removeWhere() {
+        
+        view?.mapView.removeOverlays((view?.mapView.overlays)!)
+        view?.mapView.removeAnnotations((view?.mapView.annotations)!)
+        
+        whereDone = false
         
     }
     
@@ -248,7 +393,7 @@ class MainPresenter: MainPresenterProtocol {
         if let coordinate = location.locations?[0].coordinate {
             MyGeocoder.getAddress(coordinate: coordinate) { address in
                 Network.getAddress(address: address) { addresses in
-                    self.fromAddress = addresses[0]
+                    self.model!.fromAddress = addresses[0]
                     self.bottomView.fromField.text = addresses[0].Name
                 }
             }
@@ -286,7 +431,7 @@ class MainPresenter: MainPresenterProtocol {
             
             if address.ID != nil {
                 
-                fromAddress = address
+                model!.fromAddress = address
                 bottomView.whereField.becomeFirstResponder()
                 bottomView.showWhere(show: true)
                 bottomView.showTable(show: true, extra: 120)
@@ -307,8 +452,8 @@ class MainPresenter: MainPresenterProtocol {
             
             if address.ID != nil {
                 
-                if fromAddress!.ID != address.ID {
-                    whereAddress = address
+                if model!.fromAddress!.ID != address.ID {
+                    model!.whereAddress = address
                     hideKeyboard()
                     setRoute()
                 }
@@ -326,16 +471,20 @@ class MainPresenter: MainPresenterProtocol {
     
     func setRoute() {
         
-        if fromAddress?.Point != nil && whereAddress?.Point != nil {
+        if model!.fromAddress?.Point != nil && model!.whereAddress?.Point != nil {
             
-            let first = CLLocationCoordinate2D(latitude: fromAddress!.Point!.Latitude!, longitude: fromAddress!.Point!.Longitude!)
-            let second = CLLocationCoordinate2D(latitude: whereAddress!.Point!.Latitude!, longitude: whereAddress!.Point!.Longitude!)
+            fromDone = true
+            whereDone = true
             
             view?.pinImage.isHidden = true
-            mapDelegate.getRoute(from: first, where: second)
+            mapDelegate.getRoute(from: model!.fromAddress!, where: model!.whereAddress!)
             
         }
         
+    }
+    
+    @objc func openNewOrder() {
+        router?.openNewOrder(model: model!)
     }
     
 }

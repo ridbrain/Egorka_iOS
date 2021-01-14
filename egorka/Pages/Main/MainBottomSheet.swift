@@ -15,15 +15,15 @@ class MainBottomSheet: UIView, MainBottomViewProtocol {
     
     @IBOutlet weak var fromField: UITextField!
     @IBOutlet weak var whereField: UITextField!
+    @IBOutlet weak var whereIcon: UIImageView!
+    @IBOutlet weak var separator: UIView!
     
-    @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var priceButton: DCBorderedButton!
     
     @IBOutlet weak var whereMargin: NSLayoutConstraint!
     @IBOutlet weak var whereHeight: NSLayoutConstraint!
     
-    @IBOutlet weak var collectionHeight: NSLayoutConstraint!
     @IBOutlet weak var tableHeight: NSLayoutConstraint!
     
     override init(frame: CGRect) {
@@ -49,22 +49,10 @@ class MainBottomSheet: UIView, MainBottomViewProtocol {
             bottomSafeArea = (window?.safeAreaInsets.bottom) ?? 0
         }
 
-        contetntHeight = [225 + bottomSafeArea, screenHeight - topSafeSrea - 90]
+        contetntHeight = [190 + bottomSafeArea, screenHeight - topSafeSrea - 90]
         
         xib.frame = self.bounds
         addSubview(xib)
-        
-    }
-    
-    func showCollection(show: Bool) {
-        
-        if show {
-            collectionView.isHidden = false
-            collectionHeight.constant = 110
-        } else {
-            collectionView.isHidden = true
-            collectionHeight.constant = 0
-        }
         
     }
     
@@ -123,6 +111,9 @@ class MainBottomSheet: UIView, MainBottomViewProtocol {
 
             }
             
+            whereIcon.isHidden = false
+            separator.isHidden = false
+            
         } else if !show && whereHeight.constant != CGFloat(0) {
             
             DispatchQueue.global(qos: .background).async {
@@ -157,6 +148,9 @@ class MainBottomSheet: UIView, MainBottomViewProtocol {
 
             }
             
+            whereIcon.isHidden = true
+            separator.isHidden = true
+            
         }
         
     }
@@ -164,6 +158,12 @@ class MainBottomSheet: UIView, MainBottomViewProtocol {
     @IBAction func pressMyLocation(_ sender: Any) {
         
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "pressMyLocation"), object: nil)
+        
+    }
+    
+    @IBAction func pressPrice(_ sender: Any) {
+        
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "pressPrice"), object: nil)
         
     }
     

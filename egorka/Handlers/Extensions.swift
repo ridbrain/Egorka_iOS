@@ -42,6 +42,7 @@ class RoundedView: UIView {
 extension UIColor {
 
     public static var colorAccent: UIColor = UIColor(named: "ColorAccent")!
+    public static var colorAccentTransparent: UIColor = UIColor(named: "ColorAccentTransparent")!
     public static var colorBlue: UIColor = UIColor(named: "ColorBlue")!
     public static var colorBackground: UIColor = UIColor(named: "ColorBackground")!
     

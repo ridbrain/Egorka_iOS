@@ -7,13 +7,13 @@
 
 import UIKit
 import MapKit
-import Hero
 
 class MainViewController: UIViewController, MainViewProtocol {
     
     @IBOutlet weak var logo: UIImageView!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var pinImage: UIImageView!
+    
     var presenter: MainPresenterProtocol?
     
     override func viewDidLoad() {
@@ -23,13 +23,12 @@ class MainViewController: UIViewController, MainViewProtocol {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        enableHero()
         presenter?.viewWillAppear()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        disableHero()
+        presenter?.viewWillDisappear()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

@@ -13,8 +13,9 @@ protocol GeneralRouterProtocol {
     var navigationController: UINavigationController? { get set }
     var assemblerBuilder: AssemblerBuilderProtocol? { get set }
     
-    func initialSplashView()
-    func pushMainView()
+    func setSplashView()
+    func openMainView()
+    func openNewOrder(model: MainModeleProtocol)
     
 }
 
@@ -28,17 +29,24 @@ class GeneralRouter: GeneralRouterProtocol {
         self.assemblerBuilder = assemblerBuilder
     }
     
-    func initialSplashView() {
+    func setSplashView() {
         if let navigationController = navigationController {
-            guard let mainViewController = assemblerBuilder?.createSplashModule(router: self) else { return }
-            navigationController.viewControllers = [mainViewController]
+            guard let splashViewController = assemblerBuilder?.createSplashModule(router: self) else { return }
+            navigationController.viewControllers = [splashViewController]
         }
     }
     
-    func pushMainView() {
+    func openMainView() {
         if let navigationController = navigationController {
             guard let mainViewController = assemblerBuilder?.createMainModule(router: self) else { return }
             navigationController.show(mainViewController, navigationAnimationType: .autoReverse(presenting: .fade))
+        }
+    }
+    
+    func openNewOrder(model: MainModeleProtocol) {
+        if let navigationController = navigationController {
+            guard let newOrderViewController = assemblerBuilder?.createNewOrderModule(router: self, model: model) else { return }
+            navigationController.show(newOrderViewController, navigationAnimationType: .slide(direction: .up))
         }
     }
     
