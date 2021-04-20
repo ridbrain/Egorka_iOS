@@ -11,6 +11,7 @@ class LocationHandeler: NSObject, CLLocationManagerDelegate {
     
     let locationManager = CLLocationManager()
     var locations: [CLLocation]?
+    var didUpdateLocations: (CLLocation) -> Void
     
     let manager: CLLocationManager = {
         
@@ -26,7 +27,10 @@ class LocationHandeler: NSObject, CLLocationManagerDelegate {
         
     }()
     
-    override init() {
+    required init(didUpdateLocations: @escaping (CLLocation) -> Void) {
+        
+        self.didUpdateLocations = didUpdateLocations
+        
         super.init()
         
         locationManager.delegate = self
@@ -55,16 +59,21 @@ class LocationHandeler: NSObject, CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        didUpdateLocations(locations[0])
         self.locations = locations
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "didUpdateLocations"), object: nil)
+        
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        
         guard let locationError = error as? CLError else {
             print(error)
             return
         }
+        
         NSLog(locationError.localizedDescription)
+        
     }
     
 }

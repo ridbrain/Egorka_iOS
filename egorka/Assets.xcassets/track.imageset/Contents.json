@@ -1,18 +1,8 @@
 {
   "images" : [
     {
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "track2.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "track3.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "HTML_to_SVG-_7_.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

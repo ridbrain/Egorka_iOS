@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5C034D642181BF5D8C843906 /* Pods_egorka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 138ECCF49FD36B4FAA50C664 /* Pods_egorka.framework */; };
+		002FEF4CBD8D74A50C09263D /* Pods_egorka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7EE0CB6675CF5329560B9DB /* Pods_egorka.framework */; };
 		E705CE74258CC776003AA401 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E705CE72258CC776003AA401 /* SplashViewController.swift */; };
 		E705CE75258CC776003AA401 /* SplashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E705CE73258CC776003AA401 /* SplashViewController.xib */; };
+		E7135F8A2601474E00A83B0B /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7135F882601474E00A83B0B /* DetailsViewController.swift */; };
+		E7135F8B2601474E00A83B0B /* DetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7135F892601474E00A83B0B /* DetailsViewController.xib */; };
+		E7135F932601475F00A83B0B /* DetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7135F922601475F00A83B0B /* DetailsPresenter.swift */; };
 		E7176AEE2580139900825F14 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7176AED2580139900825F14 /* AppDelegate.swift */; };
 		E7176AF72580139D00825F14 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7176AF62580139D00825F14 /* Assets.xcassets */; };
 		E7176AFA2580139D00825F14 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7176AF82580139D00825F14 /* LaunchScreen.storyboard */; };
@@ -25,18 +28,48 @@
 		E7176B9925815C6B00825F14 /* MainBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7176B9825815C6B00825F14 /* MainBottomSheet.swift */; };
 		E7176B9F25815C9100825F14 /* MainBottomSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7176B9E25815C9100825F14 /* MainBottomSheet.xib */; };
 		E7176BDA2582482700825F14 /* LocationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7176BD92582482600825F14 /* LocationHandler.swift */; };
+		E71D6B6125F8E5F200F30FC4 /* NoNetworkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71D6B5F25F8E5F200F30FC4 /* NoNetworkViewController.swift */; };
+		E71D6B6225F8E5F200F30FC4 /* NoNetworkViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E71D6B6025F8E5F200F30FC4 /* NoNetworkViewController.xib */; };
+		E71D6B6A25F9058F00F30FC4 /* NoNetworkPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71D6B6925F9058F00F30FC4 /* NoNetworkPresenter.swift */; };
+		E71D6B8125FA586400F30FC4 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71D6B8025FA586400F30FC4 /* AppModel.swift */; };
+		E71F1BF8261DC1BA0002143E /* DataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71F1BF7261DC1BA0002143E /* DataHandler.swift */; };
+		E71F1BFD261DDCA20002143E /* UserUUID.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71F1BFC261DDCA20002143E /* UserUUID.swift */; };
+		E71F1C02261E1E050002143E /* SplashProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71F1C01261E1E050002143E /* SplashProtocols.swift */; };
+		E736F95A2611D6CA009F1DE2 /* NotificationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E736F9592611D6CA009F1DE2 /* NotificationHandler.swift */; };
 		E739C584259732D500E772AF /* NewOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E739C582259732D500E772AF /* NewOrderViewController.swift */; };
 		E739C585259732D500E772AF /* NewOrderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E739C583259732D500E772AF /* NewOrderViewController.xib */; };
 		E758AD8425949FEA0002149F /* NewOrderPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E758AD8325949FEA0002149F /* NewOrderPresenter.swift */; };
-		E799D9B02583851F00FE4E62 /* Geocoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E799D9AF2583851F00FE4E62 /* Geocoder.swift */; };
+		E78A964C2612580700416578 /* SideMenuProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78A964B2612580700416578 /* SideMenuProtocols.swift */; };
+		E78A96512612581300416578 /* SideMenuPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78A96502612581300416578 /* SideMenuPresenter.swift */; };
+		E78A965B2613873200416578 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78A96592613873200416578 /* AboutViewController.swift */; };
+		E78A965C2613873200416578 /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E78A965A2613873200416578 /* AboutViewController.xib */; };
+		E799D9B02583851F00FE4E62 /* GeocoderHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E799D9AF2583851F00FE4E62 /* GeocoderHandler.swift */; };
 		E799D9C0258387AF00FE4E62 /* NetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E799D9BF258387AF00FE4E62 /* NetworkHandler.swift */; };
-		E799D9C525838CD900FE4E62 /* AnswersHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E799D9C425838CD900FE4E62 /* AnswersHandler.swift */; };
 		E799D9CF2584067E00FE4E62 /* MKMapDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E799D9CE2584067E00FE4E62 /* MKMapDelegate.swift */; };
 		E799D9D42584B34E00FE4E62 /* TextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E799D9D32584B34E00FE4E62 /* TextFieldDelegate.swift */; };
-		E799D9D92584BE0B00FE4E62 /* TableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E799D9D82584BE0B00FE4E62 /* TableViewDelegate.swift */; };
+		E799D9D92584BE0B00FE4E62 /* AddressTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E799D9D82584BE0B00FE4E62 /* AddressTableView.swift */; };
 		E799D9E12588CFEF00FE4E62 /* TypeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E799D9DF2588CFEF00FE4E62 /* TypeCollectionViewCell.swift */; };
 		E799D9E22588CFEF00FE4E62 /* TypeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E799D9E02588CFEF00FE4E62 /* TypeCollectionViewCell.xib */; };
 		E799D9EA2589515E00FE4E62 /* CollectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E799D9E92589515E00FE4E62 /* CollectionDelegate.swift */; };
+		E7B40E08260B740400775704 /* NewOrderBottom.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B40E07260B740400775704 /* NewOrderBottom.swift */; };
+		E7B40E10260B742200775704 /* NewOrderBottom.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7B40E0F260B742200775704 /* NewOrderBottom.xib */; };
+		E7B40E15260B756500775704 /* NewOrderBottomProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B40E14260B756500775704 /* NewOrderBottomProtocols.swift */; };
+		E7B44FD6260CEEC2002913E6 /* CurrentOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B44FD4260CEEC2002913E6 /* CurrentOrderViewController.swift */; };
+		E7B44FD7260CEEC2002913E6 /* CurrentOrderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7B44FD5260CEEC2002913E6 /* CurrentOrderViewController.xib */; };
+		E7B44FEE260F617F002913E6 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B44FEC260F617F002913E6 /* SideMenuViewController.swift */; };
+		E7B44FEF260F617F002913E6 /* SideMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7B44FED260F617F002913E6 /* SideMenuViewController.xib */; };
+		E7B450122611C872002913E6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E7B450112611C872002913E6 /* GoogleService-Info.plist */; };
+		E7C1687B26066F4900FF4AE1 /* AddressBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C1687A26066F4900FF4AE1 /* AddressBottomSheet.swift */; };
+		E7C168802606707300FF4AE1 /* AddressBottomSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7C1687F2606707300FF4AE1 /* AddressBottomSheet.xib */; };
+		E7C168A62607E95A00FF4AE1 /* MainProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C168A52607E95A00FF4AE1 /* MainProtocols.swift */; };
+		E7C168AE2607EA3800FF4AE1 /* MainBottomProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C168AD2607EA3800FF4AE1 /* MainBottomProtocols.swift */; };
+		E7C168C42608D60000FF4AE1 /* NewOrderProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C168C32608D60000FF4AE1 /* NewOrderProtocols.swift */; };
+		E7C168CC2609489600FF4AE1 /* AddressBottomProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C168CB2609489600FF4AE1 /* AddressBottomProtocols.swift */; };
+		E7C168D42609D3C400FF4AE1 /* DetailsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C168D32609D3C400FF4AE1 /* DetailsProtocols.swift */; };
+		E7DDF72425FF7FAA00284398 /* NewOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DDF72325FF7FAA00284398 /* NewOrder.swift */; };
+		E7DDF72B25FFF1E500284398 /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DDF72925FFF1E500284398 /* LocationTableViewCell.swift */; };
+		E7DDF72C25FFF1E500284398 /* LocationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7DDF72A25FFF1E500284398 /* LocationTableViewCell.xib */; };
+		E7DDF73A2600889400284398 /* LocationTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DDF7392600889400284398 /* LocationTableView.swift */; };
 		E7FAC7B12591F34F00AB4A40 /* SplashPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FAC7B02591F34F00AB4A40 /* SplashPresenter.swift */; };
 /* End PBXBuildFile section */
 
@@ -58,11 +91,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0C30BC20F87B7B5417CF4B4A /* Pods-egorka.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-egorka.debug.xcconfig"; path = "Target Support Files/Pods-egorka/Pods-egorka.debug.xcconfig"; sourceTree = "<group>"; };
-		138ECCF49FD36B4FAA50C664 /* Pods_egorka.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_egorka.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DF5F713E78B77735A25E7EAB /* Pods-egorka.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-egorka.release.xcconfig"; path = "Target Support Files/Pods-egorka/Pods-egorka.release.xcconfig"; sourceTree = "<group>"; };
+		10EB91B8C74DF7F92202BD2C /* Pods-egorka.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-egorka.debug.xcconfig"; path = "Target Support Files/Pods-egorka/Pods-egorka.debug.xcconfig"; sourceTree = "<group>"; };
+		537A15D10AF1ACB02B48DDD4 /* Pods-egorka.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-egorka.release.xcconfig"; path = "Target Support Files/Pods-egorka/Pods-egorka.release.xcconfig"; sourceTree = "<group>"; };
+		D7EE0CB6675CF5329560B9DB /* Pods_egorka.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_egorka.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E705CE72258CC776003AA401 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		E705CE73258CC776003AA401 /* SplashViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SplashViewController.xib; sourceTree = "<group>"; };
+		E7135F882601474E00A83B0B /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		E7135F892601474E00A83B0B /* DetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailsViewController.xib; sourceTree = "<group>"; };
+		E7135F922601475F00A83B0B /* DetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPresenter.swift; sourceTree = "<group>"; };
 		E7176AEA2580139900825F14 /* egorka.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = egorka.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7176AED2580139900825F14 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E7176AF62580139D00825F14 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -84,18 +120,49 @@
 		E7176B9825815C6B00825F14 /* MainBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBottomSheet.swift; sourceTree = "<group>"; };
 		E7176B9E25815C9100825F14 /* MainBottomSheet.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainBottomSheet.xib; sourceTree = "<group>"; };
 		E7176BD92582482600825F14 /* LocationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHandler.swift; sourceTree = "<group>"; };
+		E71D6B5F25F8E5F200F30FC4 /* NoNetworkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoNetworkViewController.swift; sourceTree = "<group>"; };
+		E71D6B6025F8E5F200F30FC4 /* NoNetworkViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoNetworkViewController.xib; sourceTree = "<group>"; };
+		E71D6B6925F9058F00F30FC4 /* NoNetworkPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoNetworkPresenter.swift; sourceTree = "<group>"; };
+		E71D6B8025FA586400F30FC4 /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
+		E71F1BF7261DC1BA0002143E /* DataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHandler.swift; sourceTree = "<group>"; };
+		E71F1BFC261DDCA20002143E /* UserUUID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserUUID.swift; sourceTree = "<group>"; };
+		E71F1C01261E1E050002143E /* SplashProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashProtocols.swift; sourceTree = "<group>"; };
+		E736F9592611D6CA009F1DE2 /* NotificationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHandler.swift; sourceTree = "<group>"; };
+		E736F9612611D8C8009F1DE2 /* egorka.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = egorka.entitlements; sourceTree = "<group>"; };
 		E739C582259732D500E772AF /* NewOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOrderViewController.swift; sourceTree = "<group>"; };
 		E739C583259732D500E772AF /* NewOrderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewOrderViewController.xib; sourceTree = "<group>"; };
 		E758AD8325949FEA0002149F /* NewOrderPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOrderPresenter.swift; sourceTree = "<group>"; };
-		E799D9AF2583851F00FE4E62 /* Geocoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geocoder.swift; sourceTree = "<group>"; };
+		E78A964B2612580700416578 /* SideMenuProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuProtocols.swift; sourceTree = "<group>"; };
+		E78A96502612581300416578 /* SideMenuPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuPresenter.swift; sourceTree = "<group>"; };
+		E78A96592613873200416578 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		E78A965A2613873200416578 /* AboutViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
+		E799D9AF2583851F00FE4E62 /* GeocoderHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocoderHandler.swift; sourceTree = "<group>"; };
 		E799D9BF258387AF00FE4E62 /* NetworkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHandler.swift; sourceTree = "<group>"; };
-		E799D9C425838CD900FE4E62 /* AnswersHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswersHandler.swift; sourceTree = "<group>"; };
 		E799D9CE2584067E00FE4E62 /* MKMapDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKMapDelegate.swift; sourceTree = "<group>"; };
 		E799D9D32584B34E00FE4E62 /* TextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldDelegate.swift; sourceTree = "<group>"; };
-		E799D9D82584BE0B00FE4E62 /* TableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDelegate.swift; sourceTree = "<group>"; };
+		E799D9D82584BE0B00FE4E62 /* AddressTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressTableView.swift; sourceTree = "<group>"; };
 		E799D9DF2588CFEF00FE4E62 /* TypeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeCollectionViewCell.swift; sourceTree = "<group>"; };
 		E799D9E02588CFEF00FE4E62 /* TypeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TypeCollectionViewCell.xib; sourceTree = "<group>"; };
 		E799D9E92589515E00FE4E62 /* CollectionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionDelegate.swift; sourceTree = "<group>"; };
+		E7B40E07260B740400775704 /* NewOrderBottom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOrderBottom.swift; sourceTree = "<group>"; };
+		E7B40E0F260B742200775704 /* NewOrderBottom.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewOrderBottom.xib; sourceTree = "<group>"; };
+		E7B40E14260B756500775704 /* NewOrderBottomProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOrderBottomProtocols.swift; sourceTree = "<group>"; };
+		E7B44FD4260CEEC2002913E6 /* CurrentOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentOrderViewController.swift; sourceTree = "<group>"; };
+		E7B44FD5260CEEC2002913E6 /* CurrentOrderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurrentOrderViewController.xib; sourceTree = "<group>"; };
+		E7B44FEC260F617F002913E6 /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
+		E7B44FED260F617F002913E6 /* SideMenuViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SideMenuViewController.xib; sourceTree = "<group>"; };
+		E7B450112611C872002913E6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E7C1687A26066F4900FF4AE1 /* AddressBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressBottomSheet.swift; sourceTree = "<group>"; };
+		E7C1687F2606707300FF4AE1 /* AddressBottomSheet.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddressBottomSheet.xib; sourceTree = "<group>"; };
+		E7C168A52607E95A00FF4AE1 /* MainProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainProtocols.swift; sourceTree = "<group>"; };
+		E7C168AD2607EA3800FF4AE1 /* MainBottomProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBottomProtocols.swift; sourceTree = "<group>"; };
+		E7C168C32608D60000FF4AE1 /* NewOrderProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOrderProtocols.swift; sourceTree = "<group>"; };
+		E7C168CB2609489600FF4AE1 /* AddressBottomProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressBottomProtocols.swift; sourceTree = "<group>"; };
+		E7C168D32609D3C400FF4AE1 /* DetailsProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsProtocols.swift; sourceTree = "<group>"; };
+		E7DDF72325FF7FAA00284398 /* NewOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOrder.swift; sourceTree = "<group>"; };
+		E7DDF72925FFF1E500284398 /* LocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
+		E7DDF72A25FFF1E500284398 /* LocationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationTableViewCell.xib; sourceTree = "<group>"; };
+		E7DDF7392600889400284398 /* LocationTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableView.swift; sourceTree = "<group>"; };
 		E7FAC7B02591F34F00AB4A40 /* SplashPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -104,7 +171,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C034D642181BF5D8C843906 /* Pods_egorka.framework in Frameworks */,
+				002FEF4CBD8D74A50C09263D /* Pods_egorka.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,10 +192,10 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		16F414AC1199F4B718F44E1C /* Frameworks */ = {
+		69659B63AA119333A7AA8F51 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				138ECCF49FD36B4FAA50C664 /* Pods_egorka.framework */,
+				D7EE0CB6675CF5329560B9DB /* Pods_egorka.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -136,8 +203,8 @@
 		AB8AC9492EB2797964CBB90D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				0C30BC20F87B7B5417CF4B4A /* Pods-egorka.debug.xcconfig */,
-				DF5F713E78B77735A25E7EAB /* Pods-egorka.release.xcconfig */,
+				10EB91B8C74DF7F92202BD2C /* Pods-egorka.debug.xcconfig */,
+				537A15D10AF1ACB02B48DDD4 /* Pods-egorka.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -148,8 +215,20 @@
 				E7FAC7B02591F34F00AB4A40 /* SplashPresenter.swift */,
 				E705CE72258CC776003AA401 /* SplashViewController.swift */,
 				E705CE73258CC776003AA401 /* SplashViewController.xib */,
+				E71F1C01261E1E050002143E /* SplashProtocols.swift */,
 			);
 			path = Splash;
+			sourceTree = "<group>";
+		};
+		E7135F872601473E00A83B0B /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				E7135F922601475F00A83B0B /* DetailsPresenter.swift */,
+				E7C168D32609D3C400FF4AE1 /* DetailsProtocols.swift */,
+				E7135F882601474E00A83B0B /* DetailsViewController.swift */,
+				E7135F892601474E00A83B0B /* DetailsViewController.xib */,
+			);
+			path = Details;
 			sourceTree = "<group>";
 		};
 		E7176AE12580139900825F14 = {
@@ -160,7 +239,7 @@
 				E7176B0E2580139D00825F14 /* egorkaUITests */,
 				E7176AEB2580139900825F14 /* Products */,
 				AB8AC9492EB2797964CBB90D /* Pods */,
-				16F414AC1199F4B718F44E1C /* Frameworks */,
+				69659B63AA119333A7AA8F51 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -177,14 +256,19 @@
 		E7176AEC2580139900825F14 /* egorka */ = {
 			isa = PBXGroup;
 			children = (
+				E736F9612611D8C8009F1DE2 /* egorka.entitlements */,
 				E7176AFB2580139D00825F14 /* Info.plist */,
+				E7B450112611C872002913E6 /* GoogleService-Info.plist */,
 				E7176AED2580139900825F14 /* AppDelegate.swift */,
 				E7176AF62580139D00825F14 /* Assets.xcassets */,
 				E7176B3525801BB900825F14 /* Colors.xcassets */,
 				E7176AF82580139D00825F14 /* LaunchScreen.storyboard */,
 				E799D9DD2588CB2500FE4E62 /* Cells */,
+				E71D6B6E25F908BB00F30FC4 /* Delegates */,
+				E71D6B7F25FA542D00F30FC4 /* Entities */,
 				E7176B4B2580CBF700825F14 /* Handlers */,
-				E7176B4C2580CBFF00825F14 /* Pages */,
+				E7176B4C2580CBFF00825F14 /* Modules */,
+				E71D6B7225F90C3D00F30FC4 /* Services */,
 			);
 			path = egorka;
 			sourceTree = "<group>";
@@ -210,56 +294,110 @@
 		E7176B4B2580CBF700825F14 /* Handlers */ = {
 			isa = PBXGroup;
 			children = (
-				E7176B562580CFE200825F14 /* GeneralRouter.swift */,
-				E7176B5B2580D05B00825F14 /* AssemblerBuilder.swift */,
-				E7176B7A2581461B00825F14 /* Extensions.swift */,
+				E736F9592611D6CA009F1DE2 /* NotificationHandler.swift */,
 				E7176BD92582482600825F14 /* LocationHandler.swift */,
-				E799D9AF2583851F00FE4E62 /* Geocoder.swift */,
+				E799D9AF2583851F00FE4E62 /* GeocoderHandler.swift */,
 				E799D9BF258387AF00FE4E62 /* NetworkHandler.swift */,
-				E799D9C425838CD900FE4E62 /* AnswersHandler.swift */,
-				E799D9CE2584067E00FE4E62 /* MKMapDelegate.swift */,
-				E799D9D32584B34E00FE4E62 /* TextFieldDelegate.swift */,
-				E799D9D82584BE0B00FE4E62 /* TableViewDelegate.swift */,
-				E799D9E92589515E00FE4E62 /* CollectionDelegate.swift */,
+				E71F1BF7261DC1BA0002143E /* DataHandler.swift */,
 			);
 			path = Handlers;
 			sourceTree = "<group>";
 		};
-		E7176B4C2580CBFF00825F14 /* Pages */ = {
+		E7176B4C2580CBFF00825F14 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				E78A96582613872100416578 /* About */,
+				E7B44FEA260F6160002913E6 /* SideMenu */,
+				E7B44FD3260CED6C002913E6 /* CurrentOrder */,
+				E7C1686F26066E5400FF4AE1 /* NewAddress */,
+				E7135F872601473E00A83B0B /* Details */,
 				E7176B602580D61A00825F14 /* Main */,
 				E758AD8225949FC60002149F /* NewOrder */,
+				E71D6B5E25F8E5C400F30FC4 /* NoNetwork */,
 				E705CE79258CC92A003AA401 /* Splash */,
 			);
-			path = Pages;
+			path = Modules;
 			sourceTree = "<group>";
 		};
 		E7176B602580D61A00825F14 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				E7176B9825815C6B00825F14 /* MainBottomSheet.swift */,
+				E7C168A42607E91700FF4AE1 /* MainBottom */,
 				E7176B4E2580CD9700825F14 /* MainPresenter.swift */,
+				E7C168A52607E95A00FF4AE1 /* MainProtocols.swift */,
 				E7176B612580D62D00825F14 /* MainViewController.swift */,
-				E7176B9E25815C9100825F14 /* MainBottomSheet.xib */,
 				E7176B622580D62D00825F14 /* MainViewController.xib */,
 			);
 			path = Main;
 			sourceTree = "<group>";
 		};
+		E71D6B5E25F8E5C400F30FC4 /* NoNetwork */ = {
+			isa = PBXGroup;
+			children = (
+				E71D6B6925F9058F00F30FC4 /* NoNetworkPresenter.swift */,
+				E71D6B5F25F8E5F200F30FC4 /* NoNetworkViewController.swift */,
+				E71D6B6025F8E5F200F30FC4 /* NoNetworkViewController.xib */,
+			);
+			path = NoNetwork;
+			sourceTree = "<group>";
+		};
+		E71D6B6E25F908BB00F30FC4 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				E799D9CE2584067E00FE4E62 /* MKMapDelegate.swift */,
+				E799D9D32584B34E00FE4E62 /* TextFieldDelegate.swift */,
+				E799D9D82584BE0B00FE4E62 /* AddressTableView.swift */,
+				E799D9E92589515E00FE4E62 /* CollectionDelegate.swift */,
+				E7DDF7392600889400284398 /* LocationTableView.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		E71D6B7225F90C3D00F30FC4 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				E7176B5B2580D05B00825F14 /* AssemblerBuilder.swift */,
+				E7176B562580CFE200825F14 /* GeneralRouter.swift */,
+				E7176B7A2581461B00825F14 /* Extensions.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		E71D6B7F25FA542D00F30FC4 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				E71D6B8025FA586400F30FC4 /* AppModel.swift */,
+				E7DDF72325FF7FAA00284398 /* NewOrder.swift */,
+				E71F1BFC261DDCA20002143E /* UserUUID.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
 		E758AD8225949FC60002149F /* NewOrder */ = {
 			isa = PBXGroup;
 			children = (
+				E7B40E06260B738900775704 /* NewOrderBottom */,
 				E758AD8325949FEA0002149F /* NewOrderPresenter.swift */,
+				E7C168C32608D60000FF4AE1 /* NewOrderProtocols.swift */,
 				E739C582259732D500E772AF /* NewOrderViewController.swift */,
 				E739C583259732D500E772AF /* NewOrderViewController.xib */,
 			);
 			path = NewOrder;
 			sourceTree = "<group>";
 		};
+		E78A96582613872100416578 /* About */ = {
+			isa = PBXGroup;
+			children = (
+				E78A96592613873200416578 /* AboutViewController.swift */,
+				E78A965A2613873200416578 /* AboutViewController.xib */,
+			);
+			path = About;
+			sourceTree = "<group>";
+		};
 		E799D9DD2588CB2500FE4E62 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				E7DDF72825FFF1CA00284398 /* Location */,
 				E799D9DE2588CE8600FE4E62 /* Type */,
 			);
 			path = Cells;
@@ -274,6 +412,65 @@
 			path = Type;
 			sourceTree = "<group>";
 		};
+		E7B40E06260B738900775704 /* NewOrderBottom */ = {
+			isa = PBXGroup;
+			children = (
+				E7B40E07260B740400775704 /* NewOrderBottom.swift */,
+				E7B40E14260B756500775704 /* NewOrderBottomProtocols.swift */,
+				E7B40E0F260B742200775704 /* NewOrderBottom.xib */,
+			);
+			path = NewOrderBottom;
+			sourceTree = "<group>";
+		};
+		E7B44FD3260CED6C002913E6 /* CurrentOrder */ = {
+			isa = PBXGroup;
+			children = (
+				E7B44FD4260CEEC2002913E6 /* CurrentOrderViewController.swift */,
+				E7B44FD5260CEEC2002913E6 /* CurrentOrderViewController.xib */,
+			);
+			path = CurrentOrder;
+			sourceTree = "<group>";
+		};
+		E7B44FEA260F6160002913E6 /* SideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				E78A96502612581300416578 /* SideMenuPresenter.swift */,
+				E78A964B2612580700416578 /* SideMenuProtocols.swift */,
+				E7B44FEC260F617F002913E6 /* SideMenuViewController.swift */,
+				E7B44FED260F617F002913E6 /* SideMenuViewController.xib */,
+			);
+			path = SideMenu;
+			sourceTree = "<group>";
+		};
+		E7C1686F26066E5400FF4AE1 /* NewAddress */ = {
+			isa = PBXGroup;
+			children = (
+				E7C168CB2609489600FF4AE1 /* AddressBottomProtocols.swift */,
+				E7C1687A26066F4900FF4AE1 /* AddressBottomSheet.swift */,
+				E7C1687F2606707300FF4AE1 /* AddressBottomSheet.xib */,
+			);
+			path = NewAddress;
+			sourceTree = "<group>";
+		};
+		E7C168A42607E91700FF4AE1 /* MainBottom */ = {
+			isa = PBXGroup;
+			children = (
+				E7C168AD2607EA3800FF4AE1 /* MainBottomProtocols.swift */,
+				E7176B9825815C6B00825F14 /* MainBottomSheet.swift */,
+				E7176B9E25815C9100825F14 /* MainBottomSheet.xib */,
+			);
+			path = MainBottom;
+			sourceTree = "<group>";
+		};
+		E7DDF72825FFF1CA00284398 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				E7DDF72925FFF1E500284398 /* LocationTableViewCell.swift */,
+				E7DDF72A25FFF1E500284398 /* LocationTableViewCell.xib */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -281,11 +478,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E7176B142580139D00825F14 /* Build configuration list for PBXNativeTarget "egorka" */;
 			buildPhases = (
-				FD2CED20109969B423F9390F /* [CP] Check Pods Manifest.lock */,
+				B8045B2C11FB2D5B9FB580F6 /* [CP] Check Pods Manifest.lock */,
 				E7176AE62580139900825F14 /* Sources */,
 				E7176AE72580139900825F14 /* Frameworks */,
 				E7176AE82580139900825F14 /* Resources */,
-				A8A08315407A96C79E19694C /* [CP] Embed Pods Frameworks */,
+				540756AFC10CE47C39BD2D93 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -338,6 +535,9 @@
 		E7176AE22580139900825F14 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					New,
+				);
 				LastSwiftUpdateCheck = 1220;
 				LastUpgradeCheck = 1220;
 				TargetAttributes = {
@@ -379,12 +579,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E71D6B6225F8E5F200F30FC4 /* NoNetworkViewController.xib in Resources */,
+				E7B44FD7260CEEC2002913E6 /* CurrentOrderViewController.xib in Resources */,
+				E7DDF72C25FFF1E500284398 /* LocationTableViewCell.xib in Resources */,
 				E739C585259732D500E772AF /* NewOrderViewController.xib in Resources */,
 				E7176B3625801BB900825F14 /* Colors.xcassets in Resources */,
+				E7B44FEF260F617F002913E6 /* SideMenuViewController.xib in Resources */,
 				E7176AFA2580139D00825F14 /* LaunchScreen.storyboard in Resources */,
+				E7B40E10260B742200775704 /* NewOrderBottom.xib in Resources */,
+				E7135F8B2601474E00A83B0B /* DetailsViewController.xib in Resources */,
+				E7B450122611C872002913E6 /* GoogleService-Info.plist in Resources */,
 				E7176AF72580139D00825F14 /* Assets.xcassets in Resources */,
+				E7C168802606707300FF4AE1 /* AddressBottomSheet.xib in Resources */,
 				E7176B9F25815C9100825F14 /* MainBottomSheet.xib in Resources */,
 				E799D9E22588CFEF00FE4E62 /* TypeCollectionViewCell.xib in Resources */,
+				E78A965C2613873200416578 /* AboutViewController.xib in Resources */,
 				E705CE75258CC776003AA401 /* SplashViewController.xib in Resources */,
 				E7176B642580D62D00825F14 /* MainViewController.xib in Resources */,
 			);
@@ -407,7 +616,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		A8A08315407A96C79E19694C /* [CP] Embed Pods Frameworks */ = {
+		540756AFC10CE47C39BD2D93 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -424,7 +633,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-egorka/Pods-egorka-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		FD2CED20109969B423F9390F /* [CP] Check Pods Manifest.lock */ = {
+		B8045B2C11FB2D5B9FB580F6 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -453,25 +662,49 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E799D9D92584BE0B00FE4E62 /* TableViewDelegate.swift in Sources */,
+				E799D9D92584BE0B00FE4E62 /* AddressTableView.swift in Sources */,
 				E758AD8425949FEA0002149F /* NewOrderPresenter.swift in Sources */,
+				E7C168A62607E95A00FF4AE1 /* MainProtocols.swift in Sources */,
+				E7135F8A2601474E00A83B0B /* DetailsViewController.swift in Sources */,
+				E7B40E08260B740400775704 /* NewOrderBottom.swift in Sources */,
+				E7135F932601475F00A83B0B /* DetailsPresenter.swift in Sources */,
 				E799D9D42584B34E00FE4E62 /* TextFieldDelegate.swift in Sources */,
 				E705CE74258CC776003AA401 /* SplashViewController.swift in Sources */,
+				E71D6B6A25F9058F00F30FC4 /* NoNetworkPresenter.swift in Sources */,
 				E739C584259732D500E772AF /* NewOrderViewController.swift in Sources */,
 				E7176AEE2580139900825F14 /* AppDelegate.swift in Sources */,
 				E7176B7B2581461B00825F14 /* Extensions.swift in Sources */,
 				E7176B572580CFE200825F14 /* GeneralRouter.swift in Sources */,
 				E799D9E12588CFEF00FE4E62 /* TypeCollectionViewCell.swift in Sources */,
+				E7DDF72425FF7FAA00284398 /* NewOrder.swift in Sources */,
 				E799D9C0258387AF00FE4E62 /* NetworkHandler.swift in Sources */,
 				E7176B5C2580D05B00825F14 /* AssemblerBuilder.swift in Sources */,
 				E7176B9925815C6B00825F14 /* MainBottomSheet.swift in Sources */,
-				E799D9C525838CD900FE4E62 /* AnswersHandler.swift in Sources */,
+				E7B44FD6260CEEC2002913E6 /* CurrentOrderViewController.swift in Sources */,
+				E71D6B8125FA586400F30FC4 /* AppModel.swift in Sources */,
 				E799D9EA2589515E00FE4E62 /* CollectionDelegate.swift in Sources */,
 				E7176B4F2580CD9700825F14 /* MainPresenter.swift in Sources */,
+				E71F1BF8261DC1BA0002143E /* DataHandler.swift in Sources */,
 				E7176B632580D62D00825F14 /* MainViewController.swift in Sources */,
-				E799D9B02583851F00FE4E62 /* Geocoder.swift in Sources */,
+				E799D9B02583851F00FE4E62 /* GeocoderHandler.swift in Sources */,
+				E78A964C2612580700416578 /* SideMenuProtocols.swift in Sources */,
+				E7DDF72B25FFF1E500284398 /* LocationTableViewCell.swift in Sources */,
+				E7C168CC2609489600FF4AE1 /* AddressBottomProtocols.swift in Sources */,
+				E7C168C42608D60000FF4AE1 /* NewOrderProtocols.swift in Sources */,
 				E7176BDA2582482700825F14 /* LocationHandler.swift in Sources */,
+				E7B44FEE260F617F002913E6 /* SideMenuViewController.swift in Sources */,
+				E7C1687B26066F4900FF4AE1 /* AddressBottomSheet.swift in Sources */,
+				E71F1BFD261DDCA20002143E /* UserUUID.swift in Sources */,
+				E7C168AE2607EA3800FF4AE1 /* MainBottomProtocols.swift in Sources */,
+				E7B40E15260B756500775704 /* NewOrderBottomProtocols.swift in Sources */,
+				E736F95A2611D6CA009F1DE2 /* NotificationHandler.swift in Sources */,
+				E78A965B2613873200416578 /* AboutViewController.swift in Sources */,
+				E7DDF73A2600889400284398 /* LocationTableView.swift in Sources */,
+				E71D6B6125F8E5F200F30FC4 /* NoNetworkViewController.swift in Sources */,
+				E78A96512612581300416578 /* SideMenuPresenter.swift in Sources */,
+				E71F1C02261E1E050002143E /* SplashProtocols.swift in Sources */,
 				E799D9CF2584067E00FE4E62 /* MKMapDelegate.swift in Sources */,
+				E7C168D42609D3C400FF4AE1 /* DetailsProtocols.swift in Sources */,
 				E7FAC7B12591F34F00AB4A40 /* SplashPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -637,22 +870,24 @@
 		};
 		E7176B152580139D00825F14 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0C30BC20F87B7B5417CF4B4A /* Pods-egorka.debug.xcconfig */;
+			baseConfigurationReference = 10EB91B8C74DF7F92202BD2C /* Pods-egorka.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7YC7Z97AQ2;
+				CODE_SIGN_ENTITLEMENTS = egorka/egorka.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = YY6KTA492W;
 				INFOPLIST_FILE = egorka/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ridbrain.egorka;
+				MARKETING_VERSION = 0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.egorka.delivery.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "Profile for Developement";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -660,22 +895,24 @@
 		};
 		E7176B162580139D00825F14 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DF5F713E78B77735A25E7EAB /* Pods-egorka.release.xcconfig */;
+			baseConfigurationReference = 537A15D10AF1ACB02B48DDD4 /* Pods-egorka.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7YC7Z97AQ2;
+				CODE_SIGN_ENTITLEMENTS = egorka/egorka.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = YY6KTA492W;
 				INFOPLIST_FILE = egorka/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ridbrain.egorka;
+				MARKETING_VERSION = 0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.egorka.delivery.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "Profile for Developement";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

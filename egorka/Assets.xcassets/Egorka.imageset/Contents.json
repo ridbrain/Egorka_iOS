@@ -1,18 +1,8 @@
 {
   "images" : [
     {
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "egorka2.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "egorka3.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "image.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {
