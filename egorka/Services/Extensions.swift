@@ -110,7 +110,6 @@ class ShadowView: UIView {
     
     func overrideInit() {
         
-//        self.backgroundColor = .black
         self.layer.cornerRadius = 10
         self.layer.shadowOpacity = 0.1
         self.layer.shadowOffset = CGSize(width: 0, height: 1.5)
@@ -119,41 +118,6 @@ class ShadowView: UIView {
     }
 
 }
-
-//class CustomDashedView: UIView {
-//
-//    @IBInspectable var cornerRadius: CGFloat = 0 {
-//        didSet {
-//            layer.cornerRadius = cornerRadius
-//            layer.masksToBounds = cornerRadius > 0
-//        }
-//    }
-//
-//    @IBInspectable var dashWidth: CGFloat = 0
-//    @IBInspectable var dashColor: UIColor = .clear
-//    @IBInspectable var dashLength: CGFloat = 0
-//    @IBInspectable var betweenDashesSpace: CGFloat = 0
-//
-//    var dashBorder: CAShapeLayer?
-//
-//    override func layoutSubviews() {
-//        super.layoutSubviews()
-//        dashBorder?.removeFromSuperlayer()
-//        let dashBorder = CAShapeLayer()
-//        dashBorder.lineWidth = dashWidth
-//        dashBorder.strokeColor = dashColor.cgColor
-//        dashBorder.lineDashPattern = [dashLength, betweenDashesSpace] as [NSNumber]
-//        dashBorder.frame = bounds
-//        dashBorder.fillColor = nil
-//        if cornerRadius > 0 {
-//            dashBorder.path = UIBezierPath(roundedRect: bounds, cornerRadius: cornerRadius).cgPath
-//        } else {
-//            dashBorder.path = UIBezierPath(rect: bounds).cgPath
-//        }
-//        layer.addSublayer(dashBorder)
-//        self.dashBorder = dashBorder
-//    }
-//}
 
 extension UIColor {
 
@@ -169,9 +133,8 @@ extension UIColor {
 
 extension UIImage {
     
-    public static var icPin: UIImage = UIImage(named: "Pin")!
-    public static var icFlag: UIImage = UIImage(named: "Flag")!
-    public static var icDown: UIImage = UIImage(named: "Down")!
+    public static var icFlag: UIImage = UIImage(named: "flag")!
+    public static var icDown: UIImage = UIImage(named: "down")!
     
 }
 

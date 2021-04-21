@@ -32,15 +32,29 @@
                     <rect key="frame" x="10" y="33" width="355" height="45"/>
                     <subviews>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Например, Тверская 7" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h9I-Rk-CpM">
-                            <rect key="frame" x="10" y="4" width="335" height="37"/>
+                            <rect key="frame" x="10" y="4" width="305" height="37"/>
                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textField>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vtt-0V-qcE">
+                            <rect key="frame" x="315" y="5" width="40" height="35"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="35" id="7K2-wR-Fp5"/>
+                                <constraint firstAttribute="width" constant="40" id="fH7-C4-JFd"/>
+                            </constraints>
+                            <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" image="Remove"/>
+                            <connections>
+                                <action selector="pressClearAddress:" destination="-1" eventType="touchUpInside" id="M6u-hl-R4x"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
+                        <constraint firstItem="vtt-0V-qcE" firstAttribute="centerY" secondItem="PTo-mO-Jcv" secondAttribute="centerY" id="CnR-Bp-UC8"/>
                         <constraint firstItem="h9I-Rk-CpM" firstAttribute="leading" secondItem="PTo-mO-Jcv" secondAttribute="leading" constant="10" id="G7s-qL-o8k"/>
-                        <constraint firstAttribute="trailing" secondItem="h9I-Rk-CpM" secondAttribute="trailing" constant="10" id="KYR-hY-B10"/>
+                        <constraint firstItem="vtt-0V-qcE" firstAttribute="leading" secondItem="h9I-Rk-CpM" secondAttribute="trailing" id="KJx-Ee-Ag1"/>
+                        <constraint firstAttribute="trailing" secondItem="vtt-0V-qcE" secondAttribute="trailing" id="PQz-aB-MsL"/>
                         <constraint firstItem="h9I-Rk-CpM" firstAttribute="top" secondItem="PTo-mO-Jcv" secondAttribute="top" constant="4" id="uac-EK-cCJ"/>
                         <constraint firstAttribute="bottom" secondItem="h9I-Rk-CpM" secondAttribute="bottom" constant="4" id="vS5-lb-l65"/>
                         <constraint firstAttribute="height" constant="45" id="zPz-LW-aT0"/>
@@ -86,6 +100,7 @@
         </view>
     </objects>
     <resources>
+        <image name="Remove" width="20" height="20"/>
         <namedColor name="ColorAccent">
             <color red="0.94117647058823528" green="0.16078431372549021" blue="0.12156862745098039" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

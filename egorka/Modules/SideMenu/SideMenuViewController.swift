@@ -31,7 +31,7 @@ class SideMenuViewController: UIViewController, SideMenuViewProtocol {
     }
     
     @IBAction func pressAbout(_ sender: Any) {
-        
+        presenter?.openAbout()
     }
     
 }

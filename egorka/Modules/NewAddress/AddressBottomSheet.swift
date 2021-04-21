@@ -115,4 +115,8 @@ class AddressBottomSheet: UIView, AddressBottomViewProtocol {
         dismiss()
     }
     
+    @IBAction func pressClearAddress(_ sender: Any) {
+        presenter?.pressClearAddress()
+    }
+    
 }

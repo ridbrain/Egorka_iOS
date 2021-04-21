@@ -39,6 +39,11 @@
 		E739C584259732D500E772AF /* NewOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E739C582259732D500E772AF /* NewOrderViewController.swift */; };
 		E739C585259732D500E772AF /* NewOrderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E739C583259732D500E772AF /* NewOrderViewController.xib */; };
 		E758AD8425949FEA0002149F /* NewOrderPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E758AD8325949FEA0002149F /* NewOrderPresenter.swift */; };
+		E78A1CC12630B6AB0001F6DC /* AboutProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78A1CC02630B6AB0001F6DC /* AboutProtocols.swift */; };
+		E78A1CC62630B6BA0001F6DC /* AboutPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78A1CC52630B6BA0001F6DC /* AboutPresenter.swift */; };
+		E78A1CE62630CB570001F6DC /* NoNetworkProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78A1CE52630CB570001F6DC /* NoNetworkProtocols.swift */; };
+		E78A1CEE2630CC660001F6DC /* CurentOrderProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78A1CED2630CC660001F6DC /* CurentOrderProtocols.swift */; };
+		E78A1CF32630CC7D0001F6DC /* CurrentOrderPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78A1CF22630CC7D0001F6DC /* CurrentOrderPresenter.swift */; };
 		E78A964C2612580700416578 /* SideMenuProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78A964B2612580700416578 /* SideMenuProtocols.swift */; };
 		E78A96512612581300416578 /* SideMenuPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78A96502612581300416578 /* SideMenuPresenter.swift */; };
 		E78A965B2613873200416578 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78A96592613873200416578 /* AboutViewController.swift */; };
@@ -132,6 +137,11 @@
 		E739C582259732D500E772AF /* NewOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOrderViewController.swift; sourceTree = "<group>"; };
 		E739C583259732D500E772AF /* NewOrderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewOrderViewController.xib; sourceTree = "<group>"; };
 		E758AD8325949FEA0002149F /* NewOrderPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOrderPresenter.swift; sourceTree = "<group>"; };
+		E78A1CC02630B6AB0001F6DC /* AboutProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutProtocols.swift; sourceTree = "<group>"; };
+		E78A1CC52630B6BA0001F6DC /* AboutPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutPresenter.swift; sourceTree = "<group>"; };
+		E78A1CE52630CB570001F6DC /* NoNetworkProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoNetworkProtocols.swift; sourceTree = "<group>"; };
+		E78A1CED2630CC660001F6DC /* CurentOrderProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurentOrderProtocols.swift; sourceTree = "<group>"; };
+		E78A1CF22630CC7D0001F6DC /* CurrentOrderPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentOrderPresenter.swift; sourceTree = "<group>"; };
 		E78A964B2612580700416578 /* SideMenuProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuProtocols.swift; sourceTree = "<group>"; };
 		E78A96502612581300416578 /* SideMenuPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuPresenter.swift; sourceTree = "<group>"; };
 		E78A96592613873200416578 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
@@ -335,6 +345,7 @@
 			isa = PBXGroup;
 			children = (
 				E71D6B6925F9058F00F30FC4 /* NoNetworkPresenter.swift */,
+				E78A1CE52630CB570001F6DC /* NoNetworkProtocols.swift */,
 				E71D6B5F25F8E5F200F30FC4 /* NoNetworkViewController.swift */,
 				E71D6B6025F8E5F200F30FC4 /* NoNetworkViewController.xib */,
 			);
@@ -388,6 +399,8 @@
 		E78A96582613872100416578 /* About */ = {
 			isa = PBXGroup;
 			children = (
+				E78A1CC52630B6BA0001F6DC /* AboutPresenter.swift */,
+				E78A1CC02630B6AB0001F6DC /* AboutProtocols.swift */,
 				E78A96592613873200416578 /* AboutViewController.swift */,
 				E78A965A2613873200416578 /* AboutViewController.xib */,
 			);
@@ -425,6 +438,8 @@
 		E7B44FD3260CED6C002913E6 /* CurrentOrder */ = {
 			isa = PBXGroup;
 			children = (
+				E78A1CED2630CC660001F6DC /* CurentOrderProtocols.swift */,
+				E78A1CF22630CC7D0001F6DC /* CurrentOrderPresenter.swift */,
 				E7B44FD4260CEEC2002913E6 /* CurrentOrderViewController.swift */,
 				E7B44FD5260CEEC2002913E6 /* CurrentOrderViewController.xib */,
 			);
@@ -662,12 +677,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E78A1CC12630B6AB0001F6DC /* AboutProtocols.swift in Sources */,
 				E799D9D92584BE0B00FE4E62 /* AddressTableView.swift in Sources */,
 				E758AD8425949FEA0002149F /* NewOrderPresenter.swift in Sources */,
 				E7C168A62607E95A00FF4AE1 /* MainProtocols.swift in Sources */,
 				E7135F8A2601474E00A83B0B /* DetailsViewController.swift in Sources */,
 				E7B40E08260B740400775704 /* NewOrderBottom.swift in Sources */,
 				E7135F932601475F00A83B0B /* DetailsPresenter.swift in Sources */,
+				E78A1CEE2630CC660001F6DC /* CurentOrderProtocols.swift in Sources */,
 				E799D9D42584B34E00FE4E62 /* TextFieldDelegate.swift in Sources */,
 				E705CE74258CC776003AA401 /* SplashViewController.swift in Sources */,
 				E71D6B6A25F9058F00F30FC4 /* NoNetworkPresenter.swift in Sources */,
@@ -695,7 +712,10 @@
 				E7B44FEE260F617F002913E6 /* SideMenuViewController.swift in Sources */,
 				E7C1687B26066F4900FF4AE1 /* AddressBottomSheet.swift in Sources */,
 				E71F1BFD261DDCA20002143E /* UserUUID.swift in Sources */,
+				E78A1CF32630CC7D0001F6DC /* CurrentOrderPresenter.swift in Sources */,
+				E78A1CC62630B6BA0001F6DC /* AboutPresenter.swift in Sources */,
 				E7C168AE2607EA3800FF4AE1 /* MainBottomProtocols.swift in Sources */,
+				E78A1CE62630CB570001F6DC /* NoNetworkProtocols.swift in Sources */,
 				E7B40E15260B756500775704 /* NewOrderBottomProtocols.swift in Sources */,
 				E736F95A2611D6CA009F1DE2 /* NotificationHandler.swift in Sources */,
 				E78A965B2613873200416578 /* AboutViewController.swift in Sources */,

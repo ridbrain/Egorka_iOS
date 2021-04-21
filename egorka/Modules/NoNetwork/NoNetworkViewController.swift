@@ -13,13 +13,11 @@ class NoNetworkViewController: UIViewController, NoNetworkViewProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         presenter?.viewDidLoad()
-        
     }
     
     @IBAction func pressUpdate(_ sender: UIButton) {
-        
+        presenter?.updateNetwork()
     }
     
 }

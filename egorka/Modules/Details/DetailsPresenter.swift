@@ -9,8 +9,8 @@ import UIKit
 
 class DetailsPresenter: DetailsPresenterProtocol {
     
+    weak var view: DetailsViewProtocol?
     var model: NewOrderLocation?
-    var view: DetailsViewProtocol?
     var router: GeneralRouterProtocol?
     var bottomView: AddressBottomViewProtocol!
     
@@ -293,6 +293,10 @@ class DetailsPresenter: DetailsPresenterProtocol {
         model?.Point = Point()
         view?.navigationController?.popViewController(animated: true)
         
+    }
+    
+    func pressClearAddress() {
+        bottomView.setAddressText(text: "")
     }
 
 }

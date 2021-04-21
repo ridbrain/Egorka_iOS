@@ -16,6 +16,8 @@ protocol AssemblerBuilderProtocol {
     func createNewOrderModule(router: GeneralRouterProtocol, model: MainModeleProtocol) -> UIViewController
     func createLocationDetails(router: GeneralRouterProtocol, model: NewOrderLocation, index: Int) -> UIViewController
     func createSideMenu(router: GeneralRouterProtocol) -> UIViewController
+    func createCurrenOrderModule(router: GeneralRouterProtocol) -> UIViewController
+    func createAboutModule(router: GeneralRouterProtocol) -> UIViewController
     
 }
 
@@ -71,6 +73,20 @@ class AssemblerBuilder: AssemblerBuilderProtocol {
         
         return sideMenu
         
+    }
+    
+    func createCurrenOrderModule(router: GeneralRouterProtocol) -> UIViewController {
+        let view = CurrentOrderViewController()
+        let presenter = CurrentOrderPresenter(router: router, view: view)
+        view.presenter = presenter
+        return view
+    }
+    
+    func createAboutModule(router: GeneralRouterProtocol) -> UIViewController {
+        let view = AboutViewController()
+        let presenter = AboutPresenter(router: router, view: view)
+        view.presenter = presenter
+        return view
     }
     
 }

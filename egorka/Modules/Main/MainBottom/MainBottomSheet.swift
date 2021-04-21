@@ -88,13 +88,15 @@ class MainBottomSheet: UIView, MainBottomViewProtocol {
         
     }
     
-    func getFocuseField() -> FocusField {
+    func getFocuseField() -> FocusField? {
         
         if fromField.isEditing {
             return .pickup
-        } else {
+        } else if whereField.isEditing {
             return .drop
         }
+        
+        return nil
         
     }
     

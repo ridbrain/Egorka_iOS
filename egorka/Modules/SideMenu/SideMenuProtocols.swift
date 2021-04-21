@@ -22,5 +22,6 @@ protocol SideMenuPresenterProtocol: class {
     func viewWillDisappear()
     
     func openCurrentOrder()
+    func openAbout()
     
 }

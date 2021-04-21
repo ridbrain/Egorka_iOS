@@ -20,7 +20,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YTE-qV-7MY">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YTE-qV-7MY">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yQv-8i-i7L">
@@ -33,12 +33,6 @@
                                         <constraint firstAttribute="width" constant="200" id="keM-X5-zAo"/>
                                     </constraints>
                                 </imageView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Версия 0.1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8mH-hj-Gls">
-                                    <rect key="frame" x="150" y="120" width="75.5" height="18"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Broseph" translatesAutoresizingMaskIntoConstraints="NO" id="7GN-qr-Wgg">
                                     <rect key="frame" x="112.5" y="600.5" width="150" height="16.5"/>
                                     <constraints>
@@ -51,15 +45,24 @@
                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6qe-2v-3WR">
+                                    <rect key="frame" x="149.5" y="120" width="76" height="30"/>
+                                    <state key="normal" title="Версия 0.1">
+                                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="pressVersion:" destination="-1" eventType="touchUpInside" id="LE4-ch-upC"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" name="ColorBackground"/>
                             <constraints>
-                                <constraint firstItem="8mH-hj-Gls" firstAttribute="top" secondItem="0kY-ud-aXP" secondAttribute="bottom" constant="20" id="13B-ge-tSt"/>
-                                <constraint firstItem="8mH-hj-Gls" firstAttribute="centerX" secondItem="yQv-8i-i7L" secondAttribute="centerX" id="2av-Ht-DZK"/>
                                 <constraint firstItem="0kY-ud-aXP" firstAttribute="centerX" secondItem="yQv-8i-i7L" secondAttribute="centerX" id="8ut-PU-uO5"/>
                                 <constraint firstItem="0kY-ud-aXP" firstAttribute="top" secondItem="yQv-8i-i7L" secondAttribute="top" constant="50" id="9Uf-Gd-lus"/>
                                 <constraint firstItem="7GN-qr-Wgg" firstAttribute="centerX" secondItem="yQv-8i-i7L" secondAttribute="centerX" id="g5F-IR-wX7"/>
                                 <constraint firstItem="7GN-qr-Wgg" firstAttribute="top" secondItem="zoc-kK-sYs" secondAttribute="bottom" constant="15" id="kee-SA-1h3"/>
+                                <constraint firstItem="6qe-2v-3WR" firstAttribute="centerX" secondItem="yQv-8i-i7L" secondAttribute="centerX" id="nBZ-RK-aeg"/>
+                                <constraint firstItem="6qe-2v-3WR" firstAttribute="top" secondItem="0kY-ud-aXP" secondAttribute="bottom" constant="20" id="ruS-pk-qEG"/>
                                 <constraint firstItem="zoc-kK-sYs" firstAttribute="centerX" secondItem="yQv-8i-i7L" secondAttribute="centerX" id="x2A-ya-Udw"/>
                                 <constraint firstAttribute="bottom" secondItem="7GN-qr-Wgg" secondAttribute="bottom" constant="50" id="xei-b4-7xL"/>
                             </constraints>
@@ -81,14 +84,14 @@
             <constraints>
                 <constraint firstItem="YTE-qV-7MY" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="DP5-ms-ro8"/>
                 <constraint firstItem="YTE-qV-7MY" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="RLs-cX-9dM"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="YTE-qV-7MY" secondAttribute="bottom" id="sUd-24-5Bc"/>
+                <constraint firstAttribute="bottom" secondItem="YTE-qV-7MY" secondAttribute="bottom" id="sUd-24-5Bc"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="YTE-qV-7MY" secondAttribute="trailing" id="whr-Hc-qoO"/>
             </constraints>
             <point key="canvasLocation" x="129" y="123"/>
         </view>
     </objects>
     <resources>
-        <image name="Broseph" width="150" height="16.333333969116211"/>
+        <image name="Broseph" width="150" height="16.5"/>
         <image name="Logo" width="596" height="187"/>
         <namedColor name="ColorBackground">
             <color red="0.96862745098039216" green="0.96862745098039216" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -51,7 +51,6 @@
                     </state>
                     <connections>
                         <action selector="pressAbout:" destination="-1" eventType="touchUpInside" id="t8F-Ve-C12"/>
-                        <action selector="pressCurrentOrder:" destination="-1" eventType="touchUpInside" id="2ig-cW-I7y"/>
                     </connections>
                 </button>
             </subviews>
@@ -74,7 +73,7 @@
         <image name="Egorka" width="381" height="603"/>
         <image name="Logo" width="596" height="187"/>
         <namedColor name="ColorAccentLight">
-            <color red="0.94099998474121094" green="0.16099999845027924" blue="0.12200000137090683" alpha="0.69999998807907104" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.93725490196078431" green="0.16078431372549021" blue="0.12156862745098039" alpha="0.69999998807907104" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

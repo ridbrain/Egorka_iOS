@@ -149,6 +149,9 @@ class MainPresenter: MainPresenterProtocol {
         case .drop:
             bottomView.changeIconPickupField(edit: false)
             bottomView.showIconDropField(show: true)
+        case .none:
+            bottomView.changeIconPickupField(edit: false)
+            bottomView.showIconDropField(show: false)
         }
         
     }
@@ -165,6 +168,7 @@ class MainPresenter: MainPresenterProtocol {
         case .drop:
             bottomView.showWhere(show: true)
             bottomView.showTable(show: true, extra: 120)
+        case .none: break
         }
         
     }
@@ -181,8 +185,11 @@ class MainPresenter: MainPresenterProtocol {
                 bottomView.transitionBottomView(state: .small)
             }
 
-            bottomView.changeIconPickupField(edit: false)
-            bottomView.showIconDropField(show: false)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                self.bottomView.changeIconPickupField(edit: false)
+                self.bottomView.showIconDropField(show: false)
+            }
+            
             bottomView.showTable(show: false, extra: 0)
             bottomView.showWhere(show: true)
             bottomView.showButtons(show: routeLaid)
@@ -257,6 +264,9 @@ class MainPresenter: MainPresenterProtocol {
                 bottomView.changeIconPickupField(edit: true)
             case .drop:
                 bottomView.setTextField(field: .drop, text: "")
+            case .none:
+                bottomView.setTextField(field: .drop, text: "")
+                bottomView.setTextField(field: .pickup, text: "")
             }
         case .changeRegion:
             getAddress()
@@ -334,13 +344,18 @@ class MainPresenter: MainPresenterProtocol {
     
     func selectAddress(address: Suggestion) {
         
-        switch bottomView.getFocuseField() {
+        if let name = address.Name {
+            if let field = bottomView.getFocuseField() {
+                bottomView.setTextField(field: field, text: name)
+                bottomView.setFieldEdit(field: field)
+            }
+        }
         
-        case .pickup:
+        if address.ID != nil {
             
-            bottomView.setTextField(field: .pickup, text: address.Name!)
+            switch bottomView.getFocuseField() {
             
-            if address.ID != nil {
+            case .pickup:
                 
                 model!.pickups = [NewOrderLocation(suggestion: address, type: .Pickup, routeOrder: 1)]
                 bottomView.setFieldEdit(field: .drop)
@@ -348,33 +363,38 @@ class MainPresenter: MainPresenterProtocol {
                 bottomView.showTable(show: true, extra: 120)
                 
                 if let point = address.Point {
-                    
-                    let coordinate = CLLocationCoordinate2D(latitude: point.Latitude!, longitude: point.Longitude!)
-                    
-                    view?.setMapRegion(coordinate: coordinate)
-
-                    
+                    view?.setMapRegion(coordinate: CLLocationCoordinate2D(latitude: point.Latitude!, longitude: point.Longitude!))
                 }
                 
-            }
-            
-        case .drop:
-            
-            bottomView.setTextField(field: .drop, text: address.Name!)
-            
-            if address.ID != nil {
-                
-                if model?.pickups![0].Point?.Code != address.ID {
-
-                    model!.drops = [NewOrderLocation(suggestion: address, type: .Drop, routeOrder: 2)]
-                    hideKeyboard()
-                    setRoute()
-
-                } else {
-
+                if let drop = model?.drops?.first {
+                    
+                    if address.ID != drop.ID {
+                        hideKeyboard()
+                        setRoute()
+                        return
+                    }
+                    
                     view?.showWarning()
-
+                    
                 }
+                
+            case .drop:
+                
+                model!.drops = [NewOrderLocation(suggestion: address, type: .Drop, routeOrder: 2)]
+
+                if let pickup = model?.pickups?.first {
+                    
+                    if address.ID != pickup.ID {
+                        hideKeyboard()
+                        setRoute()
+                        return
+                    }
+                    
+                    view?.showWarning()
+                    
+                }
+                
+            case .none: break
                 
             }
             

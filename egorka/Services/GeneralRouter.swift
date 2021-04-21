@@ -21,6 +21,7 @@ protocol GeneralRouterProtocol {
     func openLocationDetails(model: NewOrderLocation, index: Int)
     func openCurrentOrder()
     func openSideMenu()
+    func openAbout()
     
 }
 
@@ -77,12 +78,18 @@ class GeneralRouter: GeneralRouterProtocol {
     }
     
     func openCurrentOrder() {
-        navigationController.show(CurrentOrderViewController())
+        guard let currenOrderViewController = assemblerBuilder?.createCurrenOrderModule(router: self) else { return }
+        navigationController.show(currenOrderViewController)
     }
     
     func openSideMenu() {
         guard let sideMenu = assemblerBuilder?.createSideMenu(router: self) else { return }
         navigationController.present(sideMenu, animated: true, completion: nil)
+    }
+    
+    func openAbout() {
+        guard let aboutViewController = assemblerBuilder?.createAboutModule(router: self) else { return }
+        navigationController.show(aboutViewController)
     }
     
 }

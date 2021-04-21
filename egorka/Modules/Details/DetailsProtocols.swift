@@ -51,5 +51,6 @@ protocol DetailsPresenterProtocol: class {
     func textDidChange(text: String?)
     func selectAddress(address: Suggestion)
     func deleteAddress()
+    func pressClearAddress()
     
 }

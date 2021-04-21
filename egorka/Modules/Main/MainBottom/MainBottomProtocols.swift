@@ -37,7 +37,7 @@ protocol MainBottomViewProtocol: UIView {
     func reloadCollection()
     func setKeyboardHeight(height: CGFloat)
     func transitionBottomView(state: BottomState)
-    func getFocuseField() -> FocusField
+    func getFocuseField() -> FocusField?
     func setTextField(field: FocusField, text: String)
     func setSuggestions(suggestions: [Suggestion])
     func setFieldEdit(field: FocusField)

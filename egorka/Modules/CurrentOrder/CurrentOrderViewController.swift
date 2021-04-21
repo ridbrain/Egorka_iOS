@@ -8,10 +8,11 @@
 import UIKit
 import MapKit
 
-class CurrentOrderViewController: UIViewController {
+class CurrentOrderViewController: UIViewController, CurrentOrderViewProtocol {
+    
+    var presenter: CurrentOrderPresenterProtocol?
 
     @IBOutlet weak var mapView: MKMapView!
-    
     @IBOutlet weak var phoneButton: UIButton!
     @IBOutlet weak var chatButton: UIButton!
     @IBOutlet weak var photoView: UIImageView!
@@ -34,29 +35,33 @@ class CurrentOrderViewController: UIViewController {
         typeView.layer.cornerRadius = typeView.frame.height / 2
         photoView.layer.cornerRadius = photoView.frame.height / 2
 
-        mapDelegate = MKMapDelegate() { regionDidChange in }
+        mapDelegate = MKMapDelegate() { _ in }
         
         mapView.layer.cornerRadius = 15
         mapView.layer.borderWidth = 2
         mapView.layer.borderColor = UIColor.white.cgColor
         mapView.delegate = mapDelegate
         
-        let pickup = Point()
-        pickup.Latitude = 55.622868
-        pickup.Longitude = 37.666306
-        pickup.Address = "A1"
-        let drop = Point()
-        drop.Latitude = 55.637987
-        drop.Longitude = 37.761285
-        drop.Address = "B1"
+        tableDelegate = LocationTableView(didSelectRow: nil, deleteRow: nil)
+        
+        tableView.setCorner()
+        tableView.delegate = tableDelegate
+        tableView.dataSource = tableDelegate
+        tableView.register(LocationTableViewCell.nib, forCellReuseIdentifier: LocationTableViewCell.reuseID)
+        
+        presenter?.viewDidLoad()
+        
+    }
+    
+    func setRoute(pickup: Point, drop: Point) {
         
         mapDelegate.getRoute(pickup: pickup, drop: drop) { polyline in
             
-            let sourceAnnotation = MKPointAnnotation()
+            let sourceAnnotation = MyPoint(type: .Pickup)
             sourceAnnotation.title = pickup.Address
             sourceAnnotation.coordinate = CLLocationCoordinate2D(latitude: pickup.Latitude!, longitude: pickup.Longitude!)
             
-            let destinationAnnotation = MKPointAnnotation()
+            let destinationAnnotation = MyPoint(type: .Drop)
             destinationAnnotation.title = drop.Address
             destinationAnnotation.coordinate = CLLocationCoordinate2D(latitude: drop.Latitude!, longitude: drop.Longitude!)
             
@@ -67,26 +72,8 @@ class CurrentOrderViewController: UIViewController {
             
         }
         
-        var locations = [NewOrderLocation]()
-        
-        locations.append(NewOrderLocation(suggestion: Suggestion(ID: "1", Name: "Cолнечная", Point: pickup), type: .Pickup, routeOrder: 1))
-        locations.append(NewOrderLocation(suggestion: Suggestion(ID: "2", Name: "Паромная", Point: drop), type: .Drop, routeOrder: 2))
-        
-        setTableViews()
-        updateTables(locations: locations)
-        
-        
     }
-    
-    func setTableViews() {
-        
-        tableDelegate = LocationTableView(didSelectRow: nil, deleteRow: nil)
-        
-        tableView.delegate = tableDelegate
-        tableView.dataSource = tableDelegate
-        tableView.register(LocationTableViewCell.nib, forCellReuseIdentifier: LocationTableViewCell.reuseID)
-        
-    }
+
     
     func updateTables(locations: [NewOrderLocation]) {
         

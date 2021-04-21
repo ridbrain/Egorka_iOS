@@ -34,4 +34,9 @@ class SideMenuPresnter: SideMenuPresenterProtocol {
         view?.dismiss(animated: true, completion: nil)
     }
     
+    func openAbout() {
+        router?.openAbout()
+        view?.dismiss(animated: true, completion: nil)
+    }
+    
 }

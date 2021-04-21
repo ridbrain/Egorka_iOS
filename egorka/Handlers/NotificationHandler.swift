@@ -34,11 +34,7 @@ class NotificationHandler: NSObject, MessagingDelegate, UNUserNotificationCenter
     
     func updateFirestorePushTokenIfNeeded() {
         
-        if let token = Messaging.messaging().fcmToken {
-            
-            UserData.setUserFCM(fcm: token)
-            
-        }
+        if let token = Messaging.messaging().fcmToken { UserData.setUserFCM(fcm: token) }
         
     }
     
