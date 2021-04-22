@@ -38,7 +38,7 @@ protocol MainPresenterProtocol: class {
     func didRouteLaid()
     func pressPickupFieldButton()
     func pressDropFieldButton()
-    func selectAddress(address: Suggestion)
+    func selectAddress(address: Dictionary.Suggestion)
     func openNewOrder()
     func openSideMenu()
     

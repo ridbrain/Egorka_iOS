@@ -15,11 +15,11 @@ enum NumState {
 class LocationTableView: NSObject, UITableViewDataSource, UITableViewDelegate {
     
     var numState: NumState!
-    var locations: [NewOrderLocation]?
-    var didSelectRow: ((NewOrderLocation, Int) -> Void)?
+    var locations: [Location]?
+    var didSelectRow: ((Location, Int) -> Void)?
     var deleteRow: ((LocationType, Int) -> Void)?
     
-    required init(didSelectRow: ((NewOrderLocation, Int) -> Void)? = nil, deleteRow: ((LocationType, Int) -> Void)? = nil) {
+    required init(didSelectRow: ((Location, Int) -> Void)? = nil, deleteRow: ((LocationType, Int) -> Void)? = nil) {
         self.numState = .lite
         self.didSelectRow = didSelectRow
         self.deleteRow = deleteRow

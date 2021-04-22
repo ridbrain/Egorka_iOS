@@ -9,14 +9,14 @@ import Foundation
 
 protocol MainModeleProtocol: class {
     
-    var pickups: [NewOrderLocation]? { get set }
-    var drops: [NewOrderLocation]? { get set }
+    var pickups: [Location]? { get set }
+    var drops: [Location]? { get set }
     
 }
 
 class MainModel: MainModeleProtocol {
     
-    var pickups: [NewOrderLocation]?
-    var drops: [NewOrderLocation]?
+    var pickups: [Location]?
+    var drops: [Location]?
     
 }

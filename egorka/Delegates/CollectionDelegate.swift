@@ -16,12 +16,13 @@ struct TypeDelivery {
 
 class CollectionDelegate: NSObject, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
+    var types = [Delivery]()
     var didDeselectItem: (Int) -> Void
-    var types = [
-        TypeDelivery(type: 1, descr: "Пеший", price: 0, image: UIImage(named: "leg")),
-        TypeDelivery(type: 3, descr: "Скутер", price: 0, image: UIImage(named: "bike")),
-        TypeDelivery(type: 2, descr: "Легковой", price: 0, image: UIImage(named: "car")),
-        TypeDelivery(type: 3, descr: "Грузовой", price: 0, image: UIImage(named: "track"))]
+//    var types = [
+//        TypeDelivery(type: 1, descr: "Пеший", price: 0, image: UIImage(named: "leg")),
+//        TypeDelivery(type: 3, descr: "Скутер", price: 0, image: UIImage(named: "bike")),
+//        TypeDelivery(type: 2, descr: "Легковой", price: 0, image: UIImage(named: "car")),
+//        TypeDelivery(type: 3, descr: "Грузовой", price: 0, image: UIImage(named: "track"))]
     
     required init(didDeselectItem: @escaping (Int) -> Void) {
         self.didDeselectItem = didDeselectItem
@@ -40,16 +41,17 @@ class CollectionDelegate: NSObject, UICollectionViewDataSource, UICollectionView
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TypeCollectionViewCell.reuseID, for: indexPath) as! TypeCollectionViewCell
         let type = types[indexPath.row]
         
-        cell.label.text = type.descr
-        cell.icon.image = type.image
-        
-        if type.price == 0 {
-            cell.price.text = "--- ₽"
-        } else {
-            cell.price.text = "\(String(type.price)) ₽"
+        switch type.Type {
+        case .Car:
+            cell.label.text = "Легковой"
+            cell.icon.image = UIImage(named: "car")
+        case .Walk:
+            cell.label.text = "Пеший"
+            cell.icon.image = UIImage(named: "leg")
+        case .none: break
         }
         
-//        cell.layer.backgroundColor = UIColor.colorGrayLight.cgColor
+        cell.price.text = "\(String(type.Result!.TotalPrice!.Total! / 100)) ₽"
         cell.label.textColor = UIColor.black
         cell.icon.tintColor = UIColor.black
         

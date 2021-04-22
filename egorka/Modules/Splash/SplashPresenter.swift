@@ -20,6 +20,8 @@ class SplashPresenter: SplashPresenterProtocol {
     
     func viewWillAppear() {
         
+        print(UserData.getUserUUID())
+        
         view?.enableHero()
         
         if UserData.isUserUUID() {

@@ -9,10 +9,10 @@ import UIKit
 
 class AddressTableView: NSObject, UITableViewDataSource, UITableViewDelegate {
     
-    var suggestions: [Suggestion]?
-    var didSelectRow: (Suggestion) -> Void
+    var suggestions: [Dictionary.Suggestion]?
+    var didSelectRow: (Dictionary.Suggestion) -> Void
     
-    required init(didSelectRow: @escaping (Suggestion) -> Void) {
+    required init(didSelectRow: @escaping (Dictionary.Suggestion) -> Void) {
         self.didSelectRow = didSelectRow
     }
     

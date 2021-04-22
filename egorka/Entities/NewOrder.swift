@@ -7,40 +7,79 @@
 
 import Foundation
 
-struct Suggestion: Codable {
-    var ID: String?
-    var Name: String?
-    var Point: Point?
-}
-
-struct Result: Codable {
-    var Cached: Bool?
-    var Suggestions: [Suggestion]?
-}
-
 struct Dictionary: Codable {
+    
     var Time: String?
     var TimeStamp: Int?
     var Execution: Float?
     var Method: String?
     var Result: Result?
+    
+    struct Result: Codable {
+        var Cached: Bool?
+        var Suggestions: [Suggestion]?
+    }
+    
+    struct Suggestion: Codable {
+        var ID: String?
+        var Name: String?
+        var Point: Point?
+    }
+    
 }
 
-class NewOrderLocation: Codable {
+class Delivery: Codable {
+    
+    var Time: String?
+    var TimeStamp: Int?
+    var Execution: Float?
+    var Method: String?
+    var Result: Result?
+    var `Type`: DeliveryType?
+    
+    class Result: Codable {
+        
+        var ID: String?
+        var Date: Int?
+        var DateUpdate: Int?
+        var Stage: Bool?
+        var RecordNumber: Int?
+        var RecordPIN: Int?
+        var RecordDate: String?
+        var RecordDateStamp: Int?
+        var Locations: [Location]?
+        var TotalPrice: TotalPrice?
+        
+    }
+    
+    class TotalPrice: Codable {
+        var Base: Int?
+        var Ancillary: Int?
+        var Discount: Int?
+        var Compensation: Int?
+        var Bonus: Int?
+        var Tip: Int?
+        var Total: Int?
+        var Currency: String?
+    }
+    
+}
+
+class Location: Codable {
     
     var ID: String {
         return "\(self.Type?.rawValue ?? "")-\(self.RouteOrder ?? 0)"
     }
     
-    var `Type`: LocationType?
     var Date: String?
     var Route: Int?
     var RouteOrder: Int?
     var Point: Point?
     var Contact: Contact?
     var Message: String?
+    var `Type`: LocationType?
     
-    init(suggestion: Suggestion, type: LocationType, routeOrder: Int) {
+    init(suggestion: Dictionary.Suggestion, type: LocationType, routeOrder: Int) {
         
         let point = suggestion.Point
         point?.Code = suggestion.ID
@@ -83,8 +122,11 @@ class Contact: Codable {
 }
 
 enum LocationType: String, Codable {
-    
     case Pickup
     case Drop
-    
+}
+
+enum DeliveryType: String, Codable {
+    case Walk
+    case Car
 }

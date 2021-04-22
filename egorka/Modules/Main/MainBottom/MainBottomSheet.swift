@@ -122,7 +122,7 @@ class MainBottomSheet: UIView, MainBottomViewProtocol {
         
     }
     
-    func setSuggestions(suggestions: [Suggestion]) {
+    func setSuggestions(suggestions: [Dictionary.Suggestion]) {
         tableViewDelegate.suggestions = suggestions
         tableView.reloadData()
     }
@@ -151,7 +151,8 @@ class MainBottomSheet: UIView, MainBottomViewProtocol {
         
     }
     
-    func reloadCollection() {
+    func reloadCollection(types: [Delivery]) {
+        collectionDelegate.types = types
         collectionView.reloadData()
     }
     

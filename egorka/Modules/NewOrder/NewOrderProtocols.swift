@@ -13,7 +13,7 @@ protocol NewOrderViewProtocol: UIViewController {
     
     func setTitle(title: String)
     func setTableViews()
-    func updateTables(pickups: [NewOrderLocation], drops: [NewOrderLocation], numState: NumState) 
+    func updateTables(pickups: [Location], drops: [Location], numState: NumState) 
     func showWarning()
     
 }
@@ -26,7 +26,7 @@ protocol NewOrderPresenterProtocol: class {
     func viewWillAppear()
     func viewWillDisappear()
     
-    func openDetails(location: NewOrderLocation, index: Int)
+    func openDetails(location: Location, index: Int)
     func deleteLocation(type: LocationType, index: Int) 
     func newPickup()
     func newDrop()

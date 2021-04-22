@@ -28,10 +28,10 @@ class CurrentOrderPresenter: CurrentOrderPresenterProtocol {
         drop.Longitude = 37.761285
         drop.Address = "B1"
         
-        var locations = [NewOrderLocation]()
+        var locations = [Location]()
         
-        locations.append(NewOrderLocation(suggestion: Suggestion(ID: "1", Name: "Cолнечная", Point: pickup), type: .Pickup, routeOrder: 1))
-        locations.append(NewOrderLocation(suggestion: Suggestion(ID: "2", Name: "Паромная", Point: drop), type: .Drop, routeOrder: 2))
+        locations.append(Location(suggestion: Dictionary.Suggestion(ID: "1", Name: "Cолнечная", Point: pickup), type: .Pickup, routeOrder: 1))
+        locations.append(Location(suggestion: Dictionary.Suggestion(ID: "2", Name: "Паромная", Point: drop), type: .Drop, routeOrder: 2))
         
         view?.setRoute(pickup: pickup, drop: drop)
         view?.updateTables(locations: locations)

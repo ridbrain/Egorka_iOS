@@ -10,7 +10,7 @@ import UIKit
 class DetailsPresenter: DetailsPresenterProtocol {
     
     weak var view: DetailsViewProtocol?
-    var model: NewOrderLocation?
+    var model: Location?
     var router: GeneralRouterProtocol?
     var bottomView: AddressBottomViewProtocol!
     
@@ -18,7 +18,7 @@ class DetailsPresenter: DetailsPresenterProtocol {
     var defaultDate: Int!
     var index: Int!
     
-    required init(router: GeneralRouterProtocol, model: NewOrderLocation, view: DetailsViewProtocol, index: Int) {
+    required init(router: GeneralRouterProtocol, model: Location, view: DetailsViewProtocol, index: Int) {
         self.router = router
         self.model = model
         self.view = view
@@ -256,7 +256,7 @@ class DetailsPresenter: DetailsPresenterProtocol {
     func textDidChange(text: String?) {
         
         if text == nil {
-            bottomView.setSuggestions(suggestions: [Suggestion]())
+            bottomView.setSuggestions(suggestions: [Dictionary.Suggestion]())
         } else {
             Network.getAddress(address: text!) { suggestions in
                 self.bottomView.setSuggestions(suggestions: suggestions)
@@ -265,7 +265,7 @@ class DetailsPresenter: DetailsPresenterProtocol {
         
     }
     
-    func selectAddress(address: Suggestion) {
+    func selectAddress(address: Dictionary.Suggestion) {
         
         bottomView.setAddressText(text: address.Name!)
         

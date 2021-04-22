@@ -94,7 +94,7 @@ class NewOrderPresenter: NewOrderPresenterProtocol {
         
     }
     
-    func openDetails(location: NewOrderLocation, index: Int) {
+    func openDetails(location: Location, index: Int) {
         
         router?.openLocationDetails(model: location, index: index)
         
@@ -110,7 +110,7 @@ class NewOrderPresenter: NewOrderPresenterProtocol {
         
         if let lastPickup = model.pickups?.last {
             
-            let newPickup = NewOrderLocation(suggestion: Suggestion(), type: .Pickup, routeOrder: lastPickup.RouteOrder! + 1)
+            let newPickup = Location(suggestion: Dictionary.Suggestion(), type: .Pickup, routeOrder: lastPickup.RouteOrder! + 1)
             
             model.pickups?.append(newPickup)
             router?.openLocationDetails(model: newPickup, index: model.pickups!.count - 1)
@@ -123,7 +123,7 @@ class NewOrderPresenter: NewOrderPresenterProtocol {
         
         if let lastDrop = model.drops?.last {
             
-            let newDrop = NewOrderLocation(suggestion: Suggestion(), type: .Drop, routeOrder: lastDrop.RouteOrder! + 1)
+            let newDrop = Location(suggestion: Dictionary.Suggestion(), type: .Drop, routeOrder: lastDrop.RouteOrder! + 1)
             
             model.drops?.append(newDrop)
             router?.openLocationDetails(model: newDrop, index: model.drops!.count - 1)

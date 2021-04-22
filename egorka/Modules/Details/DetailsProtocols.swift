@@ -41,7 +41,7 @@ protocol DetailsViewProtocol: UIViewController {
 
 protocol DetailsPresenterProtocol: class {
     
-    init(router: GeneralRouterProtocol, model: NewOrderLocation, view: DetailsViewProtocol, index: Int)
+    init(router: GeneralRouterProtocol, model: Location, view: DetailsViewProtocol, index: Int)
     
     func viewDidLoad()
     func viewWillAppear()
@@ -49,7 +49,7 @@ protocol DetailsPresenterProtocol: class {
     func setQuickly(quickly: Bool)
     func pressAddress()
     func textDidChange(text: String?)
-    func selectAddress(address: Suggestion)
+    func selectAddress(address: Dictionary.Suggestion)
     func deleteAddress()
     func pressClearAddress()
     

@@ -77,7 +77,7 @@ class MainPresenter: MainPresenterProtocol {
             
         }
         
-        bottomView.reloadCollection()
+        bottomView.reloadCollection(types: [Delivery]())
         
     }
     
@@ -236,8 +236,10 @@ class MainPresenter: MainPresenterProtocol {
                 
                 Network.getAddress(address: address) { suggestions in
                     
-                    self.model!.pickups = [NewOrderLocation(suggestion: suggestions[0], type: .Pickup, routeOrder: 1)]
-                    self.bottomView.setTextField(field: .pickup, text: suggestions[0].Name!)
+                    let suggestion = suggestions[0]
+                    
+                    self.model!.pickups = [Location(suggestion: suggestion, type: .Pickup, routeOrder: 1)]
+                    self.bottomView.setTextField(field: .pickup, text: suggestion.Name!)
                     self.bottomView.setSuggestions(suggestions: suggestions)
                     
                 }
@@ -313,13 +315,17 @@ class MainPresenter: MainPresenterProtocol {
             if let coordinate = location.locations?[0].coordinate {
                 
                 GeocoderHandler.getAddress(coordinate: coordinate) { address in
-                    Network.getAddress(address: address) { addresses in
-                        self.model!.pickups = [NewOrderLocation(suggestion: addresses[0], type: .Pickup, routeOrder: 1)]
-                        self.bottomView.setTextField(field: .pickup, text: addresses[0].Name!)
+                    Network.getAddress(address: address) { suggestions in
+                        
+                        let suggestion = suggestions[0]
+                        
+                        self.model!.pickups = [Location(suggestion: suggestion, type: .Pickup, routeOrder: 1)]
+                        self.bottomView.setTextField(field: .pickup, text: suggestion.Name!)
+                        
                     }
                 }
                 
-                bottomView.setSuggestions(suggestions: [Suggestion]())
+                bottomView.setSuggestions(suggestions: [Dictionary.Suggestion]())
                 moveMyLocation()
                 
             }
@@ -333,7 +339,7 @@ class MainPresenter: MainPresenterProtocol {
     func textDidChange(text: String?) {
         
         if text == nil {
-            bottomView.setSuggestions(suggestions: [Suggestion]())
+            bottomView.setSuggestions(suggestions: [Dictionary.Suggestion]())
         } else {
             Network.getAddress(address: text!) { suggestions in
                 self.bottomView.setSuggestions(suggestions: suggestions)
@@ -342,7 +348,7 @@ class MainPresenter: MainPresenterProtocol {
         
     }
     
-    func selectAddress(address: Suggestion) {
+    func selectAddress(address: Dictionary.Suggestion) {
         
         if let name = address.Name {
             if let field = bottomView.getFocuseField() {
@@ -357,7 +363,7 @@ class MainPresenter: MainPresenterProtocol {
             
             case .pickup:
                 
-                model!.pickups = [NewOrderLocation(suggestion: address, type: .Pickup, routeOrder: 1)]
+                model!.pickups = [Location(suggestion: address, type: .Pickup, routeOrder: 1)]
                 bottomView.setFieldEdit(field: .drop)
                 bottomView.showWhere(show: true)
                 bottomView.showTable(show: true, extra: 120)
@@ -380,7 +386,7 @@ class MainPresenter: MainPresenterProtocol {
                 
             case .drop:
                 
-                model!.drops = [NewOrderLocation(suggestion: address, type: .Drop, routeOrder: 2)]
+                model!.drops = [Location(suggestion: address, type: .Drop, routeOrder: 2)]
 
                 if let pickup = model?.pickups?.first {
                     
@@ -422,9 +428,23 @@ class MainPresenter: MainPresenterProtocol {
         
         routeLaid = true
         
-        bottomView.reloadCollection()
-        bottomView.showButtons(show: true)
-        bottomView.transitionBottomView(state: .medium)
+        var types = [Delivery]()
+        
+        Network.calculate(codeFrom: model!.pickups![0].Point!.Code!, codeTo: model!.drops![0].Point!.Code!, type: .Car) { delivery in
+            delivery.Type = .Car
+            types.append(delivery)
+            self.bottomView.reloadCollection(types: types)
+            self.bottomView.showButtons(show: true)
+            self.bottomView.transitionBottomView(state: .medium)
+        }
+        
+        Network.calculate(codeFrom: model!.pickups![0].Point!.Code!, codeTo: model!.drops![0].Point!.Code!, type: .Walk) { delivery in
+            delivery.Type = .Walk
+            types.append(delivery)
+            self.bottomView.reloadCollection(types: types)
+            self.bottomView.showButtons(show: true)
+            self.bottomView.transitionBottomView(state: .medium)
+        }
         
     }
     

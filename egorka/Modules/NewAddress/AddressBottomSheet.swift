@@ -96,7 +96,7 @@ class AddressBottomSheet: UIView, AddressBottomViewProtocol {
         addressField.selectedTextRange = addressField.textRange(from: addressField.endOfDocument, to: addressField.endOfDocument)
     }
     
-    func setSuggestions(suggestions: [Suggestion]) {
+    func setSuggestions(suggestions: [Dictionary.Suggestion]) {
         tableViewDelegate.suggestions = suggestions
         tableView.reloadData()
     }

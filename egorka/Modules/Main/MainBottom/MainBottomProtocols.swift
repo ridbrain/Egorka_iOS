@@ -34,12 +34,12 @@ protocol MainBottomViewProtocol: UIView {
     func showTable(show: Bool, extra: CGFloat)
     func showButtons(show: Bool)
     func showWhere(show: Bool)
-    func reloadCollection()
+    func reloadCollection(types: [Delivery])
     func setKeyboardHeight(height: CGFloat)
     func transitionBottomView(state: BottomState)
     func getFocuseField() -> FocusField?
     func setTextField(field: FocusField, text: String)
-    func setSuggestions(suggestions: [Suggestion])
+    func setSuggestions(suggestions: [Dictionary.Suggestion])
     func setFieldEdit(field: FocusField)
     func getTextFromField() -> [String]
     func changeIconPickupField(edit: Bool)

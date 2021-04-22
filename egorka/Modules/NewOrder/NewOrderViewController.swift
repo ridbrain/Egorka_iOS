@@ -74,7 +74,7 @@ class NewOrderViewController: UIViewController, NewOrderViewProtocol {
         
     }
     
-    func updateTables(pickups: [NewOrderLocation], drops: [NewOrderLocation], numState: NumState) {
+    func updateTables(pickups: [Location], drops: [Location], numState: NumState) {
         
         pickupTableDelegate.numState = numState
         dropTableDelegate.numState = numState

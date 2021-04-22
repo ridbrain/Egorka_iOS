@@ -75,7 +75,7 @@ class CurrentOrderViewController: UIViewController, CurrentOrderViewProtocol {
     }
 
     
-    func updateTables(locations: [NewOrderLocation]) {
+    func updateTables(locations: [Location]) {
         
         tableDelegate.locations = locations
         tableHeight.constant = CGFloat(95 * locations.count)

@@ -18,7 +18,7 @@ protocol GeneralRouterProtocol {
     func setSplashView()
     func openMainView()
     func openNewOrder(model: MainModeleProtocol)
-    func openLocationDetails(model: NewOrderLocation, index: Int)
+    func openLocationDetails(model: Location, index: Int)
     func openCurrentOrder()
     func openSideMenu()
     func openAbout()
@@ -72,7 +72,7 @@ class GeneralRouter: GeneralRouterProtocol {
         navigationController.show(newOrderViewController, navigationAnimationType: .selectBy(presenting: .slide(direction: .up), dismissing: .slide(direction: .down)))
     }
     
-    func openLocationDetails(model: NewOrderLocation, index: Int) {
+    func openLocationDetails(model: Location, index: Int) {
         guard let detailsViewController = assemblerBuilder?.createLocationDetails(router: self, model: model, index: index) else { return }
         navigationController.show(detailsViewController)
     }

@@ -23,13 +23,13 @@
 	<key>CFBundleShortVersionString</key>
 	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Тоже надо</string>
+	<string>Разрешите доступ к геопозиции для определения текущих координат.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Надо</string>
+	<string>Разрешите доступ к геопозиции для определения текущих координат.</string>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UIBackgroundModes</key>
