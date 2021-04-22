@@ -80,7 +80,7 @@ class Network {
         
     }
     
-    class func calculate(
+    class func firstCalculate(
         url: String = "service/delivery/",
         codeFrom: String,
         codeTo: String,
@@ -100,6 +100,7 @@ class Network {
 //                let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
                 let answer = try JSONDecoder().decode(Delivery.self, from: data)
                 if answer.Result?.TotalPrice?.Total != nil {
+                    answer.Type = type
                     complition(answer)
                 }
             } catch let error {

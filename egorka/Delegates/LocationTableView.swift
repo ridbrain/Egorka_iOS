@@ -53,14 +53,8 @@ class LocationTableView: NSObject, UITableViewDataSource, UITableViewDelegate {
         }
         
         cell.addressLabel.text = location.Point?.Address
-        
-        if let descr = location.Contact {
-            cell.descriptionLabel.text = "\(descr.Name ?? ""), \(descr.PhoneMobile ?? "")"
-            cell.descriptionLabel.textColor = .darkGray
-        } else {
-            cell.descriptionLabel.text = "Указать детали"
-            cell.descriptionLabel.textColor = .colorAccentLight
-        }
+        cell.descriptionLabel.text = "Указать детали"
+        cell.descriptionLabel.textColor = .colorAccentLight
         
         if location.Type == LocationType.Drop && locations?.last?.Point?.Code == location.Point?.Code {
             cell.numImg.image = .icFlag
@@ -70,6 +64,11 @@ class LocationTableView: NSObject, UITableViewDataSource, UITableViewDelegate {
         
         cell.numView.heroID = "numView\(cell.numLabel.text!)"
         cell.numLabel.heroID = "numLabel\(cell.numLabel.text!)"
+        
+        getDescriprion(contacts: location.Contact) { description in
+            cell.descriptionLabel.text = description
+            cell.descriptionLabel.textColor = .darkGray
+        }
         
         return cell
         
@@ -98,6 +97,15 @@ class LocationTableView: NSObject, UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         didSelectRow?(locations![indexPath.row], indexPath.row)
+        
+    }
+    
+    func getDescriprion(contacts: Contact?, descr: (String) -> Void) {
+        
+        guard let name = contacts?.Name else { return }
+        guard let phone = contacts?.PhoneMobile else { return }
+        
+        descr("\(name), \(phone)")
         
     }
     

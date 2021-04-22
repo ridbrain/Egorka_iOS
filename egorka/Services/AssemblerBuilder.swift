@@ -13,7 +13,7 @@ protocol AssemblerBuilderProtocol {
     func createSplashModule(router: GeneralRouterProtocol) -> UIViewController
     func createNoNetworkModule(router: GeneralRouterProtocol) -> UIViewController
     func createMainModule(router: GeneralRouterProtocol) -> UIViewController
-    func createNewOrderModule(router: GeneralRouterProtocol, model: MainModeleProtocol) -> UIViewController
+    func createNewOrderModule(router: GeneralRouterProtocol, model: Delivery) -> UIViewController
     func createLocationDetails(router: GeneralRouterProtocol, model: Location, index: Int) -> UIViewController
     func createSideMenu(router: GeneralRouterProtocol) -> UIViewController
     func createCurrenOrderModule(router: GeneralRouterProtocol) -> UIViewController
@@ -39,12 +39,12 @@ class AssemblerBuilder: AssemblerBuilderProtocol {
     
     func createMainModule(router: GeneralRouterProtocol) -> UIViewController {
         let view = MainViewController()
-        let presnter = MainPresenter(router: router, model: MainModel(), view: view)
+        let presnter = MainPresenter(router: router, view: view)
         view.presenter = presnter
         return view
     }
     
-    func createNewOrderModule(router: GeneralRouterProtocol, model: MainModeleProtocol) -> UIViewController {
+    func createNewOrderModule(router: GeneralRouterProtocol, model: Delivery) -> UIViewController {
         let view = NewOrderViewController()
         let presenter = NewOrderPresenter(router: router, model: model, view: view)
         view.presenter = presenter

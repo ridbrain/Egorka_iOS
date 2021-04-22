@@ -20,7 +20,7 @@ protocol NewOrderViewProtocol: UIViewController {
 
 protocol NewOrderPresenterProtocol: class {
     
-    init(router: GeneralRouterProtocol, model: MainModeleProtocol, view: NewOrderViewProtocol)
+    init(router: GeneralRouterProtocol, model: Delivery, view: NewOrderViewProtocol)
     
     func viewDidLoad()
     func viewWillAppear()

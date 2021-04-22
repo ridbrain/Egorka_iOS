@@ -27,7 +27,7 @@ protocol MainViewProtocol: UIViewController {
 
 protocol MainPresenterProtocol: class {
     
-    init(router: GeneralRouterProtocol, model: MainModeleProtocol, view: MainViewProtocol)
+    init(router: GeneralRouterProtocol, view: MainViewProtocol)
     
     func viewDidLoad()
     func viewWillAppear()
@@ -39,7 +39,7 @@ protocol MainPresenterProtocol: class {
     func pressPickupFieldButton()
     func pressDropFieldButton()
     func selectAddress(address: Dictionary.Suggestion)
-    func openNewOrder()
+    func openNewOrder(order: Delivery)
     func openSideMenu()
     
 }

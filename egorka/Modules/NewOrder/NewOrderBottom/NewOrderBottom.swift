@@ -14,7 +14,11 @@ class NewOrderBottom: UIView, NewOrderBottomProtocol {
     
     private var contetntHeight: [[CGFloat]]!
     private var bottomSheet: BottomSheetView!
-
+    
+    @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var typeIcon: UIImageView!
+    @IBOutlet weak var typeLabel: UILabel!
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -45,6 +49,15 @@ class NewOrderBottom: UIView, NewOrderBottomProtocol {
     
     func transitionBottomView(index: Int) {
         bottomSheet.reload(with: contetntHeight[index])
+    }
+    
+    func setPrice(price: String) {
+        priceLabel.text = price
+    }
+    
+    func setTypeData(data: TypeData) {
+        typeIcon.image = data.icon
+        typeLabel.text = data.label
     }
 
 }

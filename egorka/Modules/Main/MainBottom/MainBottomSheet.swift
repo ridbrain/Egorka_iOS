@@ -141,8 +141,8 @@ class MainBottomSheet: UIView, MainBottomViewProtocol {
     
     func initCollectionView() {
         
-        collectionDelegate = CollectionDelegate() { price in
-            self.presenter?.openNewOrder()
+        collectionDelegate = CollectionDelegate() { delivery in
+            self.presenter?.openNewOrder(order: delivery)
         }
         
         collectionView.delegate = collectionDelegate
@@ -273,8 +273,12 @@ class MainBottomSheet: UIView, MainBottomViewProtocol {
         
     }
     
-    func getTextFromField() -> [String] {
-        return [fromField.text ?? "", whereField.text ?? ""]
+    func getPickupText() -> String {
+        return fromField.text ?? ""
+    }
+    
+    func getDropText() -> String {
+        return whereField.text ?? ""
     }
     
     func changeIconPickupField(edit: Bool) {

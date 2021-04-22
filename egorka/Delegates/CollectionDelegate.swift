@@ -17,14 +17,9 @@ struct TypeDelivery {
 class CollectionDelegate: NSObject, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     var types = [Delivery]()
-    var didDeselectItem: (Int) -> Void
-//    var types = [
-//        TypeDelivery(type: 1, descr: "Пеший", price: 0, image: UIImage(named: "leg")),
-//        TypeDelivery(type: 3, descr: "Скутер", price: 0, image: UIImage(named: "bike")),
-//        TypeDelivery(type: 2, descr: "Легковой", price: 0, image: UIImage(named: "car")),
-//        TypeDelivery(type: 3, descr: "Грузовой", price: 0, image: UIImage(named: "track"))]
+    var didDeselectItem: (Delivery) -> Void
     
-    required init(didDeselectItem: @escaping (Int) -> Void) {
+    required init(didDeselectItem: @escaping (Delivery) -> Void) {
         self.didDeselectItem = didDeselectItem
     }
     
@@ -39,18 +34,12 @@ class CollectionDelegate: NSObject, UICollectionViewDataSource, UICollectionView
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TypeCollectionViewCell.reuseID, for: indexPath) as! TypeCollectionViewCell
+        
         let type = types[indexPath.row]
+        let typeData = TypeData(type: type.Type!)
         
-        switch type.Type {
-        case .Car:
-            cell.label.text = "Легковой"
-            cell.icon.image = UIImage(named: "car")
-        case .Walk:
-            cell.label.text = "Пеший"
-            cell.icon.image = UIImage(named: "leg")
-        case .none: break
-        }
-        
+        cell.label.text = typeData.label
+        cell.icon.image = typeData.icon
         cell.price.text = "\(String(type.Result!.TotalPrice!.Total! / 100)) ₽"
         cell.label.textColor = UIColor.black
         cell.icon.tintColor = UIColor.black
@@ -79,7 +68,6 @@ class CollectionDelegate: NSObject, UICollectionViewDataSource, UICollectionView
         
         if let cell: TypeCollectionViewCell = collectionView.cellForItem(at: indexPath) as? TypeCollectionViewCell {
             
-//            cell.layer.backgroundColor = UIColor.colorGrayLight.cgColor
             cell.label.textColor = UIColor.black
             cell.icon.tintColor = UIColor.black
             
@@ -91,13 +79,12 @@ class CollectionDelegate: NSObject, UICollectionViewDataSource, UICollectionView
         
         if let cell: TypeCollectionViewCell = collectionView.cellForItem(at: indexPath) as? TypeCollectionViewCell {
             
-//            cell.layer.backgroundColor = UIColor.colorGray.cgColor
             cell.label.textColor = UIColor.colorAccent
             cell.icon.tintColor = UIColor.colorAccent
             
         }
         
-        didDeselectItem(indexPath.row)
+        didDeselectItem(types[indexPath.row])
         
     }
     

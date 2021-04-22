@@ -5,7 +5,7 @@
 //  Created by Vitaliy Yakovlev on 15.03.2021.
 //
 
-import Foundation
+import UIKit
 
 struct Dictionary: Codable {
     
@@ -24,6 +24,24 @@ struct Dictionary: Codable {
         var ID: String?
         var Name: String?
         var Point: Point?
+    }
+    
+}
+
+class TypeData {
+    
+    var icon: UIImage
+    var label: String
+    
+    init(type: DeliveryType) {
+        switch type {
+        case .Car:
+            label = "Легковой"
+            icon = .icCar
+        case .Walk:
+            label = "Пеший"
+            icon = .icWalk
+        }
     }
     
 }

@@ -41,7 +41,8 @@ protocol MainBottomViewProtocol: UIView {
     func setTextField(field: FocusField, text: String)
     func setSuggestions(suggestions: [Dictionary.Suggestion])
     func setFieldEdit(field: FocusField)
-    func getTextFromField() -> [String]
+    func getPickupText() -> String
+    func getDropText() -> String
     func changeIconPickupField(edit: Bool)
     func showIconDropField(show: Bool)
     

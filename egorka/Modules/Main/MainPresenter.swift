@@ -12,7 +12,6 @@ class MainPresenter: MainPresenterProtocol {
     
     weak var view: MainViewProtocol?
     var router: GeneralRouterProtocol?
-    var model: MainModeleProtocol?
     
     var location: LocationHandeler!
     var bottomView: MainBottomViewProtocol!
@@ -21,9 +20,11 @@ class MainPresenter: MainPresenterProtocol {
     var routeLaid = false
     var keyboardHide = true
     
-    required init(router: GeneralRouterProtocol, model: MainModeleProtocol, view: MainViewProtocol) {
+    var pickup: Location?
+    var drop: Location?
+    
+    required init(router: GeneralRouterProtocol, view: MainViewProtocol) {
         self.view = view
-        self.model = model
         self.router = router
     }
     
@@ -238,7 +239,7 @@ class MainPresenter: MainPresenterProtocol {
                     
                     let suggestion = suggestions[0]
                     
-                    self.model!.pickups = [Location(suggestion: suggestion, type: .Pickup, routeOrder: 1)]
+                    self.pickup = Location(suggestion: suggestion, type: .Pickup, routeOrder: 1)
                     self.bottomView.setTextField(field: .pickup, text: suggestion.Name!)
                     self.bottomView.setSuggestions(suggestions: suggestions)
                     
@@ -319,7 +320,7 @@ class MainPresenter: MainPresenterProtocol {
                         
                         let suggestion = suggestions[0]
                         
-                        self.model!.pickups = [Location(suggestion: suggestion, type: .Pickup, routeOrder: 1)]
+                        self.pickup = Location(suggestion: suggestion, type: .Pickup, routeOrder: 1)
                         self.bottomView.setTextField(field: .pickup, text: suggestion.Name!)
                         
                     }
@@ -363,7 +364,7 @@ class MainPresenter: MainPresenterProtocol {
             
             case .pickup:
                 
-                model!.pickups = [Location(suggestion: address, type: .Pickup, routeOrder: 1)]
+                pickup = Location(suggestion: address, type: .Pickup, routeOrder: 1)
                 bottomView.setFieldEdit(field: .drop)
                 bottomView.showWhere(show: true)
                 bottomView.showTable(show: true, extra: 120)
@@ -372,7 +373,7 @@ class MainPresenter: MainPresenterProtocol {
                     view?.setMapRegion(coordinate: CLLocationCoordinate2D(latitude: point.Latitude!, longitude: point.Longitude!))
                 }
                 
-                if let drop = model?.drops?.first {
+                if let drop = drop {
                     
                     if address.ID != drop.ID {
                         hideKeyboard()
@@ -386,9 +387,9 @@ class MainPresenter: MainPresenterProtocol {
                 
             case .drop:
                 
-                model!.drops = [Location(suggestion: address, type: .Drop, routeOrder: 2)]
+                drop = Location(suggestion: address, type: .Drop, routeOrder: 2)
 
-                if let pickup = model?.pickups?.first {
+                if let pickup = pickup {
                     
                     if address.ID != pickup.ID {
                         hideKeyboard()
@@ -414,12 +415,12 @@ class MainPresenter: MainPresenterProtocol {
     
     func setRoute() {
         
-        if model!.pickups!.count > 0 && model!.drops!.count > 0 {
-            if bottomView.getTextFromField()[0] == model?.pickups![0].Point?.Address
-                && bottomView.getTextFromField()[1] == model?.drops![0].Point?.Address {
-                view?.showPin(show: false)
-                view!.setRoute(pickup: model!.pickups![0].Point!, drop: model!.drops![0].Point!)
-            }
+        guard let pickupPoint = pickup?.Point else { return }
+        guard let dropPoint = drop?.Point else { return }
+        
+        if bottomView.getPickupText() == pickupPoint.Address && bottomView.getDropText() == dropPoint.Address {
+            view?.showPin(show: false)
+            view!.setRoute(pickup: pickupPoint, drop: dropPoint)
         }
         
     }
@@ -428,29 +429,38 @@ class MainPresenter: MainPresenterProtocol {
         
         routeLaid = true
         
+        guard let pickupCode = pickup?.Point?.Code else { return }
+        guard let dropCode = drop?.Point?.Code else { return }
+        
         var types = [Delivery]()
         
-        Network.calculate(codeFrom: model!.pickups![0].Point!.Code!, codeTo: model!.drops![0].Point!.Code!, type: .Car) { delivery in
-            delivery.Type = .Car
+        Network.firstCalculate(codeFrom: pickupCode, codeTo: dropCode, type: .Walk) { delivery in
+            
             types.append(delivery)
-            self.bottomView.reloadCollection(types: types)
-            self.bottomView.showButtons(show: true)
-            self.bottomView.transitionBottomView(state: .medium)
+            self.updatePrices(types: types)
+            
         }
         
-        Network.calculate(codeFrom: model!.pickups![0].Point!.Code!, codeTo: model!.drops![0].Point!.Code!, type: .Walk) { delivery in
-            delivery.Type = .Walk
+        Network.firstCalculate(codeFrom: pickupCode, codeTo: dropCode, type: .Car) { delivery in
+            
             types.append(delivery)
-            self.bottomView.reloadCollection(types: types)
-            self.bottomView.showButtons(show: true)
-            self.bottomView.transitionBottomView(state: .medium)
+            self.updatePrices(types: types)
+            
         }
         
     }
     
-    func openNewOrder() {
+    func updatePrices(types: [Delivery]) {
         
-        router?.openNewOrder(model: model!)
+        self.bottomView.reloadCollection(types: types)
+        self.bottomView.showButtons(show: true)
+        self.bottomView.transitionBottomView(state: .medium)
+        
+    }
+    
+    func openNewOrder(order: Delivery) {
+        
+        router?.openNewOrder(model: order)
         
     }
     

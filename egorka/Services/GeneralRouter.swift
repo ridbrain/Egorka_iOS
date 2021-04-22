@@ -17,7 +17,7 @@ protocol GeneralRouterProtocol {
     func getRootView() -> UINavigationController
     func setSplashView()
     func openMainView()
-    func openNewOrder(model: MainModeleProtocol)
+    func openNewOrder(model: Delivery)
     func openLocationDetails(model: Location, index: Int)
     func openCurrentOrder()
     func openSideMenu()
@@ -67,7 +67,7 @@ class GeneralRouter: GeneralRouterProtocol {
         navigationController.show(mainViewController, navigationAnimationType: .autoReverse(presenting: .fade))
     }
     
-    func openNewOrder(model: MainModeleProtocol) {
+    func openNewOrder(model: Delivery) {
         guard let newOrderViewController = assemblerBuilder?.createNewOrderModule(router: self, model: model) else { return }
         navigationController.show(newOrderViewController, navigationAnimationType: .selectBy(presenting: .slide(direction: .up), dismissing: .slide(direction: .down)))
     }
