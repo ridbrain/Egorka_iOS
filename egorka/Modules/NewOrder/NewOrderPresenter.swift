@@ -11,16 +11,13 @@ class NewOrderPresenter: NewOrderPresenterProtocol {
     
     weak var view: NewOrderViewProtocol?
     var router: GeneralRouterProtocol?
-    var model: Delivery!
+    var delivery: Delivery!
     
     var bottomView: NewOrderBottomProtocol!
     
-    var pickups: [Location]?
-    var drops: [Location]?
-    
     required init(router: GeneralRouterProtocol, model: Delivery, view: NewOrderViewProtocol) {
         self.view = view
-        self.model = model
+        self.delivery = model
         self.router = router
     }
     
@@ -32,84 +29,72 @@ class NewOrderPresenter: NewOrderPresenterProtocol {
         bottomView = NewOrderBottom()
         bottomView.presenter = self
         
-        DispatchQueue.global(qos: .background).async {
-            sleep(1)
-            DispatchQueue.main.async { [self] in
-                if let view = view?.view {
-                    bottomView.presentBottomView(view: view)
-                }
-            }
-        }
+        if let view = view?.view { bottomView.presentBottomView(view: view) }
         
     }
     
     func viewWillAppear() {
         
         updateArrays()
+        updateOrder()
         
         view?.enableHero()
         view?.enableIQKeyboard()
         
     }
     
-    func deleteLocation(type: LocationType, index: Int) {
+    func updateOrder() {
         
-//        switch type {
-//        case .Pickup:
-//            model.pickups?[index].Point = Point()
-//        default:
-//            model.drops?[index].Point = Point()
-//        }
+        delivery.Result?.Locations = delivery.Result?.Locations?.filter { $0.Point?.Code != nil }
+        delivery.restoreIndex()
         
-//        updateArrays()
+        Network.extendedCalculate(locations: delivery.getLoactionsParameters(), type: delivery.Type!) { delivery in
+            
+            self.delivery = delivery
+            self.updateArrays()
+            self.updateBottomView()
+            
+        }
+        
+    }
+    
+    func deleteLocation(routeOrder: Int) {
+        
+        delivery.Result?.Locations = delivery.Result?.Locations?.filter { $0.RouteOrder != routeOrder }
+        updateOrder()
+        
+    }
+    
+    func updateBottomView() {
+        
+        guard let totalPrice = delivery.Result?.TotalPrice else { return }
+        guard let deliveryType = delivery.Type else { return }
+        
+        bottomView.setInfoFields(type: TypeData(type: deliveryType), price: totalPrice)
+        bottomView.transitionBottomView(index: 1)
         
     }
     
     func updateArrays() {
         
-        guard let locations = model.Result?.Locations else { return }
+        delivery.Result?.Locations = delivery.Result?.Locations?.filter { $0.Point?.Code != nil }
         
-        pickups = [Location]()
-        drops = [Location]()
+        guard let locations = delivery.Result?.Locations else { return }
         
-        locations.forEach { location in
-            switch location.Type {
-            case .Pickup:
-                pickups!.append(location)
-            case .Drop:
-                drops!.append(location)
-            case .none:
-                break
-            }
-        }
-        
-//        var index = 1
-//
-//        model.pickups = model.pickups?.filter { $0.Point?.Code != nil }
-//        model.drops = model.drops?.filter { $0.Point?.Code != nil }
-//
-//        model.pickups?.forEach { location in
-//            location.RouteOrder = index
-//            index = index + 1
-//        }
-//
-//        model.drops?.forEach { location in
-//            location.RouteOrder = index
-//            index = index + 1
-//        }
+        let pickups = locations.filter { $0.Type == .Pickup }
+        let drops = locations.filter { $0.Type == .Drop }
         
         if locations.count > 2 {
-            view?.updateTables(pickups: pickups!, drops: drops!, numState: .full)
+            view?.updateTables(pickups: pickups, drops: drops, numState: .full)
         } else {
-            view?.updateTables(pickups: pickups!, drops:drops!, numState: .lite)
+            view?.updateTables(pickups: pickups, drops: drops, numState: .lite)
         }
-        
-        bottomView.setPrice(price: "\((model.Result!.TotalPrice!.Total ?? 0) / 100) ₽")
-        bottomView.setTypeData(data: TypeData(type: model.Type!))
         
     }
     
     func viewWillDisappear() {
+        
+        bottomView.transitionBottomView(index: 0)
         
         view?.disableHero()
         view?.disableIQKeyboard()
@@ -130,27 +115,44 @@ class NewOrderPresenter: NewOrderPresenterProtocol {
     
     func newPickup() {
         
-//        if let lastPickup = model.pickups?.last {
-//
-//            let newPickup = Location(suggestion: Dictionary.Suggestion(), type: .Pickup, routeOrder: lastPickup.RouteOrder! + 1)
-//
-//            model.pickups?.append(newPickup)
-//            router?.openLocationDetails(model: newPickup, index: model.pickups!.count - 1)
-//
-//        }
+        guard let locations = delivery.Result?.Locations else { return }
+        
+        var pickups = locations
+            .filter { $0.Type == .Pickup }
+            .sorted { $0.RouteOrder! < $1.RouteOrder! }
+        
+        if let lastPickup = pickups.last {
+
+            let newPickup = Location(suggestion: Dictionary.Suggestion(), type: .Pickup, routeOrder: lastPickup.RouteOrder! + 1)
+            pickups.append(newPickup)
+            
+            let drops = locations.filter { $0.Type == .Drop }
+            drops.forEach { location in location.RouteOrder = location.RouteOrder! + 1 }
+            
+            delivery.updateLocations(pickups: pickups, drops: drops)
+            router?.openLocationDetails(model: newPickup, index: pickups.count - 1)
+
+        }
         
     }
     
     func newDrop() {
         
-//        if let lastDrop = model.drops?.last {
-//
-//            let newDrop = Location(suggestion: Dictionary.Suggestion(), type: .Drop, routeOrder: lastDrop.RouteOrder! + 1)
-//
-//            model.drops?.append(newDrop)
-//            router?.openLocationDetails(model: newDrop, index: model.drops!.count - 1)
-//
-//        }
+        guard let locations = delivery.Result?.Locations else { return }
+        
+        var drops = locations
+            .filter { $0.Type == .Drop }
+            .sorted { $0.RouteOrder! < $1.RouteOrder! }
+        
+        if let lastDrop = drops.last {
+
+            let newDrop = Location(suggestion: Dictionary.Suggestion(), type: .Drop, routeOrder: lastDrop.RouteOrder! + 1)
+            drops.append(newDrop)
+            
+            delivery.updateLocations(pickups: locations.filter { $0.Type == .Pickup }, drops: drops)
+            router?.openLocationDetails(model: newDrop, index: drops.count - 1)
+
+        }
         
     }
     

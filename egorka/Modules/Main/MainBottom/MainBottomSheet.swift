@@ -282,21 +282,37 @@ class MainBottomSheet: UIView, MainBottomViewProtocol {
     }
     
     func changeIconPickupField(edit: Bool) {
+        
         if edit {
-            pickupFieldButton.setImage(UIImage(named: "Remove"), for: .normal)
-            pickupFieldButton.tintColor = .lightGray
+            if pickupFieldButton.image(for: .normal) != UIImage(named: "Remove")! {
+                pickupFieldButton.changeIcon(image: UIImage(named: "Remove")!, color: .lightGray)
+            }
         } else {
-            pickupFieldButton.setImage(UIImage(named: "Crosshair"), for: .normal)
-            pickupFieldButton.tintColor = .colorAccent
+            if pickupFieldButton.image(for: .normal) != UIImage(named: "Crosshair")! {
+                pickupFieldButton.changeIcon(image: UIImage(named: "Crosshair")!, color: .colorAccent)
+            }
         }
+        
     }
     
     func showIconDropField(show: Bool) {
+        
+//        if whereHeight.constant == 45 {
+//            if show {
+//                dropFieldButton.changeIcon(image: UIImage(named: "Remove")!, color: .lightGray)
+//            } else {
+//                dropFieldButton.hideIcon()
+//            }
+//        } else {
+//            dropFieldButton.hideIcon()
+//        }
+        
         if whereHeight.constant == 45 {
             dropFieldButton.isHidden = !show
         } else {
             dropFieldButton.isHidden = true
         }
+        
     }
     
     @IBAction func pressPickupFieldButton(_ sender: Any) {

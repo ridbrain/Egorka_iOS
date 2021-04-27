@@ -15,7 +15,10 @@ class NewOrderBottom: UIView, NewOrderBottomProtocol {
     private var contetntHeight: [[CGFloat]]!
     private var bottomSheet: BottomSheetView!
     
-    @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var totalPriceLabel: UILabel!
+    @IBOutlet weak var deliveryPriceLabel: UILabel!
+    @IBOutlet weak var ancillaryPriceLabel: UILabel!
+    @IBOutlet weak var tipPriceLabel: UILabel!
     @IBOutlet weak var typeIcon: UIImageView!
     @IBOutlet weak var typeLabel: UILabel!
     
@@ -30,7 +33,7 @@ class NewOrderBottom: UIView, NewOrderBottomProtocol {
             bottomSafeArea = (window?.safeAreaInsets.bottom) ?? 0
         }
 
-        contetntHeight = [[140 + bottomSafeArea], [235 + bottomSafeArea]]
+        contetntHeight = [[0], [140 + bottomSafeArea], [235 + bottomSafeArea]]
         
         xib.frame = self.bounds
         addSubview(xib)
@@ -51,13 +54,13 @@ class NewOrderBottom: UIView, NewOrderBottomProtocol {
         bottomSheet.reload(with: contetntHeight[index])
     }
     
-    func setPrice(price: String) {
-        priceLabel.text = price
-    }
-    
-    func setTypeData(data: TypeData) {
-        typeIcon.image = data.icon
-        typeLabel.text = data.label
+    func setInfoFields(type: TypeData, price: Delivery.TotalPrice) {
+        typeIcon.image = type.icon
+        typeLabel.text = type.label
+        totalPriceLabel.text = "\(price.Total! / 100) ₽"
+        deliveryPriceLabel.text = "\(price.Base! / 100) ₽ доставка"
+        ancillaryPriceLabel.text = "\(price.Ancillary! / 100) ₽ доп. услуги"
+        tipPriceLabel.text = "\(price.Tip! / 100) ₽ сбор плат. сист."
     }
 
 }

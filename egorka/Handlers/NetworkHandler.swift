@@ -97,7 +97,34 @@ class Network {
         request(url: url, param: parameters) { data in
 
             do {
-//                let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
+//                print(try JSONSerialization.jsonObject(with: data, options: .mutableLeaves))
+                let answer = try JSONDecoder().decode(Delivery.self, from: data)
+                if answer.Result?.TotalPrice?.Total != nil {
+                    answer.Type = type
+                    complition(answer)
+                }
+            } catch let error {
+                print(error)
+            }
+
+        }
+
+    }
+    
+    class func extendedCalculate(
+        url: String = "service/delivery/",
+        locations: [Any],
+        type: DeliveryType,
+        complition: @escaping (Delivery) -> Void) {
+        
+        let body = ["Type" : type.rawValue, "Locations" : locations] as Parameters
+        let params = ["Compress" : "GZip", "Language" : "RU"] as Parameters
+        let parameters = ["Auth" : auth, "Method" : "Calculate", "Body" : body, "Params" : params] as Parameters
+
+        request(url: url, param: parameters) { data in
+
+            do {
+//                print(try JSONSerialization.jsonObject(with: data, options: .mutableLeaves))
                 let answer = try JSONDecoder().decode(Delivery.self, from: data)
                 if answer.Result?.TotalPrice?.Total != nil {
                     answer.Type = type

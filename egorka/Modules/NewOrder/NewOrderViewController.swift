@@ -52,14 +52,16 @@ class NewOrderViewController: UIViewController, NewOrderViewProtocol {
         
         pickupTableDelegate = LocationTableView(didSelectRow: { loacation, index in
             self.presenter?.openDetails(location: loacation, index: index)
-        }, deleteRow: { type, index in
-            self.presenter?.deleteLocation(type: type, index: index)
+        }, deleteRow: { indexPath, routeOrder in
+            self.pickupTableView.deleteRows(at: [indexPath], with: .fade)
+            self.presenter?.deleteLocation(routeOrder: routeOrder)
         })
         
         dropTableDelegate = LocationTableView(didSelectRow: { loacation, index in
             self.presenter?.openDetails(location: loacation, index: index)
-        }, deleteRow: { type, index in
-            self.presenter?.deleteLocation(type: type, index: index)
+        }, deleteRow: { indexPath, routeOrder in
+            self.dropTableView.deleteRows(at: [indexPath], with: .fade)
+            self.presenter?.deleteLocation(routeOrder: routeOrder)
         })
         
         pickupTableView.setCorner()

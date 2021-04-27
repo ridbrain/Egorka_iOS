@@ -223,3 +223,47 @@ class MyPoint: MKPointAnnotation {
     }
     
 }
+
+extension UIButton {
+    
+    func changeIcon(image: UIImage, color: UIColor) {
+        
+        UIView.transition(with: self, duration: 0.5, options: .transitionFlipFromRight) {
+            self.setImage(image, for: .normal)
+            self.tintColor = color
+        }
+        
+    }
+    
+    func hideIcon() {
+        
+        UIView.transition(with: self, duration: 0.5, options: .curveEaseOut) {
+            self.setImage(UIImage(), for: .normal)
+        }
+        
+    }
+    
+}
+
+extension UIView {
+
+  func fadeIn(duration: TimeInterval = 0.5, delay: TimeInterval = 0.0, completion: @escaping ((Bool) -> Void) = {(finished: Bool) -> Void in }) {
+    UIView.animate(withDuration: duration,
+                   delay: delay,
+                   options: .transitionFlipFromTop,
+                   animations: {
+      self.alpha = 1.0
+    }, completion: completion)
+  }
+
+  func fadeOut(duration: TimeInterval = 0.5,
+               delay: TimeInterval = 0.0,
+               completion: @escaping (Bool) -> Void = {(finished: Bool) -> Void in }) {
+    UIView.animate(withDuration: duration,
+                   delay: delay,
+                   options: .transitionFlipFromTop,
+                   animations: {
+      self.alpha = 0.0
+    }, completion: completion)
+  }
+}

@@ -17,9 +17,9 @@ class LocationTableView: NSObject, UITableViewDataSource, UITableViewDelegate {
     var numState: NumState!
     var locations: [Location]?
     var didSelectRow: ((Location, Int) -> Void)?
-    var deleteRow: ((LocationType, Int) -> Void)?
+    var deleteRow: ((IndexPath, Int) -> Void)?
     
-    required init(didSelectRow: ((Location, Int) -> Void)? = nil, deleteRow: ((LocationType, Int) -> Void)? = nil) {
+    required init(didSelectRow: ((Location, Int) -> Void)? = nil, deleteRow: ((IndexPath, Int) -> Void)? = nil) {
         self.numState = .lite
         self.didSelectRow = didSelectRow
         self.deleteRow = deleteRow
@@ -76,21 +76,22 @@ class LocationTableView: NSObject, UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         
-        if indexPath.row > 0 {
+        if locations!.count > 1 {
             
-            let delete = UITableViewRowAction(style: .destructive, title: "Удалить") { (action, indexPath) in
+            let delete = UITableViewRowAction(style: .destructive, title: "Удалить") { _, indexPath in
                 
-                self.deleteRow?(self.locations![indexPath.row].Type!, indexPath.row)
+                let routeOrder = self.locations![indexPath.row].RouteOrder!
+                
+                self.locations?.remove(at: indexPath.row)
+                self.deleteRow?(indexPath, routeOrder)
 
             }
             
             return [delete]
             
-        } else {
-            
-            return nil
-            
         }
+        
+        return nil
         
     }
     

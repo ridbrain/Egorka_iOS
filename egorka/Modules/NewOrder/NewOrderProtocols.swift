@@ -18,7 +18,7 @@ protocol NewOrderViewProtocol: UIViewController {
     
 }
 
-protocol NewOrderPresenterProtocol: class {
+protocol NewOrderPresenterProtocol {
     
     init(router: GeneralRouterProtocol, model: Delivery, view: NewOrderViewProtocol)
     
@@ -27,7 +27,7 @@ protocol NewOrderPresenterProtocol: class {
     func viewWillDisappear()
     
     func openDetails(location: Location, index: Int)
-    func deleteLocation(type: LocationType, index: Int) 
+    func deleteLocation(routeOrder: Int) 
     func newPickup()
     func newDrop()
     func cancel()

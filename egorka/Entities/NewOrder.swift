@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Alamofire
 
 struct Dictionary: Codable {
     
@@ -81,14 +82,45 @@ class Delivery: Codable {
         var Currency: String?
     }
     
+    func restoreIndex() {
+        
+        var index = 1
+        
+        self.Result?.Locations?.forEach { location in
+            
+            location.ID = "\(location.Type!.rawValue)-\(index)"
+            location.Route = 1
+            location.RouteOrder = index
+            
+            index = index + 1
+            
+        }
+        
+    }
+    
+    func updateLocations(pickups: [Location], drops: [Location]) {
+        
+        self.Result?.Locations = [Location]()
+        
+        pickups.forEach { location in self.Result?.Locations?.append(location) }
+        drops.forEach { location in self.Result?.Locations?.append(location) }
+        
+    }
+    
+    func getLoactionsParameters() -> [Any] {
+        
+        var array = [Any]()
+        self.Result?.Locations?.forEach { location in array.append(location.getString()) }
+        
+        return array
+        
+    }
+    
 }
 
 class Location: Codable {
     
-    var ID: String {
-        return "\(self.Type?.rawValue ?? "")-\(self.RouteOrder ?? 0)"
-    }
-    
+    var ID: String?
     var Date: String?
     var Route: Int?
     var RouteOrder: Int?
@@ -103,6 +135,7 @@ class Location: Codable {
         point?.Code = suggestion.ID
         point?.Address = suggestion.Name
         
+        self.ID = "\(type.rawValue)-\(routeOrder)"
         self.Date = nil
         self.Type = type
         self.Route = 1
@@ -110,6 +143,19 @@ class Location: Codable {
         self.Point = point
         self.Contact = nil
         self.Message = nil
+        
+    }
+    
+    func getString() -> Parameters {
+        
+        return [
+            "ID" : ID ?? "",
+            "Date" : Date ?? "",
+            "Route" : Route ?? "",
+            "RouteOrder" : RouteOrder ?? "",
+            "Point" : Point?.getString() ?? "",
+            "Type" : Type?.rawValue ?? ""
+        ] as Parameters
         
     }
     
@@ -124,6 +170,17 @@ class Point: Codable {
     var Entrance: Int?
     var Floor: Int?
     var Room: Int?
+    
+    func getString() -> Parameters {
+        
+        return [
+            "Address" : Address ?? "",
+            "Code" : Code ?? "",
+            "Latitude" : Latitude ?? "",
+            "Longitude" : Longitude ?? ""
+        ] as Parameters
+        
+    }
     
 }
 

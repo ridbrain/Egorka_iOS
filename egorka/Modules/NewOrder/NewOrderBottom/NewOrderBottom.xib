@@ -12,7 +12,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewOrderBottom" customModule="egorka" customModuleProvider="target">
             <connections>
-                <outlet property="priceLabel" destination="O9I-8x-Sa4" id="ilZ-kZ-SzE"/>
+                <outlet property="ancillaryPriceLabel" destination="0OQ-ve-1jD" id="MwK-5a-zNk"/>
+                <outlet property="deliveryPriceLabel" destination="mcc-KD-b6H" id="3fM-ZT-gZA"/>
+                <outlet property="tipPriceLabel" destination="hDI-73-ldU" id="jIV-XO-QbF"/>
+                <outlet property="totalPriceLabel" destination="O9I-8x-Sa4" id="mci-v1-JRY"/>
                 <outlet property="typeIcon" destination="63I-Qd-Crn" id="7w6-2I-dFf"/>
                 <outlet property="typeLabel" destination="HZg-dH-SyP" id="g7H-JR-eVF"/>
             </connections>
