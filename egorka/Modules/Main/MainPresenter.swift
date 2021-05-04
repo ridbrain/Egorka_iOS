@@ -13,10 +13,9 @@ class MainPresenter: MainPresenterProtocol {
     weak var view: MainViewProtocol?
     var router: GeneralRouterProtocol?
     
-    var location: LocationHandeler!
+    var locationHandler: LocationHandeler!
     var bottomView: MainBottomViewProtocol!
 
-    var myLocation = false
     var routeLaid = false
     var keyboardHide = true
     
@@ -32,14 +31,20 @@ class MainPresenter: MainPresenterProtocol {
         
         view?.setMapDelegate()
         
-        location = LocationHandeler() { location in
-            
-            if !(self.myLocation) {
-                self.view?.setMapRegion(coordinate: location.coordinate)
-                self.myLocation = true
+        locationHandler = LocationHandeler() {
+            if let coordinate = self.locationHandler.location?.coordinate {
+                self.view?.setMapRegion(coordinate: coordinate)
             }
-            
         }
+        
+//        locationHandler = LocationHandeler() {  in
+//
+//            if !(self.myLocation) {
+//                self.view?.setMapRegion(coordinate: location.coordinate)
+//                self.myLocation = true
+//            }
+//
+//        }
         
     }
     
@@ -203,7 +208,7 @@ class MainPresenter: MainPresenterProtocol {
     
     func moveMyLocation() {
         
-        if let coordinate = location.locations?[0].coordinate {
+        if let coordinate = locationHandler.location?.coordinate {
             view?.setMapRegion(coordinate: coordinate)
         }
         
@@ -313,7 +318,7 @@ class MainPresenter: MainPresenterProtocol {
             
         } else {
             
-            if let coordinate = location.locations?[0].coordinate {
+            if let coordinate = locationHandler.location?.coordinate {
                 
                 GeocoderHandler.getAddress(coordinate: coordinate) { address in
                     Network.getAddress(address: address) { suggestions in
@@ -429,19 +434,19 @@ class MainPresenter: MainPresenterProtocol {
         
         routeLaid = true
         
-        guard let pickupCode = pickup?.Point?.Code else { return }
-        guard let dropCode = drop?.Point?.Code else { return }
+        guard let pickup = pickup else { return }
+        guard let drop = drop else { return }
         
         var types = [Delivery]()
         
-        Network.firstCalculate(codeFrom: pickupCode, codeTo: dropCode, type: .Walk) { delivery in
+        Network.calculateDelivery(locations: [pickup.getString(), drop.getString()], type: .Walk) { delivery in
             
             types.append(delivery)
             self.updatePrices(types: types)
             
         }
         
-        Network.firstCalculate(codeFrom: pickupCode, codeTo: dropCode, type: .Car) { delivery in
+        Network.calculateDelivery(locations: [pickup.getString(), drop.getString()], type: .Car) { delivery in
             
             types.append(delivery)
             self.updatePrices(types: types)

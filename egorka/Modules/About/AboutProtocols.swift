@@ -13,7 +13,7 @@ protocol AboutViewProtocol: UIViewController {
     
 }
 
-protocol AboutPresenterProtocol: class {
+protocol AboutPresenterProtocol: AnyObject {
     
     init(router: GeneralRouterProtocol, view: AboutViewProtocol)
     

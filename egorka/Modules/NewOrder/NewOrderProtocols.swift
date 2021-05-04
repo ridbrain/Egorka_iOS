@@ -18,7 +18,7 @@ protocol NewOrderViewProtocol: UIViewController {
     
 }
 
-protocol NewOrderPresenterProtocol {
+protocol NewOrderPresenterProtocol: AnyObject {
     
     init(router: GeneralRouterProtocol, model: Delivery, view: NewOrderViewProtocol)
     

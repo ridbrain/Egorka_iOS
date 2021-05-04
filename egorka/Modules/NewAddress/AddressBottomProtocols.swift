@@ -9,13 +9,13 @@ import UIKit
 
 protocol AddressBottomViewProtocol: UIView {
     
-    var presenter: DetailsPresenterProtocol? { get set }
+    var textDidChange: ((String?) -> Void)? { get set }
+    var selectAddress: ((Dictionary.Suggestion) -> Void)? { get set }
+    var sheetHide: (() -> Void)? { get set }
     
     func presentBottomView(view: UIView, text: String)
     func setTableHeight(height: CGFloat)
-    func setTextDelegate()
     func setSuggestions(suggestions: [Dictionary.Suggestion])
-    func initTableView()
     func setAddressText(text: String)
     func dismiss()
     

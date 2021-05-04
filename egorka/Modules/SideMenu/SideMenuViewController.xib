@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -44,7 +44,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h6F-ZO-zVG">
-                    <rect key="frame" x="128.5" y="157" width="118" height="33"/>
+                    <rect key="frame" x="128.5" y="263" width="118" height="33"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <state key="normal" title="О приложении">
                         <color key="titleColor" name="ColorAccentLight"/>
@@ -53,15 +53,39 @@
                         <action selector="pressAbout:" destination="-1" eventType="touchUpInside" id="t8F-Ve-C12"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lBf-Yd-xt5">
+                    <rect key="frame" x="128" y="157" width="119" height="33"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <state key="normal" title="Маркетплейсы">
+                        <color key="titleColor" name="ColorAccentLight"/>
+                    </state>
+                    <connections>
+                        <action selector="pressMarketplaces:" destination="-1" eventType="touchUpInside" id="J1j-Ob-afZ"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i2N-9r-pbH">
+                    <rect key="frame" x="120" y="210" width="135" height="33"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <state key="normal" title="История заказоа">
+                        <color key="titleColor" name="ColorAccentLight"/>
+                    </state>
+                    <connections>
+                        <action selector="pressHistory:" destination="-1" eventType="touchUpInside" id="Cb4-2a-QvS"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="uCz-IM-m3v" secondAttribute="bottom" constant="50" id="8e8-t4-0ax"/>
-                <constraint firstItem="h6F-ZO-zVG" firstAttribute="top" secondItem="4zy-W8-05q" secondAttribute="bottom" constant="20" id="KKL-H3-746"/>
+                <constraint firstItem="lBf-Yd-xt5" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="9tK-M0-wPA"/>
+                <constraint firstItem="i2N-9r-pbH" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="C1J-IJ-4ju"/>
+                <constraint firstItem="h6F-ZO-zVG" firstAttribute="top" secondItem="i2N-9r-pbH" secondAttribute="bottom" constant="20" id="Moz-At-Xle"/>
                 <constraint firstItem="uCz-IM-m3v" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="XMQ-Em-6FO"/>
+                <constraint firstItem="lBf-Yd-xt5" firstAttribute="top" secondItem="4zy-W8-05q" secondAttribute="bottom" constant="20" id="hah-Oy-J2H"/>
                 <constraint firstItem="BB3-E2-0bm" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="lbW-by-EQ5"/>
                 <constraint firstItem="h6F-ZO-zVG" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="pdJ-nt-TES"/>
+                <constraint firstItem="i2N-9r-pbH" firstAttribute="top" secondItem="lBf-Yd-xt5" secondAttribute="bottom" constant="20" id="sN1-TZ-rLG"/>
                 <constraint firstItem="4zy-W8-05q" firstAttribute="top" secondItem="BB3-E2-0bm" secondAttribute="bottom" constant="50" id="tAj-FU-2nj"/>
                 <constraint firstItem="4zy-W8-05q" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="tMt-Hg-F1K"/>
                 <constraint firstItem="BB3-E2-0bm" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="14" id="ukO-Mt-RUm"/>

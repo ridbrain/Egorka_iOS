@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		002FEF4CBD8D74A50C09263D /* Pods_egorka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7EE0CB6675CF5329560B9DB /* Pods_egorka.framework */; };
+		5B3E485214101C724234C6AB /* Pods_egorka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 014F6ACBC5B0C432922FE215 /* Pods_egorka.framework */; };
 		E705CE74258CC776003AA401 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E705CE72258CC776003AA401 /* SplashViewController.swift */; };
 		E705CE75258CC776003AA401 /* SplashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E705CE73258CC776003AA401 /* SplashViewController.xib */; };
 		E7135F8A2601474E00A83B0B /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7135F882601474E00A83B0B /* DetailsViewController.swift */; };
@@ -39,6 +39,11 @@
 		E739C584259732D500E772AF /* NewOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E739C582259732D500E772AF /* NewOrderViewController.swift */; };
 		E739C585259732D500E772AF /* NewOrderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E739C583259732D500E772AF /* NewOrderViewController.xib */; };
 		E758AD8425949FEA0002149F /* NewOrderPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E758AD8325949FEA0002149F /* NewOrderPresenter.swift */; };
+		E780680526407020005A3684 /* MarketplaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E780680326407020005A3684 /* MarketplaceViewController.swift */; };
+		E780680626407020005A3684 /* MarketplaceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E780680426407020005A3684 /* MarketplaceViewController.xib */; };
+		E78068082640702D005A3684 /* MarketplaceProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78068072640702D005A3684 /* MarketplaceProtocols.swift */; };
+		E780680A26407037005A3684 /* MarketplacePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E780680926407037005A3684 /* MarketplacePresenter.swift */; };
+		E780680C2641E313005A3684 /* MarketplacePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E780680B2641E313005A3684 /* MarketplacePicker.swift */; };
 		E78A1CC12630B6AB0001F6DC /* AboutProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78A1CC02630B6AB0001F6DC /* AboutProtocols.swift */; };
 		E78A1CC62630B6BA0001F6DC /* AboutPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78A1CC52630B6BA0001F6DC /* AboutPresenter.swift */; };
 		E78A1CE62630CB570001F6DC /* NoNetworkProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78A1CE52630CB570001F6DC /* NoNetworkProtocols.swift */; };
@@ -96,9 +101,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		10EB91B8C74DF7F92202BD2C /* Pods-egorka.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-egorka.debug.xcconfig"; path = "Target Support Files/Pods-egorka/Pods-egorka.debug.xcconfig"; sourceTree = "<group>"; };
-		537A15D10AF1ACB02B48DDD4 /* Pods-egorka.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-egorka.release.xcconfig"; path = "Target Support Files/Pods-egorka/Pods-egorka.release.xcconfig"; sourceTree = "<group>"; };
-		D7EE0CB6675CF5329560B9DB /* Pods_egorka.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_egorka.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		014F6ACBC5B0C432922FE215 /* Pods_egorka.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_egorka.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		06745015629551124DEFA99F /* Pods-egorka.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-egorka.debug.xcconfig"; path = "Target Support Files/Pods-egorka/Pods-egorka.debug.xcconfig"; sourceTree = "<group>"; };
+		C3669030F221864B007F9821 /* Pods-egorka.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-egorka.release.xcconfig"; path = "Target Support Files/Pods-egorka/Pods-egorka.release.xcconfig"; sourceTree = "<group>"; };
 		E705CE72258CC776003AA401 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		E705CE73258CC776003AA401 /* SplashViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SplashViewController.xib; sourceTree = "<group>"; };
 		E7135F882601474E00A83B0B /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
@@ -137,6 +142,11 @@
 		E739C582259732D500E772AF /* NewOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOrderViewController.swift; sourceTree = "<group>"; };
 		E739C583259732D500E772AF /* NewOrderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewOrderViewController.xib; sourceTree = "<group>"; };
 		E758AD8325949FEA0002149F /* NewOrderPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOrderPresenter.swift; sourceTree = "<group>"; };
+		E780680326407020005A3684 /* MarketplaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketplaceViewController.swift; sourceTree = "<group>"; };
+		E780680426407020005A3684 /* MarketplaceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MarketplaceViewController.xib; sourceTree = "<group>"; };
+		E78068072640702D005A3684 /* MarketplaceProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketplaceProtocols.swift; sourceTree = "<group>"; };
+		E780680926407037005A3684 /* MarketplacePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketplacePresenter.swift; sourceTree = "<group>"; };
+		E780680B2641E313005A3684 /* MarketplacePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketplacePicker.swift; sourceTree = "<group>"; };
 		E78A1CC02630B6AB0001F6DC /* AboutProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutProtocols.swift; sourceTree = "<group>"; };
 		E78A1CC52630B6BA0001F6DC /* AboutPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutPresenter.swift; sourceTree = "<group>"; };
 		E78A1CE52630CB570001F6DC /* NoNetworkProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoNetworkProtocols.swift; sourceTree = "<group>"; };
@@ -181,7 +191,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				002FEF4CBD8D74A50C09263D /* Pods_egorka.framework in Frameworks */,
+				5B3E485214101C724234C6AB /* Pods_egorka.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,10 +212,10 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		69659B63AA119333A7AA8F51 /* Frameworks */ = {
+		99042F933A9E9A65F09CBCA4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D7EE0CB6675CF5329560B9DB /* Pods_egorka.framework */,
+				014F6ACBC5B0C432922FE215 /* Pods_egorka.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -213,8 +223,8 @@
 		AB8AC9492EB2797964CBB90D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				10EB91B8C74DF7F92202BD2C /* Pods-egorka.debug.xcconfig */,
-				537A15D10AF1ACB02B48DDD4 /* Pods-egorka.release.xcconfig */,
+				06745015629551124DEFA99F /* Pods-egorka.debug.xcconfig */,
+				C3669030F221864B007F9821 /* Pods-egorka.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -249,7 +259,7 @@
 				E7176B0E2580139D00825F14 /* egorkaUITests */,
 				E7176AEB2580139900825F14 /* Products */,
 				AB8AC9492EB2797964CBB90D /* Pods */,
-				69659B63AA119333A7AA8F51 /* Frameworks */,
+				99042F933A9E9A65F09CBCA4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -317,13 +327,14 @@
 			isa = PBXGroup;
 			children = (
 				E78A96582613872100416578 /* About */,
-				E7B44FEA260F6160002913E6 /* SideMenu */,
 				E7B44FD3260CED6C002913E6 /* CurrentOrder */,
-				E7C1686F26066E5400FF4AE1 /* NewAddress */,
 				E7135F872601473E00A83B0B /* Details */,
 				E7176B602580D61A00825F14 /* Main */,
+				E780680226406EF9005A3684 /* Marketplace */,
+				E7C1686F26066E5400FF4AE1 /* NewAddress */,
 				E758AD8225949FC60002149F /* NewOrder */,
 				E71D6B5E25F8E5C400F30FC4 /* NoNetwork */,
+				E7B44FEA260F6160002913E6 /* SideMenu */,
 				E705CE79258CC92A003AA401 /* Splash */,
 			);
 			path = Modules;
@@ -360,6 +371,7 @@
 				E799D9D82584BE0B00FE4E62 /* AddressTableView.swift */,
 				E799D9E92589515E00FE4E62 /* CollectionDelegate.swift */,
 				E7DDF7392600889400284398 /* LocationTableView.swift */,
+				E780680B2641E313005A3684 /* MarketplacePicker.swift */,
 			);
 			path = Delegates;
 			sourceTree = "<group>";
@@ -394,6 +406,17 @@
 				E739C583259732D500E772AF /* NewOrderViewController.xib */,
 			);
 			path = NewOrder;
+			sourceTree = "<group>";
+		};
+		E780680226406EF9005A3684 /* Marketplace */ = {
+			isa = PBXGroup;
+			children = (
+				E780680926407037005A3684 /* MarketplacePresenter.swift */,
+				E78068072640702D005A3684 /* MarketplaceProtocols.swift */,
+				E780680326407020005A3684 /* MarketplaceViewController.swift */,
+				E780680426407020005A3684 /* MarketplaceViewController.xib */,
+			);
+			path = Marketplace;
 			sourceTree = "<group>";
 		};
 		E78A96582613872100416578 /* About */ = {
@@ -493,11 +516,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E7176B142580139D00825F14 /* Build configuration list for PBXNativeTarget "egorka" */;
 			buildPhases = (
-				B8045B2C11FB2D5B9FB580F6 /* [CP] Check Pods Manifest.lock */,
+				480EAA89A954D46C8C41C10B /* [CP] Check Pods Manifest.lock */,
 				E7176AE62580139900825F14 /* Sources */,
 				E7176AE72580139900825F14 /* Frameworks */,
 				E7176AE82580139900825F14 /* Resources */,
-				540756AFC10CE47C39BD2D93 /* [CP] Embed Pods Frameworks */,
+				6FB3EB7DD6DA57AA559D2048 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -600,6 +623,7 @@
 				E739C585259732D500E772AF /* NewOrderViewController.xib in Resources */,
 				E7176B3625801BB900825F14 /* Colors.xcassets in Resources */,
 				E7B44FEF260F617F002913E6 /* SideMenuViewController.xib in Resources */,
+				E780680626407020005A3684 /* MarketplaceViewController.xib in Resources */,
 				E7176AFA2580139D00825F14 /* LaunchScreen.storyboard in Resources */,
 				E7B40E10260B742200775704 /* NewOrderBottom.xib in Resources */,
 				E7135F8B2601474E00A83B0B /* DetailsViewController.xib in Resources */,
@@ -631,24 +655,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		540756AFC10CE47C39BD2D93 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-egorka/Pods-egorka-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-egorka/Pods-egorka-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-egorka/Pods-egorka-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B8045B2C11FB2D5B9FB580F6 /* [CP] Check Pods Manifest.lock */ = {
+		480EAA89A954D46C8C41C10B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -670,6 +677,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		6FB3EB7DD6DA57AA559D2048 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-egorka/Pods-egorka-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-egorka/Pods-egorka-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-egorka/Pods-egorka-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -683,6 +707,7 @@
 				E7C168A62607E95A00FF4AE1 /* MainProtocols.swift in Sources */,
 				E7135F8A2601474E00A83B0B /* DetailsViewController.swift in Sources */,
 				E7B40E08260B740400775704 /* NewOrderBottom.swift in Sources */,
+				E780680C2641E313005A3684 /* MarketplacePicker.swift in Sources */,
 				E7135F932601475F00A83B0B /* DetailsPresenter.swift in Sources */,
 				E78A1CEE2630CC660001F6DC /* CurentOrderProtocols.swift in Sources */,
 				E799D9D42584B34E00FE4E62 /* TextFieldDelegate.swift in Sources */,
@@ -697,6 +722,7 @@
 				E799D9C0258387AF00FE4E62 /* NetworkHandler.swift in Sources */,
 				E7176B5C2580D05B00825F14 /* AssemblerBuilder.swift in Sources */,
 				E7176B9925815C6B00825F14 /* MainBottomSheet.swift in Sources */,
+				E780680526407020005A3684 /* MarketplaceViewController.swift in Sources */,
 				E7B44FD6260CEEC2002913E6 /* CurrentOrderViewController.swift in Sources */,
 				E71D6B8125FA586400F30FC4 /* AppModel.swift in Sources */,
 				E799D9EA2589515E00FE4E62 /* CollectionDelegate.swift in Sources */,
@@ -706,12 +732,14 @@
 				E799D9B02583851F00FE4E62 /* GeocoderHandler.swift in Sources */,
 				E78A964C2612580700416578 /* SideMenuProtocols.swift in Sources */,
 				E7DDF72B25FFF1E500284398 /* LocationTableViewCell.swift in Sources */,
+				E780680A26407037005A3684 /* MarketplacePresenter.swift in Sources */,
 				E7C168CC2609489600FF4AE1 /* AddressBottomProtocols.swift in Sources */,
 				E7C168C42608D60000FF4AE1 /* NewOrderProtocols.swift in Sources */,
 				E7176BDA2582482700825F14 /* LocationHandler.swift in Sources */,
 				E7B44FEE260F617F002913E6 /* SideMenuViewController.swift in Sources */,
 				E7C1687B26066F4900FF4AE1 /* AddressBottomSheet.swift in Sources */,
 				E71F1BFD261DDCA20002143E /* UserUUID.swift in Sources */,
+				E78068082640702D005A3684 /* MarketplaceProtocols.swift in Sources */,
 				E78A1CF32630CC7D0001F6DC /* CurrentOrderPresenter.swift in Sources */,
 				E78A1CC62630B6BA0001F6DC /* AboutPresenter.swift in Sources */,
 				E7C168AE2607EA3800FF4AE1 /* MainBottomProtocols.swift in Sources */,
@@ -890,7 +918,7 @@
 		};
 		E7176B152580139D00825F14 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 10EB91B8C74DF7F92202BD2C /* Pods-egorka.debug.xcconfig */;
+			baseConfigurationReference = 06745015629551124DEFA99F /* Pods-egorka.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -916,7 +944,7 @@
 		};
 		E7176B162580139D00825F14 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 537A15D10AF1ACB02B48DDD4 /* Pods-egorka.release.xcconfig */;
+			baseConfigurationReference = C3669030F221864B007F9821 /* Pods-egorka.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

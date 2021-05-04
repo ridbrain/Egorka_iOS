@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol MainModeleProtocol: class {
+protocol MainModeleProtocol: AnyObject {
     
     var pickups: [Location]? { get set }
     var drops: [Location]? { get set }

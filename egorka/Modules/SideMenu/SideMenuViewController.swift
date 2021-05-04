@@ -34,4 +34,12 @@ class SideMenuViewController: UIViewController, SideMenuViewProtocol {
         presenter?.openAbout()
     }
     
+    @IBAction func pressMarketplaces(_ sender: Any) {
+        presenter?.openMarketplace()
+    }
+    
+    @IBAction func pressHistory(_ sender: Any) {
+        
+    }
+    
 }

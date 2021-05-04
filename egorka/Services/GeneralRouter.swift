@@ -22,6 +22,7 @@ protocol GeneralRouterProtocol {
     func openCurrentOrder()
     func openSideMenu()
     func openAbout()
+    func openMarketplace()
     
 }
 
@@ -90,6 +91,11 @@ class GeneralRouter: GeneralRouterProtocol {
     func openAbout() {
         guard let aboutViewController = assemblerBuilder?.createAboutModule(router: self) else { return }
         navigationController.show(aboutViewController)
+    }
+    
+    func openMarketplace() {
+        guard let marketplaceViewController = assemblerBuilder?.createMarketplaceModule(router: self) else { return }
+        navigationController.show(marketplaceViewController)
     }
     
 }

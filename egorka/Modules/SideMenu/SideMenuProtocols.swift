@@ -13,7 +13,7 @@ protocol SideMenuViewProtocol: UIViewController {
     
 }
 
-protocol SideMenuPresenterProtocol: class {
+protocol SideMenuPresenterProtocol: AnyObject {
     
     init(router: GeneralRouterProtocol, view: SideMenuViewProtocol)
     
@@ -23,5 +23,6 @@ protocol SideMenuPresenterProtocol: class {
     
     func openCurrentOrder()
     func openAbout()
+    func openMarketplace()
     
 }

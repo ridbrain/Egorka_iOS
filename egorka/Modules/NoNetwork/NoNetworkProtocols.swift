@@ -13,7 +13,7 @@ protocol NoNetworkViewProtocol: UIViewController {
     
 }
 
-protocol NoNetworkPresenterProtocol: class {
+protocol NoNetworkPresenterProtocol: AnyObject {
     
     init(router: GeneralRouterProtocol, view: NoNetworkViewProtocol)
     

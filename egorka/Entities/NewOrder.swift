@@ -8,6 +8,42 @@
 import UIKit
 import Alamofire
 
+struct Marketplaces: Codable {
+    
+    var Time: String?
+    var TimeStamp: Int?
+    var Execution: Float?
+    var Method: String?
+    var Result: Result?
+    
+    struct Result: Codable {
+        var Cached: Bool?
+        var Points: [Point]?
+    }
+    
+    struct Point: Codable {
+        
+        var ID: String?
+        var Code: String?
+        var Latitude: Double?
+        var Longitude: Double?
+        var Name: [Name]?
+        var Address: [Address]?
+        
+        struct Name: Codable {
+            var Name: String?
+            var Language: String?
+        }
+        
+        struct Address: Codable {
+            var Address: String?
+            var Language: String?
+        }
+        
+    }
+    
+}
+
 struct Dictionary: Codable {
     
     var Time: String?
@@ -42,6 +78,9 @@ class TypeData {
         case .Walk:
             label = "Пеший"
             icon = .icWalk
+        case .Track:
+            label = "Грузовой"
+            icon = .icTrack
         }
     }
     
@@ -129,6 +168,26 @@ class Location: Codable {
     var Message: String?
     var `Type`: LocationType?
     
+    init(marketplace: Marketplaces.Point, routeOrder: Int) {
+        
+        let point = egorka.Point()
+        point.Address = marketplace.Address?[0].Address
+        point.Code = marketplace.Code
+        point.Latitude = marketplace.Latitude
+        point.Longitude = marketplace.Longitude
+        point.Name = marketplace.Name?[0].Name
+        
+        self.ID = "\(LocationType.Drop.rawValue)-\(routeOrder)"
+        self.Date = nil
+        self.Type = LocationType.Drop
+        self.Route = 1
+        self.RouteOrder = routeOrder
+        self.Point = point
+        self.Contact = nil
+        self.Message = nil
+        
+    }
+    
     init(suggestion: Dictionary.Suggestion, type: LocationType, routeOrder: Int) {
         
         let point = suggestion.Point
@@ -164,6 +223,7 @@ class Location: Codable {
 class Point: Codable {
     
     var Address: String?
+    var Name: String?
     var Code: String?
     var Latitude: Double?
     var Longitude: Double?
@@ -204,4 +264,5 @@ enum LocationType: String, Codable {
 enum DeliveryType: String, Codable {
     case Walk
     case Car
+    case Track
 }

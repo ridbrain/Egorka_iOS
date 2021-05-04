@@ -10,8 +10,8 @@ import CoreLocation
 class LocationHandeler: NSObject, CLLocationManagerDelegate {
     
     let locationManager = CLLocationManager()
-    var locations: [CLLocation]?
-    var didUpdateLocations: (CLLocation) -> Void
+    var findLocation: () -> Void
+    var location: CLLocation?
     
     let manager: CLLocationManager = {
         
@@ -27,9 +27,9 @@ class LocationHandeler: NSObject, CLLocationManagerDelegate {
         
     }()
     
-    required init(didUpdateLocations: @escaping (CLLocation) -> Void) {
+    required init(findLocation: @escaping () -> Void) {
         
-        self.didUpdateLocations = didUpdateLocations
+        self.findLocation = findLocation
         
         super.init()
         
@@ -60,18 +60,15 @@ class LocationHandeler: NSObject, CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
-        didUpdateLocations(locations[0])
-        self.locations = locations
+        location = locations[0]
+        locationManager.stopMonitoringSignificantLocationChanges()
+        findLocation()
         
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         
-        guard let locationError = error as? CLError else {
-            print(error)
-            return
-        }
-        
+        guard let locationError = error as? CLError else { print(error); return }
         NSLog(locationError.localizedDescription)
         
     }

@@ -10,8 +10,6 @@ import FINNBottomSheet
 
 class NewOrderBottom: UIView, NewOrderBottomProtocol {
     
-    var presenter: NewOrderPresenter?
-    
     private var contetntHeight: [[CGFloat]]!
     private var bottomSheet: BottomSheetView!
     
@@ -47,7 +45,7 @@ class NewOrderBottom: UIView, NewOrderBottomProtocol {
     }
     
     func presentBottomView(view: UIView) {
-        bottomSheet.present(in: view)
+        bottomSheet.present(in: view, targetIndex: 0)
     }
     
     func transitionBottomView(index: Int) {

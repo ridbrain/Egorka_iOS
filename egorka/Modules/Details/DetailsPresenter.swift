@@ -28,9 +28,10 @@ class DetailsPresenter: DetailsPresenterProtocol {
     func viewDidLoad() {
         
         bottomView = AddressBottomSheet()
-        bottomView.presenter = self
-        bottomView.setTextDelegate()
-        bottomView.initTableView()
+        
+        bottomView.textDidChange = textDidChange(text:)
+        bottomView.selectAddress = selectAddress(address:)
+        bottomView.sheetHide = sheetHide
         
         loadDetails()
         
@@ -47,11 +48,13 @@ class DetailsPresenter: DetailsPresenterProtocol {
         
     }
     
+    func sheetHide() {
+        view?.enableIQKeyboard()
+    }
+ 
     func viewWillAppear() {
-        
         setNotificationCenter()
         view?.enableIQKeyboard()
-        
     }
     
     func viewWillDisappear() {
@@ -286,6 +289,8 @@ class DetailsPresenter: DetailsPresenterProtocol {
             
         }
         
+        view?.enableIQKeyboard()
+        
     }
     
     func deleteAddress() {
@@ -293,10 +298,6 @@ class DetailsPresenter: DetailsPresenterProtocol {
         model?.Point = Point()
         view?.navigationController?.popViewController(animated: true)
         
-    }
-    
-    func pressClearAddress() {
-        bottomView.setAddressText(text: "")
     }
 
 }

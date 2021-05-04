@@ -25,7 +25,7 @@ protocol MainViewProtocol: UIViewController {
     
 }
 
-protocol MainPresenterProtocol: class {
+protocol MainPresenterProtocol: AnyObject {
     
     init(router: GeneralRouterProtocol, view: MainViewProtocol)
     

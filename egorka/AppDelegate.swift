@@ -24,7 +24,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UINavigationBar.appearance().barTintColor = .white
         UINavigationBar.appearance().tintColor = UIColor.colorAccent
-//        UINavigationBar.appearance().shadowImage = UIImage()
         
         let assemblerBuilder = AssemblerBuilder()
         let router = GeneralRouter(assemblerBuilder: assemblerBuilder)

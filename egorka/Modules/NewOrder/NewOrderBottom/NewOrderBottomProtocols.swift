@@ -9,8 +9,6 @@ import UIKit
 
 protocol NewOrderBottomProtocol: UIView {
     
-    var presenter: NewOrderPresenter? { get set }
-    
     func presentBottomView(view: UIView)
     func transitionBottomView(index: Int)
     func setInfoFields(type: TypeData, price: Delivery.TotalPrice)

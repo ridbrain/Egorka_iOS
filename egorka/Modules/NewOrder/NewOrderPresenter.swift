@@ -27,9 +27,10 @@ class NewOrderPresenter: NewOrderPresenterProtocol {
         view?.setTableViews()
         
         bottomView = NewOrderBottom()
-        bottomView.presenter = self
         
-        if let view = view?.view { bottomView.presentBottomView(view: view) }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            if let view = self.view?.view { self.bottomView.presentBottomView(view: view) }
+        }
         
     }
     
@@ -48,7 +49,7 @@ class NewOrderPresenter: NewOrderPresenterProtocol {
         delivery.Result?.Locations = delivery.Result?.Locations?.filter { $0.Point?.Code != nil }
         delivery.restoreIndex()
         
-        Network.extendedCalculate(locations: delivery.getLoactionsParameters(), type: delivery.Type!) { delivery in
+        Network.calculateDelivery(locations: delivery.getLoactionsParameters(), type: delivery.Type!) { delivery in
             
             self.delivery = delivery
             self.updateArrays()
@@ -71,7 +72,10 @@ class NewOrderPresenter: NewOrderPresenterProtocol {
         guard let deliveryType = delivery.Type else { return }
         
         bottomView.setInfoFields(type: TypeData(type: deliveryType), price: totalPrice)
-        bottomView.transitionBottomView(index: 1)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.bottomView.transitionBottomView(index: 1)
+        }
         
     }
     

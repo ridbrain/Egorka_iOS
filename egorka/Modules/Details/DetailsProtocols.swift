@@ -39,7 +39,7 @@ protocol DetailsViewProtocol: UIViewController {
     
 }
 
-protocol DetailsPresenterProtocol: class {
+protocol DetailsPresenterProtocol: AnyObject {
     
     init(router: GeneralRouterProtocol, model: Location, view: DetailsViewProtocol, index: Int)
     
@@ -51,6 +51,5 @@ protocol DetailsPresenterProtocol: class {
     func textDidChange(text: String?)
     func selectAddress(address: Dictionary.Suggestion)
     func deleteAddress()
-    func pressClearAddress()
     
 }

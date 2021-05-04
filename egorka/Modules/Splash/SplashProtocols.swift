@@ -13,7 +13,7 @@ protocol SplashViewProtocol: UIViewController {
     
 }
 
-protocol SplashPresenterProtocol: class {
+protocol SplashPresenterProtocol: AnyObject {
     
     init(router: GeneralRouterProtocol, view: SplashViewProtocol)
     

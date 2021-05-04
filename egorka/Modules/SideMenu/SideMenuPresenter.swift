@@ -39,4 +39,9 @@ class SideMenuPresnter: SideMenuPresenterProtocol {
         view?.dismiss(animated: true, completion: nil)
     }
     
+    func openMarketplace() {
+        router?.openMarketplace()
+        view?.dismiss(animated: true, completion: nil)
+    }
+    
 }

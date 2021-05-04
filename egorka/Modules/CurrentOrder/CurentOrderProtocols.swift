@@ -16,7 +16,7 @@ protocol CurrentOrderViewProtocol: UIViewController {
     
 }
 
-protocol CurrentOrderPresenterProtocol: class {
+protocol CurrentOrderPresenterProtocol: AnyObject {
     
     init(router: GeneralRouterProtocol, view: CurrentOrderViewProtocol)
     

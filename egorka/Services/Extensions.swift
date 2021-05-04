@@ -137,6 +137,7 @@ extension UIImage {
     public static var icDown: UIImage = UIImage(named: "down")!
     public static var icCar: UIImage = UIImage(named: "car")!
     public static var icWalk: UIImage = UIImage(named: "leg")!
+    public static var icTrack: UIImage = UIImage(named: "track")!
     
 }
 

@@ -11,8 +11,6 @@ import FINNBottomSheet
 
 class AddressBottomSheet: UIView, AddressBottomViewProtocol {
 
-    var presenter: DetailsPresenterProtocol?
-    
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var addressField: UITextField!
     @IBOutlet weak var tableView: UITableView!
@@ -24,9 +22,13 @@ class AddressBottomSheet: UIView, AddressBottomViewProtocol {
     private var tableViewDelegate: AddressTableView!
     private var sheetHiden = true
     
+    var textDidChange: ((String?) -> Void)?
+    var selectAddress: ((Dictionary.Suggestion) -> Void)?
+    var sheetHide: (() -> Void)?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+
         let xib = Bundle.main.loadNibNamed("AddressBottomSheet", owner: self, options: nil)![0] as! UIView
         let screenHeight = UIScreen.main.bounds.size.height
         var topSafeSrea = CGFloat(0)
@@ -37,36 +39,22 @@ class AddressBottomSheet: UIView, AddressBottomViewProtocol {
         }
 
         contetntHeight = [screenHeight - topSafeSrea - 155]
-        
+
         xib.frame = self.bounds
         addSubview(xib)
         
+        addressFieldDelegate = TextFieldDelegate() { if let fun = self.textDidChange { fun($0) } }
+        addressField.delegate = addressFieldDelegate
+        
+        tableViewDelegate = AddressTableView() { if let fun = self.selectAddress { fun($0) } }
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        tableView.dataSource = tableViewDelegate
+        tableView.delegate = tableViewDelegate
+
     }
 
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    func setTextDelegate() {
-        
-        addressFieldDelegate = TextFieldDelegate() { text in
-            self.presenter?.textDidChange(text: text)
-        }
-        
-        addressField.delegate = addressFieldDelegate
-        
-    }
-    
-    func initTableView() {
-        
-        tableViewDelegate = AddressTableView() { suggestion in  
-            self.presenter?.selectAddress(address: suggestion)
-        }
-        
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
-        tableView.dataSource = tableViewDelegate
-        tableView.delegate = tableViewDelegate
-        
     }
     
     func setTableHeight(height: CGFloat) {
@@ -78,9 +66,7 @@ class AddressBottomSheet: UIView, AddressBottomViewProtocol {
         if sheetHiden {
             
             bottomSheet = BottomSheetView(contentView: self, contentHeights: contetntHeight, handleBackground: .color(.colorBackground))
-            bottomSheet?.present(in: view) { bool in
-                self.presenter?.viewWillAppear()
-            }
+            bottomSheet?.present(in: view)
             
             sheetHiden = false
             addressLabel.text = text
@@ -107,6 +93,7 @@ class AddressBottomSheet: UIView, AddressBottomViewProtocol {
         
         bottomSheet?.dismiss() { bool in
             self.sheetHiden = bool
+            if let fun = self.sheetHide { fun() }
         }
         
     }
@@ -116,7 +103,7 @@ class AddressBottomSheet: UIView, AddressBottomViewProtocol {
     }
     
     @IBAction func pressClearAddress(_ sender: Any) {
-        presenter?.pressClearAddress()
+        setAddressText(text: "")
     }
     
 }
