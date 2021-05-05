@@ -37,15 +37,6 @@ class MainPresenter: MainPresenterProtocol {
             }
         }
         
-//        locationHandler = LocationHandeler() {  in
-//
-//            if !(self.myLocation) {
-//                self.view?.setMapRegion(coordinate: location.coordinate)
-//                self.myLocation = true
-//            }
-//
-//        }
-        
     }
     
     func viewWillAppear() {

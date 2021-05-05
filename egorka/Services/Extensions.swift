@@ -225,6 +225,22 @@ class MyPoint: MKPointAnnotation {
     
 }
 
+class LocationPoint: NSObject, MKAnnotation {
+    
+    var coordinate: CLLocationCoordinate2D
+    var location: Location
+    var title: String?
+    
+    init(location: Location) {
+        self.location = location
+        self.title = location.Point!.Name!
+        self.coordinate = CLLocationCoordinate2D(
+            latitude: location.Point!.Latitude!,
+            longitude: location.Point!.Longitude!)
+    }
+    
+}
+
 extension UIButton {
     
     func changeIcon(image: UIImage, color: UIColor) {

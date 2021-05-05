@@ -60,9 +60,8 @@ class LocationHandeler: NSObject, CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
-        location = locations[0]
+        if location == nil { location = locations[0]; findLocation() }
         locationManager.stopMonitoringSignificantLocationChanges()
-        findLocation()
         
     }
     

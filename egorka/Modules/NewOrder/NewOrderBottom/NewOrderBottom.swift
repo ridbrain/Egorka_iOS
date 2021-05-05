@@ -45,7 +45,7 @@ class NewOrderBottom: UIView, NewOrderBottomProtocol {
     }
     
     func presentBottomView(view: UIView) {
-        bottomSheet.present(in: view, targetIndex: 0)
+        bottomSheet.present(in: view)
     }
     
     func transitionBottomView(index: Int) {

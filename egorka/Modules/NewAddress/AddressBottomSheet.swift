@@ -50,6 +50,12 @@ class AddressBottomSheet: UIView, AddressBottomViewProtocol {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         tableView.dataSource = tableViewDelegate
         tableView.delegate = tableViewDelegate
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillShow),
+            name: UITextField.keyboardWillShowNotification,
+            object: nil)
 
     }
 
@@ -57,10 +63,14 @@ class AddressBottomSheet: UIView, AddressBottomViewProtocol {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setTableHeight(height: CGFloat) {
-        tableHeight.constant = contetntHeight[0] - height - 88
+    @objc func keyboardWillShow(_ notification: Notification) {
+        
+        if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+            tableHeight.constant = contetntHeight[0] - keyboardFrame.cgRectValue.height - 88
+        }
+        
     }
-    
+
     func presentBottomView(view: UIView, text: String) {
         
         if sheetHiden {

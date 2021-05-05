@@ -34,7 +34,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hPJ-qg-jOT">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="1077.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="1107.5"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Доставка до маркетплейса" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ESw-Wi-eYJ">
                                     <rect key="frame" x="87.5" y="15" width="200" height="18"/>
@@ -92,6 +92,9 @@
                                             <color key="tintColor" name="ColorAccent"/>
                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="5" maxY="0.0"/>
                                             <state key="normal" image="Crosshair"/>
+                                            <connections>
+                                                <action selector="pressMyLocation:" destination="-1" eventType="touchUpInside" id="OTH-87-DUf"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -237,6 +240,9 @@
                                             <color key="tintColor" name="ColorAccent"/>
                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="5" maxY="0.0"/>
                                             <state key="normal" image="map" catalog="system"/>
+                                            <connections>
+                                                <action selector="pressMarketMap:" destination="-1" eventType="touchUpInside" id="Gii-ev-t9B"/>
+                                            </connections>
                                         </button>
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LXX-dH-Z7r">
                                             <rect key="frame" x="33" y="8" width="282" height="33"/>
@@ -449,7 +455,7 @@
                                 <constraint firstItem="ozf-ab-MXk" firstAttribute="leading" secondItem="hPJ-qg-jOT" secondAttribute="leading" constant="15" id="Jf3-ke-hAE"/>
                                 <constraint firstItem="HsS-98-17f" firstAttribute="leading" secondItem="hPJ-qg-jOT" secondAttribute="leading" constant="15" id="K2y-JJ-gNO"/>
                                 <constraint firstItem="ozf-ab-MXk" firstAttribute="top" secondItem="OPc-u9-69l" secondAttribute="bottom" constant="10" id="KCq-RQ-2ta"/>
-                                <constraint firstAttribute="bottom" secondItem="2kL-2o-oZo" secondAttribute="bottom" constant="150" id="LZ0-9r-c3k"/>
+                                <constraint firstAttribute="bottom" secondItem="2kL-2o-oZo" secondAttribute="bottom" constant="180" id="LZ0-9r-c3k"/>
                                 <constraint firstItem="Gpb-zs-t8e" firstAttribute="leading" secondItem="hPJ-qg-jOT" secondAttribute="leading" constant="15" id="LlG-al-SXt"/>
                                 <constraint firstItem="U94-dy-K87" firstAttribute="leading" secondItem="hPJ-qg-jOT" secondAttribute="leading" constant="10" id="Mzq-dM-wW0"/>
                                 <constraint firstItem="OPc-u9-69l" firstAttribute="leading" secondItem="hPJ-qg-jOT" secondAttribute="leading" constant="10" id="NgN-mY-JCw"/>

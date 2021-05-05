@@ -9,16 +9,17 @@ import UIKit
 import MapKit
 
 class MarketplacePresnter: MarketplacePresenterProtocol {
-    
+        
     weak var view: MarketplaceViewProtocol?
     var router: GeneralRouterProtocol?
     
-    var locationHandler: LocationHandeler!
+    var locationHandler: LocationHandeler?
     var bottomOrder: NewOrderBottomProtocol!
     var bottomAddress: AddressBottomViewProtocol!
     
     var pickup: Location?
-    var drop: Location?
+    var drop = Location()
+    var places: [Location]?
 
     required init(router: GeneralRouterProtocol, view: MarketplaceViewProtocol) {
         self.view = view
@@ -30,13 +31,7 @@ class MarketplacePresnter: MarketplacePresenterProtocol {
         view?.setTitle(title: "Оформление заказа")
         
         locationHandler = LocationHandeler() {
-            if let coordinate = self.locationHandler.location?.coordinate {
-                self.getAddress(location: coordinate)
-            }
-        }
-        
-        Network.getMarketPlaces { suggestions in
-            self.view?.setPlacesDelegate(locations: suggestions)
+            self.pressMyLocation()
         }
         
         bottomOrder = NewOrderBottom()
@@ -46,6 +41,15 @@ class MarketplacePresnter: MarketplacePresenterProtocol {
         bottomAddress.selectAddress = selectAddress(address:)
         bottomAddress.sheetHide = sheetHide
         
+        Network.getMarketPlaces {
+            self.view?.setPlacesDelegate(locations: $0)
+            self.buildPlaces(locations: $0)
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            if let view = self.view?.view { self.bottomOrder.presentBottomView(view: view) }
+        }
+        
     }
     
     func viewWillAppear() {
@@ -53,12 +57,24 @@ class MarketplacePresnter: MarketplacePresenterProtocol {
         view?.enableHero()
         view?.enableIQKeyboard()
         
+        calculateDelivery()
+        
     }
     
     func viewWillDisappear() {
         
         view?.disableHero()
         view?.disableIQKeyboard()
+        
+    }
+    
+    func buildPlaces(locations: [Marketplaces.Point]) {
+        
+        places = [Location]()
+        
+        locations.forEach { point in
+            places?.append(Location(marketplace: point, routeOrder: 1))
+        }
         
     }
     
@@ -71,6 +87,7 @@ class MarketplacePresnter: MarketplacePresenterProtocol {
                 let suggestion = suggestions[0]
                 self.pickup = Location(suggestion: suggestion, type: .Pickup, routeOrder: 1)
                 self.view?.setPickup(text: suggestion.Name!)
+                self.calculateDelivery()
                 
             }
             
@@ -120,7 +137,7 @@ class MarketplacePresnter: MarketplacePresenterProtocol {
     func pressAddress() {
         
         view?.disableIQKeyboard()
-        bottomAddress.presentBottomView(view: view!.view!, text: "Откуда забрать?")
+        bottomAddress.presentBottomView(view: view!.view!, text: "Введите адрес")
         
     }
     
@@ -137,9 +154,14 @@ class MarketplacePresnter: MarketplacePresenterProtocol {
     func calculateDelivery() {
         
         guard let pickup = pickup?.getString() else { return }
-        guard let drop = drop?.getString() else { return }
+        guard drop.Point?.Code != nil else { return }
         
-        Network.calculateDelivery(locations: [pickup, drop], type: DeliveryType.Track) { delivery in
+        bottomOrder.transitionBottomView(index: 0)
+        
+        view?.setPickup(text: self.pickup!.Point!.Address!)
+        view?.setDrop(text: drop.Point!.Name!)
+        
+        Network.calculateDelivery(locations: [pickup, drop.getString()], type: DeliveryType.Track) { delivery in
             self.showPrice(delivery: delivery)
         }
         
@@ -147,10 +169,19 @@ class MarketplacePresnter: MarketplacePresenterProtocol {
     
     func showPrice(delivery: Delivery) {
         
-        bottomOrder.presentBottomView(view: view!.view)
         bottomOrder.setInfoFields(type: TypeData(type: delivery.Type!), price: delivery.Result!.TotalPrice!)
         bottomOrder.transitionBottomView(index: 1)
         
+    }
+    
+    func pressMyLocation() {
+        if let coordinate = self.locationHandler?.location?.coordinate {
+            self.getAddress(location: coordinate)
+        }
+    }
+    
+    func pressMarketMap() {
+        if let places = places { router?.openMarketplaceMap(location: drop, locations: places) }
     }
     
 }

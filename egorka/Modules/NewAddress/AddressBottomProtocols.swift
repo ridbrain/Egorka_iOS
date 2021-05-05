@@ -14,7 +14,6 @@ protocol AddressBottomViewProtocol: UIView {
     var sheetHide: (() -> Void)? { get set }
     
     func presentBottomView(view: UIView, text: String)
-    func setTableHeight(height: CGFloat)
     func setSuggestions(suggestions: [Dictionary.Suggestion])
     func setAddressText(text: String)
     func dismiss()

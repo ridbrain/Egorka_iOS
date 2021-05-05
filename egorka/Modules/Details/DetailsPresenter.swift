@@ -53,7 +53,6 @@ class DetailsPresenter: DetailsPresenterProtocol {
     }
  
     func viewWillAppear() {
-        setNotificationCenter()
         view?.enableIQKeyboard()
     }
     
@@ -62,32 +61,7 @@ class DetailsPresenter: DetailsPresenterProtocol {
         selfView = false
         
         saveDetails()
-        removeNotificationCenter()
         view?.disableIQKeyboard()
-        
-    }
-    
-    func setNotificationCenter() {
-        
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(keyboardWillShow),
-            name: UITextField.keyboardWillShowNotification,
-            object: nil)
-        
-    }
-    
-    func removeNotificationCenter() {
-        
-        NotificationCenter.default.removeObserver(self, name: UITextField.keyboardWillShowNotification, object: nil)
-        
-    }
-    
-    @objc func keyboardWillShow(_ notification: Notification) {
-        
-        if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
-            bottomView.setTableHeight(height: keyboardFrame.cgRectValue.height)
-        }
         
     }
     

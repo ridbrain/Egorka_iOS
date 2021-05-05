@@ -168,6 +168,8 @@ class Location: Codable {
     var Message: String?
     var `Type`: LocationType?
     
+    init() { }
+    
     init(marketplace: Marketplaces.Point, routeOrder: Int) {
         
         let point = egorka.Point()

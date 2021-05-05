@@ -27,5 +27,7 @@ protocol MarketplacePresenterProtocol: AnyObject {
     func viewWillDisappear()
     func pressAddress()
     func selectDropPlace(place: Marketplaces.Point)
+    func pressMyLocation()
+    func pressMarketMap()
     
 }

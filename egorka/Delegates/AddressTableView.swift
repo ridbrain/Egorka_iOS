@@ -34,6 +34,7 @@ class AddressTableView: NSObject, UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         didSelectRow(suggestions![indexPath.row])
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
 }

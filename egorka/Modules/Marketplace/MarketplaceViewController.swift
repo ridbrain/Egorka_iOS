@@ -135,7 +135,7 @@ class MarketplaceViewController: UIViewController, MarketplaceViewProtocol {
     }
     
     func setTitle(title: String) {
-        navigationItem.title = "Оформление заказа"
+        navigationItem.title = title
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
@@ -185,6 +185,14 @@ class MarketplaceViewController: UIViewController, MarketplaceViewProtocol {
     
     func setDrop(text: String) {
         dropField.text = text
+    }
+    
+    @IBAction func pressMyLocation(_ sender: Any) {
+        presenter?.pressMyLocation()
+    }
+    
+    @IBAction func pressMarketMap(_ sender: Any) {
+        presenter?.pressMarketMap()
     }
     
 }

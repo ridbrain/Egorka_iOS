@@ -23,6 +23,7 @@ protocol GeneralRouterProtocol {
     func openSideMenu()
     func openAbout()
     func openMarketplace()
+    func openMarketplaceMap(location: Location, locations: [Location])
     
 }
 
@@ -96,6 +97,11 @@ class GeneralRouter: GeneralRouterProtocol {
     func openMarketplace() {
         guard let marketplaceViewController = assemblerBuilder?.createMarketplaceModule(router: self) else { return }
         navigationController.show(marketplaceViewController)
+    }
+    
+    func openMarketplaceMap(location: Location, locations: [Location]) {
+        guard let mapViewController = assemblerBuilder?.createMapModule(location: location, locations: locations) else { return }
+        navigationController.show(mapViewController)
     }
     
 }

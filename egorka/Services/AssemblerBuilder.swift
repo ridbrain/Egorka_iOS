@@ -19,6 +19,7 @@ protocol AssemblerBuilderProtocol {
     func createCurrenOrderModule(router: GeneralRouterProtocol) -> UIViewController
     func createAboutModule(router: GeneralRouterProtocol) -> UIViewController
     func createMarketplaceModule(router: GeneralRouterProtocol) -> UIViewController
+    func createMapModule(location: Location, locations: [Location]) -> UIViewController
     
 }
 
@@ -93,6 +94,13 @@ class AssemblerBuilder: AssemblerBuilderProtocol {
     func createMarketplaceModule(router: GeneralRouterProtocol) -> UIViewController {
         let view = MarketplaceViewController()
         let presenter = MarketplacePresnter(router: router, view: view)
+        view.presenter = presenter
+        return view
+    }
+    
+    func createMapModule(location: Location, locations: [Location]) -> UIViewController {
+        let view = MapViewController()
+        let presenter = MapPresenter(view: view, location: location, locations: locations)
         view.presenter = presenter
         return view
     }
