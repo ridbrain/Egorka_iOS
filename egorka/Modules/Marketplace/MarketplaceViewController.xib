@@ -191,7 +191,7 @@
                                             </constraints>
                                             <color key="tintColor" name="ColorAccent"/>
                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="5" maxY="0.0"/>
-                                            <state key="normal" image="info.circle" catalog="system"/>
+                                            <state key="normal" image="information"/>
                                             <connections>
                                                 <action selector="pressDataInfo:" destination="-1" eventType="touchUpInside" id="MPU-Rr-74N"/>
                                             </connections>
@@ -239,7 +239,7 @@
                                             </constraints>
                                             <color key="tintColor" name="ColorAccent"/>
                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="5" maxY="0.0"/>
-                                            <state key="normal" image="map" catalog="system"/>
+                                            <state key="normal" image="map"/>
                                             <connections>
                                                 <action selector="pressMarketMap:" destination="-1" eventType="touchUpInside" id="Gii-ev-t9B"/>
                                             </connections>
@@ -340,7 +340,7 @@
                                             </constraints>
                                             <color key="tintColor" name="ColorAccent"/>
                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="5" maxY="0.0"/>
-                                            <state key="normal" image="info.circle" catalog="system"/>
+                                            <state key="normal" image="information"/>
                                             <connections>
                                                 <action selector="pressBoxsInfo:" destination="-1" eventType="touchUpInside" id="6bV-nc-F0r"/>
                                             </connections>
@@ -381,7 +381,7 @@
                                             </constraints>
                                             <color key="tintColor" name="ColorAccent"/>
                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="5" maxY="0.0"/>
-                                            <state key="normal" image="info.circle" catalog="system"/>
+                                            <state key="normal" image="information"/>
                                             <connections>
                                                 <action selector="pressPalletsInfo:" destination="-1" eventType="touchUpInside" id="BuB-JY-P2W"/>
                                             </connections>
@@ -523,8 +523,8 @@
     </objects>
     <resources>
         <image name="Crosshair" width="20" height="20"/>
-        <image name="info.circle" catalog="system" width="128" height="121"/>
-        <image name="map" catalog="system" width="128" height="110"/>
+        <image name="information" width="20" height="20"/>
+        <image name="map" width="20" height="20"/>
         <namedColor name="ColorAccent">
             <color red="0.94117647058823528" green="0.16078431372549021" blue="0.12156862745098039" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

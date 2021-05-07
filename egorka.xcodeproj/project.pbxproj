@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5B3E485214101C724234C6AB /* Pods_egorka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 014F6ACBC5B0C432922FE215 /* Pods_egorka.framework */; };
+		B48EF5DAC0A1B7AFAEDAE3C1 /* Pods_egorka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BCF88E5C3F610B695E740A7 /* Pods_egorka.framework */; };
 		E705CE74258CC776003AA401 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E705CE72258CC776003AA401 /* SplashViewController.swift */; };
 		E705CE75258CC776003AA401 /* SplashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E705CE73258CC776003AA401 /* SplashViewController.xib */; };
 		E7135F8A2601474E00A83B0B /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7135F882601474E00A83B0B /* DetailsViewController.swift */; };
@@ -105,9 +105,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		014F6ACBC5B0C432922FE215 /* Pods_egorka.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_egorka.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		06745015629551124DEFA99F /* Pods-egorka.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-egorka.debug.xcconfig"; path = "Target Support Files/Pods-egorka/Pods-egorka.debug.xcconfig"; sourceTree = "<group>"; };
-		C3669030F221864B007F9821 /* Pods-egorka.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-egorka.release.xcconfig"; path = "Target Support Files/Pods-egorka/Pods-egorka.release.xcconfig"; sourceTree = "<group>"; };
+		415762CC3D91461C554AD2F2 /* Pods-egorka.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-egorka.debug.xcconfig"; path = "Target Support Files/Pods-egorka/Pods-egorka.debug.xcconfig"; sourceTree = "<group>"; };
+		7BCF88E5C3F610B695E740A7 /* Pods_egorka.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_egorka.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5C070E061DCACF51C7EFEEA /* Pods-egorka.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-egorka.release.xcconfig"; path = "Target Support Files/Pods-egorka/Pods-egorka.release.xcconfig"; sourceTree = "<group>"; };
 		E705CE72258CC776003AA401 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		E705CE73258CC776003AA401 /* SplashViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SplashViewController.xib; sourceTree = "<group>"; };
 		E7135F882601474E00A83B0B /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
@@ -199,7 +199,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B3E485214101C724234C6AB /* Pods_egorka.framework in Frameworks */,
+				B48EF5DAC0A1B7AFAEDAE3C1 /* Pods_egorka.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,10 +220,10 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		99042F933A9E9A65F09CBCA4 /* Frameworks */ = {
+		962EEB92F7B2CB2A9BE658B3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				014F6ACBC5B0C432922FE215 /* Pods_egorka.framework */,
+				7BCF88E5C3F610B695E740A7 /* Pods_egorka.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -231,8 +231,8 @@
 		AB8AC9492EB2797964CBB90D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				06745015629551124DEFA99F /* Pods-egorka.debug.xcconfig */,
-				C3669030F221864B007F9821 /* Pods-egorka.release.xcconfig */,
+				415762CC3D91461C554AD2F2 /* Pods-egorka.debug.xcconfig */,
+				D5C070E061DCACF51C7EFEEA /* Pods-egorka.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -267,7 +267,7 @@
 				E7176B0E2580139D00825F14 /* egorkaUITests */,
 				E7176AEB2580139900825F14 /* Products */,
 				AB8AC9492EB2797964CBB90D /* Pods */,
-				99042F933A9E9A65F09CBCA4 /* Frameworks */,
+				962EEB92F7B2CB2A9BE658B3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -536,11 +536,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E7176B142580139D00825F14 /* Build configuration list for PBXNativeTarget "egorka" */;
 			buildPhases = (
-				480EAA89A954D46C8C41C10B /* [CP] Check Pods Manifest.lock */,
+				D4D5568D9E4BBDA28381665D /* [CP] Check Pods Manifest.lock */,
 				E7176AE62580139900825F14 /* Sources */,
 				E7176AE72580139900825F14 /* Frameworks */,
 				E7176AE82580139900825F14 /* Resources */,
-				6FB3EB7DD6DA57AA559D2048 /* [CP] Embed Pods Frameworks */,
+				4A55426B36292334DB7EF513 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -676,7 +676,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		480EAA89A954D46C8C41C10B /* [CP] Check Pods Manifest.lock */ = {
+		4A55426B36292334DB7EF513 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-egorka/Pods-egorka-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-egorka/Pods-egorka-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-egorka/Pods-egorka-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D4D5568D9E4BBDA28381665D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -696,23 +713,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6FB3EB7DD6DA57AA559D2048 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-egorka/Pods-egorka-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-egorka/Pods-egorka-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-egorka/Pods-egorka-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -942,7 +942,7 @@
 		};
 		E7176B152580139D00825F14 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 06745015629551124DEFA99F /* Pods-egorka.debug.xcconfig */;
+			baseConfigurationReference = 415762CC3D91461C554AD2F2 /* Pods-egorka.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -968,7 +968,7 @@
 		};
 		E7176B162580139D00825F14 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C3669030F221864B007F9821 /* Pods-egorka.release.xcconfig */;
+			baseConfigurationReference = D5C070E061DCACF51C7EFEEA /* Pods-egorka.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
