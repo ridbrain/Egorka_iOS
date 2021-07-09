@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -14,6 +14,7 @@
             <connections>
                 <outlet property="ancillaryPriceLabel" destination="0OQ-ve-1jD" id="MwK-5a-zNk"/>
                 <outlet property="deliveryPriceLabel" destination="mcc-KD-b6H" id="3fM-ZT-gZA"/>
+                <outlet property="orderButton" destination="wE3-eI-1eB" id="4rf-48-gjW"/>
                 <outlet property="tipPriceLabel" destination="hDI-73-ldU" id="jIV-XO-QbF"/>
                 <outlet property="totalPriceLabel" destination="O9I-8x-Sa4" id="mci-v1-JRY"/>
                 <outlet property="typeIcon" destination="63I-Qd-Crn" id="7w6-2I-dFf"/>

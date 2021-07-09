@@ -18,9 +18,7 @@ class NotificationHandler: NSObject, MessagingDelegate, UNUserNotificationCenter
         let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
         
         UNUserNotificationCenter.current().requestAuthorization(options: authOptions) { _, error in
-            if let error = error {
-                print(error.localizedDescription)
-            }
+            if let error = error { print(error.localizedDescription); return }
         }
         
         Messaging.messaging().delegate = self

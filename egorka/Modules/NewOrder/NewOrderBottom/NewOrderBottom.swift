@@ -19,6 +19,7 @@ class NewOrderBottom: UIView, NewOrderBottomProtocol {
     @IBOutlet weak var tipPriceLabel: UILabel!
     @IBOutlet weak var typeIcon: UIImageView!
     @IBOutlet weak var typeLabel: UILabel!
+    @IBOutlet weak var orderButton: RoundedButton!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -52,13 +53,33 @@ class NewOrderBottom: UIView, NewOrderBottomProtocol {
         bottomSheet.reload(with: contetntHeight[index])
     }
     
-    func setInfoFields(type: TypeData, price: Delivery.TotalPrice) {
+    func setInfoFields(type: TypeData, price: PriceTable) {
         typeIcon.image = type.icon
         typeLabel.text = type.label
-        totalPriceLabel.text = "\(price.Total! / 100) ₽"
-        deliveryPriceLabel.text = "\(price.Base! / 100) ₽ доставка"
-        ancillaryPriceLabel.text = "\(price.Ancillary! / 100) ₽ доп. услуги"
-        tipPriceLabel.text = "\(price.Tip! / 100) ₽ сбор плат. сист."
+        totalPriceLabel.text = "\(price.total) ₽"
+        deliveryPriceLabel.text = "\(price.delivery) ₽ доставка"
+        ancillaryPriceLabel.text = "\(price.ancillaries) ₽ доп. услуги"
+        tipPriceLabel.text = "\(price.tcstax) ₽ сбор плат. сист."
+    }
+    
+    func activeOrderButton(active: Bool) {
+        
+        if active {
+            
+            UIView.animate(withDuration: 0.5) {
+                self.orderButton.alpha = 1
+                self.orderButton.setTitle("ОПЛАТИТЬ ЗАКАЗ", for: .normal)
+            }
+            
+        } else {
+            
+            UIView.animate(withDuration: 0.5) {
+                self.orderButton.alpha = 0.5
+                self.orderButton.setTitle("УКАЖИТЕ ДЕТАЛИ", for: .normal)
+            }
+            
+        }
+        
     }
 
 }

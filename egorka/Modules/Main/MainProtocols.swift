@@ -36,10 +36,14 @@ protocol MainPresenterProtocol: AnyObject {
     func textDidChange(text: String?)
     func regionDidChange()
     func didRouteLaid()
-    func pressPickupFieldButton()
-    func pressDropFieldButton()
     func selectAddress(address: Dictionary.Suggestion)
-    func openNewOrder(order: Delivery)
+    func openNewOrder()
     func openSideMenu()
+    func openMarketplaces()
+    func selectDelivery(delivery: Delivery)
+    func pressMyLocation()
+    func pressClearPickupField()
+    func pressClearDropField()
+    func pressMapDropField()
     
 }

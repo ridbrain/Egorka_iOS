@@ -14,6 +14,7 @@
             <connections>
                 <outlet property="logo" destination="DB5-2l-Pvn" id="utH-yS-6ya"/>
                 <outlet property="mapView" destination="FP2-YN-RRQ" id="Nbm-vh-5DJ"/>
+                <outlet property="marketplaces" destination="i2o-92-GxX" id="OgE-WV-FgT"/>
                 <outlet property="pinImage" destination="Odl-4g-YWp" id="0ks-9g-g3o"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -56,6 +57,20 @@
                         <action selector="pressMenu:" destination="-1" eventType="touchUpInside" id="aDx-FX-CdC"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i2o-92-GxX">
+                    <rect key="frame" x="240" y="21" width="115" height="22"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="22" id="Tg4-F6-rO6"/>
+                        <constraint firstAttribute="width" constant="115" id="o3z-ug-sBc"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
+                    <state key="normal" title="Маркетплейсы" backgroundImage="test">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="pressMarketplaces:" destination="-1" eventType="touchUpInside" id="l7C-tD-zNM"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -66,9 +81,11 @@
                 <constraint firstItem="FP2-YN-RRQ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="9bM-Er-CIJ"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="FP2-YN-RRQ" secondAttribute="trailing" id="Ha2-G3-HGI"/>
                 <constraint firstItem="Odl-4g-YWp" firstAttribute="centerY" secondItem="FP2-YN-RRQ" secondAttribute="centerY" constant="-15" id="MIk-jU-Nl0"/>
+                <constraint firstItem="i2o-92-GxX" firstAttribute="centerY" secondItem="ngn-BZ-65n" secondAttribute="centerY" constant="2" id="c3a-qQ-noN"/>
                 <constraint firstItem="FP2-YN-RRQ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="evx-jT-9Oa"/>
                 <constraint firstItem="ngn-BZ-65n" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="p7c-sA-Nph"/>
                 <constraint firstAttribute="bottom" secondItem="FP2-YN-RRQ" secondAttribute="bottom" id="qBS-1p-cFt"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="i2o-92-GxX" secondAttribute="trailing" constant="20" id="th4-WH-Hkq"/>
                 <constraint firstItem="DB5-2l-Pvn" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="14" id="wLE-JP-e8H"/>
             </constraints>
             <point key="canvasLocation" x="128.80000000000001" y="122.78860569715144"/>
@@ -78,6 +95,7 @@
         <image name="Logo" width="596" height="187"/>
         <image name="Menu" width="600" height="600"/>
         <image name="PinA" width="30" height="30"/>
+        <image name="test" width="400" height="100"/>
         <namedColor name="ColorAccent">
             <color red="0.94117647058823528" green="0.16078431372549021" blue="0.12156862745098039" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

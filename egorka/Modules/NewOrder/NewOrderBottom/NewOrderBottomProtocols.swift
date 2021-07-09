@@ -11,6 +11,7 @@ protocol NewOrderBottomProtocol: UIView {
     
     func presentBottomView(view: UIView)
     func transitionBottomView(index: Int)
-    func setInfoFields(type: TypeData, price: Delivery.TotalPrice)
+    func setInfoFields(type: TypeData, price: PriceTable)
+    func activeOrderButton(active: Bool)
     
 }

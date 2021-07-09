@@ -20,6 +20,7 @@ protocol AssemblerBuilderProtocol {
     func createAboutModule(router: GeneralRouterProtocol) -> UIViewController
     func createMarketplaceModule(router: GeneralRouterProtocol) -> UIViewController
     func createMapModule(location: Location, locations: [Location]) -> UIViewController
+    func createAddressMapModule(location: Location) -> UIViewController
     
 }
 
@@ -99,8 +100,15 @@ class AssemblerBuilder: AssemblerBuilderProtocol {
     }
     
     func createMapModule(location: Location, locations: [Location]) -> UIViewController {
-        let view = MapViewController()
-        let presenter = MapPresenter(view: view, location: location, locations: locations)
+        let view = MarketMapViewController()
+        let presenter = MarketMapPresenter(view: view, location: location, locations: locations)
+        view.presenter = presenter
+        return view
+    }
+    
+    func createAddressMapModule(location: Location) -> UIViewController {
+        let view = AddressMapViewController()
+        let presenter = AddressMapPresnter(view: view, location: location)
         view.presenter = presenter
         return view
     }

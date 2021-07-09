@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import JMMaskTextField_Swift
 
 class DetailsPresenter: DetailsPresenterProtocol {
     
@@ -104,7 +105,7 @@ class DetailsPresenter: DetailsPresenterProtocol {
         if let floor = model?.Point?.Floor { view?.setFloor(text: String(floor)) }
         if let room = model?.Point?.Room { view?.setRoom(text: String(room)) }
         if let name = model?.Contact?.Name { view?.setName(text: name) }
-        if let phone = model?.Contact?.PhoneMobile { view?.setPhone(text: phone) }
+        if let phone = model?.Contact?.PhoneMobile { view?.setPhone(text: JMStringMask(mask: "+0 (000) 000-00-00").mask(string: phone)!) }
         if let message = model?.Message { view?.setMessage(text: message) }
         if index != 0 { view?.setDelete() }
         
@@ -164,6 +165,7 @@ class DetailsPresenter: DetailsPresenterProtocol {
         if let phone = view?.getPhone() {
             if phone.count == 18 {
                 contact.PhoneMobile = phone
+                contact.PhoneMobile?.removeAll(where: {["+", "(", ")", "-", " "].contains($0)})
             } else {
                 contact.PhoneMobile = nil
             }
@@ -175,8 +177,8 @@ class DetailsPresenter: DetailsPresenterProtocol {
             model?.Contact = nil
         }
         
-        if let entrance = Int(view?.getEntrance() ?? "") {
-            if entrance != 0 {
+        if let entrance = view?.getEntrance() {
+            if entrance.count > 0 {
                 model?.Point?.Entrance = entrance
             } else {
                 model?.Point?.Entrance = nil
@@ -185,8 +187,8 @@ class DetailsPresenter: DetailsPresenterProtocol {
             model?.Point?.Entrance = nil
         }
         
-        if let floor = Int(view?.getFloor() ?? "") {
-            if floor != 0 {
+        if let floor = view?.getFloor() {
+            if floor.count > 0 {
                 model?.Point?.Floor = floor
             } else {
                 model?.Point?.Floor = nil
@@ -195,8 +197,8 @@ class DetailsPresenter: DetailsPresenterProtocol {
             model?.Point?.Floor = nil
         }
         
-        if let room = Int(view?.getRoom() ?? "") {
-            if room != 0 {
+        if let room = view?.getRoom() {
+            if room.count > 0 {
                 model?.Point?.Room = room
             } else {
                 model?.Point?.Room = nil

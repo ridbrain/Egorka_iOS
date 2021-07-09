@@ -121,23 +121,35 @@ class ShadowView: UIView {
 
 extension UIColor {
 
-    public static var colorAccent: UIColor = UIColor(named: "ColorAccent")!
-    public static var colorAccentLight: UIColor = UIColor(named: "ColorAccentLight")!
-    public static var colorBlue: UIColor = UIColor(named: "ColorBlue")!
-    public static var colorGray: UIColor = UIColor(named: "ColorGray")!
-    public static var colorGreen: UIColor = UIColor(named: "ColorGreen")!
-    public static var colorOrange: UIColor = UIColor(named: "ColorOrange")!
-    public static var colorBackground: UIColor = UIColor(named: "ColorBackground")!
+    public static let colorAccent = UIColor(named: "ColorAccent")!
+    public static let colorAccentLight = UIColor(named: "ColorAccentLight")!
+    public static let colorBlue = UIColor(named: "ColorBlue")!
+    public static let colorGray = UIColor(named: "ColorGray")!
+    public static let colorGreen = UIColor(named: "ColorGreen")!
+    public static let colorOrange = UIColor(named: "ColorOrange")!
+    public static let colorBackground = UIColor(named: "ColorBackground")!
     
 }
 
 extension UIImage {
     
-    public static var icFlag: UIImage = UIImage(named: "flag")!
-    public static var icDown: UIImage = UIImage(named: "down")!
-    public static var icCar: UIImage = UIImage(named: "car")!
-    public static var icWalk: UIImage = UIImage(named: "leg")!
-    public static var icTrack: UIImage = UIImage(named: "track")!
+    public static let icFlag = UIImage(named: "flag")!
+    public static let icDown = UIImage(named: "down")!
+    public static let icCar = UIImage(named: "car")!
+    public static let icWalk = UIImage(named: "leg")!
+    public static let icTrack = UIImage(named: "track")!
+    
+    public static let icRemove = UIImage(named: "Remove")!
+    public static let icCrosshair = UIImage(named: "Crosshair")!
+    public static let icMap = UIImage(named: "map")!
+    
+    public static let pinDefault = UIImage(named: "Pin.png")!
+    public static let pinEgorka = UIImage(named: "PinEgorka")!
+    public static let pinOzon = UIImage(named: "PinOzon")!
+    public static let pinPek = UIImage(named: "PinPek")!
+    public static let pinSber = UIImage(named: "PinSber")!
+    public static let pinWildberries = UIImage(named: "PinWildberries")!
+    public static let pinYandex = UIImage(named: "PinYandex")!
     
 }
 
@@ -243,20 +255,19 @@ class LocationPoint: NSObject, MKAnnotation {
 
 extension UIButton {
     
-    func changeIcon(image: UIImage, color: UIColor) {
+    func changeIcon(image: UIImage, completion: ((Bool) -> Void)? = nil) {
         
-        UIView.transition(with: self, duration: 0.5, options: .transitionFlipFromRight) {
-            self.setImage(image, for: .normal)
-            self.tintColor = color
-        }
+        UIView.transition(with: self, duration: 0.5, options: .transitionFlipFromRight,
+                          animations: { self.setImage(image, for: .normal) },
+                          completion: completion)
         
     }
     
-    func hideIcon() {
+    func hideIcon(completion: ((Bool) -> Void)? = nil) {
         
-        UIView.transition(with: self, duration: 0.5, options: .curveEaseOut) {
-            self.setImage(UIImage(), for: .normal)
-        }
+        UIView.transition(with: self, duration: 0.5, options: .transitionFlipFromRight,
+                          animations: { self.setImage(UIImage(), for: .normal) },
+                          completion: completion)
         
     }
     

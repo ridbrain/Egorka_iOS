@@ -24,6 +24,7 @@ protocol GeneralRouterProtocol {
     func openAbout()
     func openMarketplace()
     func openMarketplaceMap(location: Location, locations: [Location])
+    func openAddressMap(location: Location)
     
 }
 
@@ -101,6 +102,11 @@ class GeneralRouter: GeneralRouterProtocol {
     
     func openMarketplaceMap(location: Location, locations: [Location]) {
         guard let mapViewController = assemblerBuilder?.createMapModule(location: location, locations: locations) else { return }
+        navigationController.show(mapViewController)
+    }
+    
+    func openAddressMap(location: Location) {
+        guard let mapViewController = assemblerBuilder?.createAddressMapModule(location: location) else { return }
         navigationController.show(mapViewController)
     }
     

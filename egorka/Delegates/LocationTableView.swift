@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import JMMaskTextField_Swift
 
 enum NumState {
     case full
@@ -103,10 +104,10 @@ class LocationTableView: NSObject, UITableViewDataSource, UITableViewDelegate {
     
     func getDescriprion(contacts: Contact?, descr: (String) -> Void) {
         
-        guard let name = contacts?.Name else { return }
-        guard let phone = contacts?.PhoneMobile else { return }
+        if contacts?.Name?.count ?? 0 == 0 { return }
+        if contacts?.PhoneMobile?.count ?? 0 == 0 { return }
         
-        descr("\(name), \(phone)")
+        descr("\(contacts!.Name!), \(JMStringMask(mask: "+0 (000) 000-00-00").mask(string: contacts!.PhoneMobile!)!)")
         
     }
     

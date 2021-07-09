@@ -15,8 +15,9 @@ class MainViewController: UIViewController, MainViewProtocol {
     @IBOutlet weak var logo: UIImageView!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var pinImage: UIImageView!
-
-    private var mapPadding = UIEdgeInsets(top: CGFloat(100), left: CGFloat(80), bottom: CGFloat(270), right: CGFloat(80))
+    @IBOutlet weak var marketplaces: UIButton!
+    
+    private var mapPadding = UIEdgeInsets(top: CGFloat(100), left: CGFloat(80), bottom: CGFloat(320), right: CGFloat(80))
     private var mapDelegate: MKMapDelegate!
     private var mapCoordinate: CLLocationCoordinate2D?
     private var mapRect: MKMapRect?
@@ -24,12 +25,24 @@ class MainViewController: UIViewController, MainViewProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        marketplaces.clipsToBounds = true
+        marketplaces.layer.cornerRadius = marketplaces.frame.height / 2
+        marketplaces.alpha = 0
+        
         presenter?.viewDidLoad()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        UIView.animate(withDuration: 0.5, delay: 0.5, options: .curveEaseInOut, animations: {
+            self.marketplaces.alpha = 0.9
+        })
+        
         presenter?.viewWillAppear()
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -125,6 +138,10 @@ class MainViewController: UIViewController, MainViewProtocol {
     
     @IBAction func pressMenu(_ sender: Any) {
         presenter?.openSideMenu()
+    }
+    
+    @IBAction func pressMarketplaces(_ sender: Any) {
+        presenter?.openMarketplaces()
     }
     
     func showChangeAlert(answer: @escaping (Bool) -> Void) {

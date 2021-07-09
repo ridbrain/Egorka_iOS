@@ -31,9 +31,8 @@ protocol MainBottomViewProtocol: UIView {
     func initTableView()
     func initCollectionView()
     func presentBottomView(view: UIView)
-    func showTable(show: Bool, extra: CGFloat)
+    func showTable(show: Bool)
     func showButtons(show: Bool)
-    func showWhere(show: Bool)
     func reloadCollection(types: [Delivery])
     func setKeyboardHeight(height: CGFloat)
     func transitionBottomView(state: BottomState)
@@ -43,7 +42,8 @@ protocol MainBottomViewProtocol: UIView {
     func setFieldEdit(field: FocusField)
     func getPickupText() -> String
     func getDropText() -> String
-    func changeIconPickupField(edit: Bool)
-    func showIconDropField(show: Bool)
+    func showClearDrop(show: Bool)
+    func showClearPickup(show: Bool)
+    func activeOrderButton(active: Bool)
     
 }

@@ -16,11 +16,17 @@ class MainBottomSheet: UIView, MainBottomViewProtocol {
     @IBOutlet weak var whereField: UITextField!
     @IBOutlet weak var whereIcon: UIView!
     @IBOutlet weak var fromIcon: UIView!
-    @IBOutlet weak var pickupFieldButton: UIButton!
-    @IBOutlet weak var dropFieldButton: UIButton!
+    @IBOutlet weak var mapPickup: UIButton!
+    @IBOutlet weak var mapDrop: UIButton!
+    @IBOutlet weak var clearPickup: UIButton!
+    @IBOutlet weak var clearDrop: UIButton!
+    @IBOutlet weak var clearPickupWidth: NSLayoutConstraint!
+    @IBOutlet weak var clearDropWidth: NSLayoutConstraint!
+    @IBOutlet weak var mapDropWidth: NSLayoutConstraint!
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var orderButton: RoundedButton!
     
     @IBOutlet weak var whereMargin: NSLayoutConstraint!
     @IBOutlet weak var whereHeight: NSLayoutConstraint!
@@ -49,7 +55,7 @@ class MainBottomSheet: UIView, MainBottomViewProtocol {
             bottomSafeArea = (window?.safeAreaInsets.bottom) ?? 0
         }
 
-        contetntHeight = [[125 + bottomSafeArea], [210 + bottomSafeArea], [screenHeight - topSafeSrea - 90]]
+        contetntHeight = [[120 + bottomSafeArea], [260 + bottomSafeArea], [screenHeight - topSafeSrea - 90]]
         
         xib.frame = self.bounds
         addSubview(xib)
@@ -60,6 +66,8 @@ class MainBottomSheet: UIView, MainBottomViewProtocol {
         whereIcon.layer.cornerRadius = whereIcon.frame.height / 2
         whereIcon.layer.borderWidth = 2
         whereIcon.layer.borderColor = UIColor.colorBlue.cgColor
+        clearDropWidth.constant = 0
+        mapDropWidth.constant = 0
         
         bottomSheet = BottomSheetView(contentView: self, contentHeights: contetntHeight[0], handleBackground: .color(.colorBackground))
         
@@ -142,7 +150,7 @@ class MainBottomSheet: UIView, MainBottomViewProtocol {
     func initCollectionView() {
         
         collectionDelegate = CollectionDelegate() { delivery in
-            self.presenter?.openNewOrder(order: delivery)
+            self.presenter?.selectDelivery(delivery: delivery)
         }
         
         collectionView.delegate = collectionDelegate
@@ -173,11 +181,11 @@ class MainBottomSheet: UIView, MainBottomViewProtocol {
         
     }
     
-    func showTable(show: Bool, extra: CGFloat) {
+    func showTable(show: Bool) {
         
         if show {
             tableView.isHidden = false
-            tableHeight.constant = contetntHeight[2][0] - extra - keyboardHeight!
+            tableHeight.constant = contetntHeight[2][0] - 115 - keyboardHeight!
         } else {
             tableView.isHidden = true
             tableHeight.constant = 0
@@ -189,90 +197,6 @@ class MainBottomSheet: UIView, MainBottomViewProtocol {
         collectionView.isHidden = !show
     }
     
-    func showWhere(show: Bool) {
-        
-        let height = 45
-        let margin = 15
-        
-        if show && whereHeight.constant != CGFloat(height) {
-            
-            DispatchQueue.global(qos: .background).async {
-                
-                var m = 1
-
-                while m <= margin {
-
-                    usleep(100)
-
-                    DispatchQueue.main.async {
-                        self.whereMargin.constant = CGFloat(m)
-                    }
-
-                    m = m + 1
-
-                }
-
-                var h = 1
-
-                while h < height {
-
-                    usleep(100)
-
-                    DispatchQueue.main.async {
-                        self.whereHeight.constant = CGFloat(h)
-                    }
-
-                    h = h + 1
-
-                }
-
-            }
-            
-            whereIcon.isHidden = false
-            whereField.isHidden = false
-            dropFieldButton.isHidden = false
-            
-        } else if !show && whereHeight.constant != CGFloat(0) {
-            
-            DispatchQueue.global(qos: .background).async {
-
-                var h = height
-
-                while h != 0 {
-
-                    usleep(100)
-
-                    DispatchQueue.main.async {
-                        self.whereHeight.constant = CGFloat(h)
-                    }
-
-                    h = h - 1
-
-                }
-                
-                var m = margin
-
-                while m != 0 {
-
-                    usleep(100)
-
-                    DispatchQueue.main.async {
-                        self.whereMargin.constant = CGFloat(m)
-                    }
-
-                    m = m - 1
-
-                }
-
-            }
-            
-            whereIcon.isHidden = true
-            whereField.isHidden = true
-            
-        }
-        
-    }
-    
     func getPickupText() -> String {
         return fromField.text ?? ""
     }
@@ -281,46 +205,75 @@ class MainBottomSheet: UIView, MainBottomViewProtocol {
         return whereField.text ?? ""
     }
     
-    func changeIconPickupField(edit: Bool) {
+    @IBAction func pressClearPickup(_ sender: Any) {
+        presenter?.pressClearPickupField()
+    }
+    
+    @IBAction func pressMapPickup(_ sender: Any) {
+        presenter?.pressMyLocation()
+    }
+    
+    @IBAction func pressClearDrop(_ sender: Any) {
+        presenter?.pressClearDropField()
+    }
+    
+    @IBAction func pressMapDrop(_ sender: Any) {
+        presenter?.pressMapDropField()
+    }
+    
+    func showClearDrop(show: Bool) {
         
-        if edit {
-            if pickupFieldButton.image(for: .normal) != UIImage(named: "Remove")! {
-                pickupFieldButton.changeIcon(image: UIImage(named: "Remove")!, color: .lightGray)
+        clearDropWidth.constant = 35
+        mapDropWidth.constant = 35
+        
+        if show && mapDrop.imageView?.image != .icMap {
+            mapDrop.changeIcon(image: .icMap)
+            clearDrop.changeIcon(image: .icRemove) { _ in
+                if self.clearDropWidth.constant != 35 { self.clearDropWidth.constant = 35 }
             }
-        } else {
-            if pickupFieldButton.image(for: .normal) != UIImage(named: "Crosshair")! {
-                pickupFieldButton.changeIcon(image: UIImage(named: "Crosshair")!, color: .colorAccent)
-            }
+        } else if !show {
+            clearDrop.hideIcon() { _ in self.clearDropWidth.constant = 0 }
+            mapDrop.hideIcon() { _ in self.clearDropWidth.constant = 0 }
         }
         
     }
     
-    func showIconDropField(show: Bool) {
+    func showClearPickup(show: Bool) {
         
-//        if whereHeight.constant == 45 {
-//            if show {
-//                dropFieldButton.changeIcon(image: UIImage(named: "Remove")!, color: .lightGray)
-//            } else {
-//                dropFieldButton.hideIcon()
-//            }
-//        } else {
-//            dropFieldButton.hideIcon()
-//        }
+        clearPickupWidth.constant = 35
         
-        if whereHeight.constant == 45 {
-            dropFieldButton.isHidden = !show
+        if show && clearPickup.imageView?.image != .icRemove {
+            clearPickup.changeIcon(image: .icRemove) { _ in
+                if self.clearPickupWidth.constant != 35 { self.clearPickupWidth.constant = 35 }
+            }
+        } else if !show {
+            clearPickup.hideIcon() { _ in self.clearPickupWidth.constant = 0 }
+        }
+        
+    }
+
+    func activeOrderButton(active: Bool) {
+        
+        if active {
+            
+            UIView.animate(withDuration: 0.5) {
+                self.orderButton.alpha = 1
+                self.orderButton.setTitle("ОФОРМИТЬ ЗАКАЗ", for: .normal)
+            }
+            
         } else {
-            dropFieldButton.isHidden = true
+            
+            UIView.animate(withDuration: 0.5) {
+                self.orderButton.alpha = 0.5
+                self.orderButton.setTitle("ВЫБИРИТЕ СПОСОБ ДОСТАВКИ", for: .normal)
+            }
+            
         }
         
     }
     
-    @IBAction func pressPickupFieldButton(_ sender: Any) {
-        presenter?.pressPickupFieldButton()
-    }
-    
-    @IBAction func pressDropFieldButton(_ sender: Any) {
-        presenter?.pressDropFieldButton()
+    @IBAction func pressNewOrder(_ sender: Any) {
+        presenter?.openNewOrder()
     }
     
 }

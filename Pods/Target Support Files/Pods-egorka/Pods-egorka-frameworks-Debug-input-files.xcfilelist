@@ -14,4 +14,6 @@ ${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework
 ${BUILT_PRODUCTS_DIR}/JMMaskTextField-Swift/JMMaskTextField_Swift.framework
 ${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework
 ${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework
+${BUILT_PRODUCTS_DIR}/TinkoffASDKCore/TinkoffASDKCore.framework
+${BUILT_PRODUCTS_DIR}/TinkoffASDKUI/TinkoffASDKUI.framework
 ${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework

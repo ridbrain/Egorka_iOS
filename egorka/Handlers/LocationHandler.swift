@@ -10,7 +10,7 @@ import CoreLocation
 class LocationHandeler: NSObject, CLLocationManagerDelegate {
     
     let locationManager = CLLocationManager()
-    var findLocation: () -> Void
+    var findLocation: (() -> Void)?
     var location: CLLocation?
     
     let manager: CLLocationManager = {
@@ -60,8 +60,13 @@ class LocationHandeler: NSObject, CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
-        if location == nil { location = locations[0]; findLocation() }
-        locationManager.stopMonitoringSignificantLocationChanges()
+        if location == nil {
+            location = locations[0]
+            if let find = findLocation {
+                find()
+                findLocation = nil
+            }
+        }
         
     }
     

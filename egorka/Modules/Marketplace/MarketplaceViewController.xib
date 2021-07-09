@@ -91,7 +91,7 @@
                                             </constraints>
                                             <color key="tintColor" name="ColorAccent"/>
                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="5" maxY="0.0"/>
-                                            <state key="normal" image="Crosshair"/>
+                                            <state key="normal" image="map"/>
                                             <connections>
                                                 <action selector="pressMyLocation:" destination="-1" eventType="touchUpInside" id="OTH-87-DUf"/>
                                             </connections>
@@ -522,7 +522,6 @@
         </view>
     </objects>
     <resources>
-        <image name="Crosshair" width="20" height="20"/>
         <image name="information" width="20" height="20"/>
         <image name="map" width="20" height="20"/>
         <namedColor name="ColorAccent">

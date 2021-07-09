@@ -31,7 +31,9 @@ class MarketplacePresnter: MarketplacePresenterProtocol {
         view?.setTitle(title: "Оформление заказа")
         
         locationHandler = LocationHandeler() {
-            self.pressMyLocation()
+            if let coordinate = self.locationHandler?.location?.coordinate {
+                self.getAddress(location: coordinate)
+            }
         }
         
         bottomOrder = NewOrderBottom()
@@ -153,13 +155,12 @@ class MarketplacePresnter: MarketplacePresenterProtocol {
     
     func calculateDelivery() {
         
+        updateFields()
+        
         guard let pickup = pickup?.getString() else { return }
         guard drop.Point?.Code != nil else { return }
         
         bottomOrder.transitionBottomView(index: 0)
-        
-        view?.setPickup(text: self.pickup!.Point!.Address!)
-        view?.setDrop(text: drop.Point!.Name!)
         
         Network.calculateDelivery(locations: [pickup, drop.getString()], type: DeliveryType.Track) { delivery in
             self.showPrice(delivery: delivery)
@@ -167,17 +168,29 @@ class MarketplacePresnter: MarketplacePresenterProtocol {
         
     }
     
+    func updateFields() {
+        
+        if let pickupAddress = pickup?.Point?.Address { view?.setPickup(text: pickupAddress) }
+        if let dropAddress = drop.Point?.Name { view?.setDrop(text: dropAddress) }
+        
+    }
+    
     func showPrice(delivery: Delivery) {
         
-        bottomOrder.setInfoFields(type: TypeData(type: delivery.Type!), price: delivery.Result!.TotalPrice!)
+//        bottomOrder.setInfoFields(type: TypeData(type: delivery.Type!), price: delivery.Result!.TotalPrice!)
         bottomOrder.transitionBottomView(index: 1)
         
     }
     
     func pressMyLocation() {
-        if let coordinate = self.locationHandler?.location?.coordinate {
-            self.getAddress(location: coordinate)
+        
+        if let location = pickup {
+            router?.openAddressMap(location: location)
+        } else {
+            pickup = Location()
+            router?.openAddressMap(location: pickup!)
         }
+        
     }
     
     func pressMarketMap() {

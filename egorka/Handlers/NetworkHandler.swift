@@ -13,8 +13,8 @@ class Network {
     static let baseUrl = "https://app.egorka.dev/"
     static let auth = ["Type" : "Apple", "UserUUID" : UserData.getUserUUID() ?? ""] as Parameters
     
-    class func request(url: String, param: Parameters, complition: @escaping (Data) -> Void) {
-        AF.request(baseUrl + url, method: .post, parameters: param, encoding: JSONEncoding.default).responseJSON { response in
+    class func request(url: String, param: Parameters, method: HTTPMethod = .post, complition: @escaping (Data) -> Void) {
+        AF.request(baseUrl + url, method: method, parameters: param, encoding: JSONEncoding.default).responseJSON { response in
             if let data = response.data {
                 complition(data)
             } else {
@@ -82,6 +82,74 @@ class Network {
                 let answer = try JSONDecoder().decode(Delivery.self, from: data)
                 if answer.Result?.TotalPrice?.Total != nil {
                     answer.Type = type
+                    complition(answer)
+                }
+            } catch let error {
+                print(error)
+            }
+
+        }
+
+    }
+    
+    class func bookDelivery(id: String, complition: @escaping (Delivery) -> Void) {
+        
+        let url = "service/delivery/"
+        
+        let body = ["ID" : id] as Parameters
+        let params = ["Compress" : "GZip", "Language" : "RU"] as Parameters
+        let parameters = ["Auth" : auth, "Method" : "Book", "Body" : body, "Params" : params] as Parameters
+
+        request(url: url, param: parameters) { data in
+
+            do {
+//                print(try JSONSerialization.jsonObject(with: data, options: .mutableLeaves))
+                let answer = try JSONDecoder().decode(Delivery.self, from: data)
+                if answer.Result?.TotalPrice?.Total != nil {
+                    complition(answer)
+                }
+            } catch let error {
+                print(error)
+            }
+
+        }
+
+    }
+    
+    class func checkOrder(number: String, pin: String, complition: @escaping (Delivery) -> Void) {
+        
+        let url = "service/delivery/"
+        
+        let body = ["RecordNumber" : number, "RecordPIN" : pin] as Parameters
+        let params = ["Compress" : "GZip", "Language" : "RU"] as Parameters
+        let parameters = ["Auth" : auth, "Method" : "Check", "Body" : body, "Params" : params] as Parameters
+
+        request(url: url, param: parameters) { data in
+
+            do {
+//                print(try JSONSerialization.jsonObject(with: data, options: .mutableLeaves))
+                let answer = try JSONDecoder().decode(Delivery.self, from: data)
+                if answer.Result?.Invoices?.count ?? 0 > 0 {
+                    complition(answer)
+                }
+            } catch let error {
+                print(error)
+            }
+
+        }
+
+    }
+    
+    class func getPaymentID(id: String, pin: String, complition: @escaping (Payment) -> Void) {
+        
+        let url = "payment/tinkoff/redirect/?ID=\(id)-\(pin)"
+
+        request(url: url, param: Parameters()) { data in
+
+            do {
+                print(try JSONSerialization.jsonObject(with: data, options: .mutableLeaves))
+                let answer = try JSONDecoder().decode(Payment.self, from: data)
+                if answer.PaymentId != nil {
                     complition(answer)
                 }
             } catch let error {

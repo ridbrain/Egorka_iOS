@@ -10,6 +10,7 @@
 		B48EF5DAC0A1B7AFAEDAE3C1 /* Pods_egorka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BCF88E5C3F610B695E740A7 /* Pods_egorka.framework */; };
 		E705CE74258CC776003AA401 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E705CE72258CC776003AA401 /* SplashViewController.swift */; };
 		E705CE75258CC776003AA401 /* SplashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E705CE73258CC776003AA401 /* SplashViewController.xib */; };
+		E710745E267A06BF0036579E /* PayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E710745D267A06BF0036579E /* PayController.swift */; };
 		E7135F8A2601474E00A83B0B /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7135F882601474E00A83B0B /* DetailsViewController.swift */; };
 		E7135F8B2601474E00A83B0B /* DetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7135F892601474E00A83B0B /* DetailsViewController.xib */; };
 		E7135F932601475F00A83B0B /* DetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7135F922601475F00A83B0B /* DetailsPresenter.swift */; };
@@ -38,16 +39,22 @@
 		E736F95A2611D6CA009F1DE2 /* NotificationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E736F9592611D6CA009F1DE2 /* NotificationHandler.swift */; };
 		E739C584259732D500E772AF /* NewOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E739C582259732D500E772AF /* NewOrderViewController.swift */; };
 		E739C585259732D500E772AF /* NewOrderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E739C583259732D500E772AF /* NewOrderViewController.xib */; };
+		E75707C6264D173500709842 /* MarketMapDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75707C5264D173500709842 /* MarketMapDelegate.swift */; };
+		E75707CA265089AC00709842 /* AddressMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75707C8265089AC00709842 /* AddressMapViewController.swift */; };
+		E75707CB265089AC00709842 /* AddressMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E75707C9265089AC00709842 /* AddressMapViewController.xib */; };
+		E75707CD26508A5D00709842 /* AddressMapProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75707CC26508A5D00709842 /* AddressMapProtocols.swift */; };
+		E75707CF26508A7E00709842 /* AddressMapPresnter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75707CE26508A7E00709842 /* AddressMapPresnter.swift */; };
 		E758AD8425949FEA0002149F /* NewOrderPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E758AD8325949FEA0002149F /* NewOrderPresenter.swift */; };
+		E774FD1F268B15E900C164C4 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E774FD1E268B15E900C164C4 /* WebKit.framework */; };
 		E780680526407020005A3684 /* MarketplaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E780680326407020005A3684 /* MarketplaceViewController.swift */; };
 		E780680626407020005A3684 /* MarketplaceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E780680426407020005A3684 /* MarketplaceViewController.xib */; };
 		E78068082640702D005A3684 /* MarketplaceProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78068072640702D005A3684 /* MarketplaceProtocols.swift */; };
 		E780680A26407037005A3684 /* MarketplacePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E780680926407037005A3684 /* MarketplacePresenter.swift */; };
 		E780680C2641E313005A3684 /* MarketplacePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E780680B2641E313005A3684 /* MarketplacePicker.swift */; };
-		E78068102642CF64005A3684 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E780680E2642CF64005A3684 /* MapViewController.swift */; };
-		E78068112642CF64005A3684 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E780680F2642CF64005A3684 /* MapViewController.xib */; };
-		E78068132642D884005A3684 /* MapProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78068122642D884005A3684 /* MapProtocols.swift */; };
-		E78068152642D893005A3684 /* MapPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78068142642D893005A3684 /* MapPresenter.swift */; };
+		E78068102642CF64005A3684 /* MarketMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E780680E2642CF64005A3684 /* MarketMapViewController.swift */; };
+		E78068112642CF64005A3684 /* MarketMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E780680F2642CF64005A3684 /* MarketMapViewController.xib */; };
+		E78068132642D884005A3684 /* MarketMapProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78068122642D884005A3684 /* MarketMapProtocols.swift */; };
+		E78068152642D893005A3684 /* MarketMapPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78068142642D893005A3684 /* MarketMapPresenter.swift */; };
 		E78A1CC12630B6AB0001F6DC /* AboutProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78A1CC02630B6AB0001F6DC /* AboutProtocols.swift */; };
 		E78A1CC62630B6BA0001F6DC /* AboutPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78A1CC52630B6BA0001F6DC /* AboutPresenter.swift */; };
 		E78A1CE62630CB570001F6DC /* NoNetworkProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78A1CE52630CB570001F6DC /* NoNetworkProtocols.swift */; };
@@ -65,6 +72,9 @@
 		E799D9E12588CFEF00FE4E62 /* TypeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E799D9DF2588CFEF00FE4E62 /* TypeCollectionViewCell.swift */; };
 		E799D9E22588CFEF00FE4E62 /* TypeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E799D9E02588CFEF00FE4E62 /* TypeCollectionViewCell.xib */; };
 		E799D9EA2589515E00FE4E62 /* CollectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E799D9E92589515E00FE4E62 /* CollectionDelegate.swift */; };
+		E7B360AD264AC1BA00F7A770 /* SelectBottomSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7B360AC264AC1BA00F7A770 /* SelectBottomSheet.xib */; };
+		E7B360AF264AC1E500F7A770 /* SelectBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B360AE264AC1E500F7A770 /* SelectBottomSheet.swift */; };
+		E7B360B1264AC1FD00F7A770 /* SelectBottomSheetProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B360B0264AC1FD00F7A770 /* SelectBottomSheetProtocol.swift */; };
 		E7B40E08260B740400775704 /* NewOrderBottom.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B40E07260B740400775704 /* NewOrderBottom.swift */; };
 		E7B40E10260B742200775704 /* NewOrderBottom.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7B40E0F260B742200775704 /* NewOrderBottom.xib */; };
 		E7B40E15260B756500775704 /* NewOrderBottomProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B40E14260B756500775704 /* NewOrderBottomProtocols.swift */; };
@@ -110,6 +120,7 @@
 		D5C070E061DCACF51C7EFEEA /* Pods-egorka.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-egorka.release.xcconfig"; path = "Target Support Files/Pods-egorka/Pods-egorka.release.xcconfig"; sourceTree = "<group>"; };
 		E705CE72258CC776003AA401 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		E705CE73258CC776003AA401 /* SplashViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SplashViewController.xib; sourceTree = "<group>"; };
+		E710745D267A06BF0036579E /* PayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayController.swift; sourceTree = "<group>"; };
 		E7135F882601474E00A83B0B /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		E7135F892601474E00A83B0B /* DetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailsViewController.xib; sourceTree = "<group>"; };
 		E7135F922601475F00A83B0B /* DetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPresenter.swift; sourceTree = "<group>"; };
@@ -145,16 +156,22 @@
 		E736F9612611D8C8009F1DE2 /* egorka.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = egorka.entitlements; sourceTree = "<group>"; };
 		E739C582259732D500E772AF /* NewOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOrderViewController.swift; sourceTree = "<group>"; };
 		E739C583259732D500E772AF /* NewOrderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewOrderViewController.xib; sourceTree = "<group>"; };
+		E75707C5264D173500709842 /* MarketMapDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketMapDelegate.swift; sourceTree = "<group>"; };
+		E75707C8265089AC00709842 /* AddressMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressMapViewController.swift; sourceTree = "<group>"; };
+		E75707C9265089AC00709842 /* AddressMapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddressMapViewController.xib; sourceTree = "<group>"; };
+		E75707CC26508A5D00709842 /* AddressMapProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressMapProtocols.swift; sourceTree = "<group>"; };
+		E75707CE26508A7E00709842 /* AddressMapPresnter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressMapPresnter.swift; sourceTree = "<group>"; };
 		E758AD8325949FEA0002149F /* NewOrderPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOrderPresenter.swift; sourceTree = "<group>"; };
+		E774FD1E268B15E900C164C4 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		E780680326407020005A3684 /* MarketplaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketplaceViewController.swift; sourceTree = "<group>"; };
 		E780680426407020005A3684 /* MarketplaceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MarketplaceViewController.xib; sourceTree = "<group>"; };
 		E78068072640702D005A3684 /* MarketplaceProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketplaceProtocols.swift; sourceTree = "<group>"; };
 		E780680926407037005A3684 /* MarketplacePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketplacePresenter.swift; sourceTree = "<group>"; };
 		E780680B2641E313005A3684 /* MarketplacePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketplacePicker.swift; sourceTree = "<group>"; };
-		E780680E2642CF64005A3684 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		E780680F2642CF64005A3684 /* MapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
-		E78068122642D884005A3684 /* MapProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapProtocols.swift; sourceTree = "<group>"; };
-		E78068142642D893005A3684 /* MapPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPresenter.swift; sourceTree = "<group>"; };
+		E780680E2642CF64005A3684 /* MarketMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketMapViewController.swift; sourceTree = "<group>"; };
+		E780680F2642CF64005A3684 /* MarketMapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MarketMapViewController.xib; sourceTree = "<group>"; };
+		E78068122642D884005A3684 /* MarketMapProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketMapProtocols.swift; sourceTree = "<group>"; };
+		E78068142642D893005A3684 /* MarketMapPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketMapPresenter.swift; sourceTree = "<group>"; };
 		E78A1CC02630B6AB0001F6DC /* AboutProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutProtocols.swift; sourceTree = "<group>"; };
 		E78A1CC52630B6BA0001F6DC /* AboutPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutPresenter.swift; sourceTree = "<group>"; };
 		E78A1CE52630CB570001F6DC /* NoNetworkProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoNetworkProtocols.swift; sourceTree = "<group>"; };
@@ -172,6 +189,9 @@
 		E799D9DF2588CFEF00FE4E62 /* TypeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeCollectionViewCell.swift; sourceTree = "<group>"; };
 		E799D9E02588CFEF00FE4E62 /* TypeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TypeCollectionViewCell.xib; sourceTree = "<group>"; };
 		E799D9E92589515E00FE4E62 /* CollectionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionDelegate.swift; sourceTree = "<group>"; };
+		E7B360AC264AC1BA00F7A770 /* SelectBottomSheet.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectBottomSheet.xib; sourceTree = "<group>"; };
+		E7B360AE264AC1E500F7A770 /* SelectBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBottomSheet.swift; sourceTree = "<group>"; };
+		E7B360B0264AC1FD00F7A770 /* SelectBottomSheetProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBottomSheetProtocol.swift; sourceTree = "<group>"; };
 		E7B40E07260B740400775704 /* NewOrderBottom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOrderBottom.swift; sourceTree = "<group>"; };
 		E7B40E0F260B742200775704 /* NewOrderBottom.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewOrderBottom.xib; sourceTree = "<group>"; };
 		E7B40E14260B756500775704 /* NewOrderBottomProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOrderBottomProtocols.swift; sourceTree = "<group>"; };
@@ -199,6 +219,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E774FD1F268B15E900C164C4 /* WebKit.framework in Frameworks */,
 				B48EF5DAC0A1B7AFAEDAE3C1 /* Pods_egorka.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -223,6 +244,7 @@
 		962EEB92F7B2CB2A9BE658B3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E774FD1E268B15E900C164C4 /* WebKit.framework */,
 				7BCF88E5C3F610B695E740A7 /* Pods_egorka.framework */,
 			);
 			name = Frameworks;
@@ -334,15 +356,17 @@
 		E7176B4C2580CBFF00825F14 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				E780680D2642CF2B005A3684 /* Map */,
 				E78A96582613872100416578 /* About */,
+				E75707C72650899100709842 /* AddressMap */,
 				E7B44FD3260CED6C002913E6 /* CurrentOrder */,
 				E7135F872601473E00A83B0B /* Details */,
 				E7176B602580D61A00825F14 /* Main */,
+				E780680D2642CF2B005A3684 /* MarketMap */,
 				E780680226406EF9005A3684 /* Marketplace */,
 				E7C1686F26066E5400FF4AE1 /* NewAddress */,
 				E758AD8225949FC60002149F /* NewOrder */,
 				E71D6B5E25F8E5C400F30FC4 /* NoNetwork */,
+				E7B360AB264ABE8000F7A770 /* SelectBottom */,
 				E7B44FEA260F6160002913E6 /* SideMenu */,
 				E705CE79258CC92A003AA401 /* Splash */,
 			);
@@ -381,6 +405,7 @@
 				E799D9E92589515E00FE4E62 /* CollectionDelegate.swift */,
 				E7DDF7392600889400284398 /* LocationTableView.swift */,
 				E780680B2641E313005A3684 /* MarketplacePicker.swift */,
+				E75707C5264D173500709842 /* MarketMapDelegate.swift */,
 			);
 			path = Delegates;
 			sourceTree = "<group>";
@@ -391,6 +416,7 @@
 				E7176B5B2580D05B00825F14 /* AssemblerBuilder.swift */,
 				E7176B562580CFE200825F14 /* GeneralRouter.swift */,
 				E7176B7A2581461B00825F14 /* Extensions.swift */,
+				E710745D267A06BF0036579E /* PayController.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -403,6 +429,17 @@
 				E71F1BFC261DDCA20002143E /* UserUUID.swift */,
 			);
 			path = Entities;
+			sourceTree = "<group>";
+		};
+		E75707C72650899100709842 /* AddressMap */ = {
+			isa = PBXGroup;
+			children = (
+				E75707C8265089AC00709842 /* AddressMapViewController.swift */,
+				E75707C9265089AC00709842 /* AddressMapViewController.xib */,
+				E75707CC26508A5D00709842 /* AddressMapProtocols.swift */,
+				E75707CE26508A7E00709842 /* AddressMapPresnter.swift */,
+			);
+			path = AddressMap;
 			sourceTree = "<group>";
 		};
 		E758AD8225949FC60002149F /* NewOrder */ = {
@@ -428,15 +465,15 @@
 			path = Marketplace;
 			sourceTree = "<group>";
 		};
-		E780680D2642CF2B005A3684 /* Map */ = {
+		E780680D2642CF2B005A3684 /* MarketMap */ = {
 			isa = PBXGroup;
 			children = (
-				E78068142642D893005A3684 /* MapPresenter.swift */,
-				E78068122642D884005A3684 /* MapProtocols.swift */,
-				E780680E2642CF64005A3684 /* MapViewController.swift */,
-				E780680F2642CF64005A3684 /* MapViewController.xib */,
+				E78068142642D893005A3684 /* MarketMapPresenter.swift */,
+				E78068122642D884005A3684 /* MarketMapProtocols.swift */,
+				E780680E2642CF64005A3684 /* MarketMapViewController.swift */,
+				E780680F2642CF64005A3684 /* MarketMapViewController.xib */,
 			);
-			path = Map;
+			path = MarketMap;
 			sourceTree = "<group>";
 		};
 		E78A96582613872100416578 /* About */ = {
@@ -466,6 +503,16 @@
 				E799D9E02588CFEF00FE4E62 /* TypeCollectionViewCell.xib */,
 			);
 			path = Type;
+			sourceTree = "<group>";
+		};
+		E7B360AB264ABE8000F7A770 /* SelectBottom */ = {
+			isa = PBXGroup;
+			children = (
+				E7B360AC264AC1BA00F7A770 /* SelectBottomSheet.xib */,
+				E7B360AE264AC1E500F7A770 /* SelectBottomSheet.swift */,
+				E7B360B0264AC1FD00F7A770 /* SelectBottomSheetProtocol.swift */,
+			);
+			path = SelectBottom;
 			sourceTree = "<group>";
 		};
 		E7B40E06260B738900775704 /* NewOrderBottom */ = {
@@ -639,12 +686,14 @@
 			files = (
 				E71D6B6225F8E5F200F30FC4 /* NoNetworkViewController.xib in Resources */,
 				E7B44FD7260CEEC2002913E6 /* CurrentOrderViewController.xib in Resources */,
+				E75707CB265089AC00709842 /* AddressMapViewController.xib in Resources */,
 				E7DDF72C25FFF1E500284398 /* LocationTableViewCell.xib in Resources */,
 				E739C585259732D500E772AF /* NewOrderViewController.xib in Resources */,
 				E7176B3625801BB900825F14 /* Colors.xcassets in Resources */,
 				E7B44FEF260F617F002913E6 /* SideMenuViewController.xib in Resources */,
-				E78068112642CF64005A3684 /* MapViewController.xib in Resources */,
+				E78068112642CF64005A3684 /* MarketMapViewController.xib in Resources */,
 				E780680626407020005A3684 /* MarketplaceViewController.xib in Resources */,
+				E7B360AD264AC1BA00F7A770 /* SelectBottomSheet.xib in Resources */,
 				E7176AFA2580139D00825F14 /* LaunchScreen.storyboard in Resources */,
 				E7B40E10260B742200775704 /* NewOrderBottom.xib in Resources */,
 				E7135F8B2601474E00A83B0B /* DetailsViewController.xib in Resources */,
@@ -725,11 +774,14 @@
 				E78A1CC12630B6AB0001F6DC /* AboutProtocols.swift in Sources */,
 				E799D9D92584BE0B00FE4E62 /* AddressTableView.swift in Sources */,
 				E758AD8425949FEA0002149F /* NewOrderPresenter.swift in Sources */,
+				E75707C6264D173500709842 /* MarketMapDelegate.swift in Sources */,
 				E7C168A62607E95A00FF4AE1 /* MainProtocols.swift in Sources */,
 				E7135F8A2601474E00A83B0B /* DetailsViewController.swift in Sources */,
 				E7B40E08260B740400775704 /* NewOrderBottom.swift in Sources */,
+				E7B360B1264AC1FD00F7A770 /* SelectBottomSheetProtocol.swift in Sources */,
 				E780680C2641E313005A3684 /* MarketplacePicker.swift in Sources */,
 				E7135F932601475F00A83B0B /* DetailsPresenter.swift in Sources */,
+				E75707CF26508A7E00709842 /* AddressMapPresnter.swift in Sources */,
 				E78A1CEE2630CC660001F6DC /* CurentOrderProtocols.swift in Sources */,
 				E799D9D42584B34E00FE4E62 /* TextFieldDelegate.swift in Sources */,
 				E705CE74258CC776003AA401 /* SplashViewController.swift in Sources */,
@@ -742,8 +794,10 @@
 				E7DDF72425FF7FAA00284398 /* NewOrder.swift in Sources */,
 				E799D9C0258387AF00FE4E62 /* NetworkHandler.swift in Sources */,
 				E7176B5C2580D05B00825F14 /* AssemblerBuilder.swift in Sources */,
+				E75707CD26508A5D00709842 /* AddressMapProtocols.swift in Sources */,
 				E7176B9925815C6B00825F14 /* MainBottomSheet.swift in Sources */,
 				E780680526407020005A3684 /* MarketplaceViewController.swift in Sources */,
+				E75707CA265089AC00709842 /* AddressMapViewController.swift in Sources */,
 				E7B44FD6260CEEC2002913E6 /* CurrentOrderViewController.swift in Sources */,
 				E71D6B8125FA586400F30FC4 /* AppModel.swift in Sources */,
 				E799D9EA2589515E00FE4E62 /* CollectionDelegate.swift in Sources */,
@@ -756,6 +810,7 @@
 				E780680A26407037005A3684 /* MarketplacePresenter.swift in Sources */,
 				E7C168CC2609489600FF4AE1 /* AddressBottomProtocols.swift in Sources */,
 				E7C168C42608D60000FF4AE1 /* NewOrderProtocols.swift in Sources */,
+				E7B360AF264AC1E500F7A770 /* SelectBottomSheet.swift in Sources */,
 				E7176BDA2582482700825F14 /* LocationHandler.swift in Sources */,
 				E7B44FEE260F617F002913E6 /* SideMenuViewController.swift in Sources */,
 				E7C1687B26066F4900FF4AE1 /* AddressBottomSheet.swift in Sources */,
@@ -765,16 +820,17 @@
 				E78A1CC62630B6BA0001F6DC /* AboutPresenter.swift in Sources */,
 				E7C168AE2607EA3800FF4AE1 /* MainBottomProtocols.swift in Sources */,
 				E78A1CE62630CB570001F6DC /* NoNetworkProtocols.swift in Sources */,
-				E78068152642D893005A3684 /* MapPresenter.swift in Sources */,
+				E78068152642D893005A3684 /* MarketMapPresenter.swift in Sources */,
 				E7B40E15260B756500775704 /* NewOrderBottomProtocols.swift in Sources */,
 				E736F95A2611D6CA009F1DE2 /* NotificationHandler.swift in Sources */,
 				E78A965B2613873200416578 /* AboutViewController.swift in Sources */,
 				E7DDF73A2600889400284398 /* LocationTableView.swift in Sources */,
-				E78068132642D884005A3684 /* MapProtocols.swift in Sources */,
+				E78068132642D884005A3684 /* MarketMapProtocols.swift in Sources */,
 				E71D6B6125F8E5F200F30FC4 /* NoNetworkViewController.swift in Sources */,
 				E78A96512612581300416578 /* SideMenuPresenter.swift in Sources */,
-				E78068102642CF64005A3684 /* MapViewController.swift in Sources */,
+				E78068102642CF64005A3684 /* MarketMapViewController.swift in Sources */,
 				E71F1C02261E1E050002143E /* SplashProtocols.swift in Sources */,
+				E710745E267A06BF0036579E /* PayController.swift in Sources */,
 				E799D9CF2584067E00FE4E62 /* MKMapDelegate.swift in Sources */,
 				E7C168D42609D3C400FF4AE1 /* DetailsProtocols.swift in Sources */,
 				E7FAC7B12591F34F00AB4A40 /* SplashPresenter.swift in Sources */,

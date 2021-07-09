@@ -7,6 +7,7 @@
 
 import UIKit
 import Alamofire
+import MapKit
 
 struct Marketplaces: Codable {
     
@@ -107,6 +108,7 @@ class Delivery: Codable {
         var RecordDateStamp: Int?
         var Locations: [Location]?
         var TotalPrice: TotalPrice?
+        var Invoices: [Invoice]?
         
     }
     
@@ -119,6 +121,11 @@ class Delivery: Codable {
         var Tip: Int?
         var Total: Int?
         var Currency: String?
+    }
+    
+    class Invoice: Codable {
+        var ID: Int?
+        var PIN: Int?
     }
     
     func restoreIndex() {
@@ -215,7 +222,9 @@ class Location: Codable {
             "Route" : Route ?? "",
             "RouteOrder" : RouteOrder ?? "",
             "Point" : Point?.getString() ?? "",
-            "Type" : Type?.rawValue ?? ""
+            "Type" : Type?.rawValue ?? "",
+            "Contact" : Contact?.getString() ?? "",
+            "Message" : Message ?? ""
         ] as Parameters
         
     }
@@ -229,9 +238,16 @@ class Point: Codable {
     var Code: String?
     var Latitude: Double?
     var Longitude: Double?
-    var Entrance: Int?
-    var Floor: Int?
-    var Room: Int?
+    var Entrance: String?
+    var Floor: String?
+    var Room: String?
+    
+    init() { }
+    
+    init(coordinate: CLLocationCoordinate2D) {
+        Latitude = coordinate.latitude
+        Longitude = coordinate.longitude
+    }
     
     func getString() -> Parameters {
         
@@ -239,7 +255,10 @@ class Point: Codable {
             "Address" : Address ?? "",
             "Code" : Code ?? "",
             "Latitude" : Latitude ?? "",
-            "Longitude" : Longitude ?? ""
+            "Longitude" : Longitude ?? "",
+            "Entrance" : Entrance ?? "",
+            "Floor" : Floor ?? "",
+            "Room" : Room ?? ""
         ] as Parameters
         
     }
@@ -256,6 +275,28 @@ class Contact: Codable {
     var EmailPersonal: String?
     var EmailOffice: String?
     
+    func getString() -> Parameters {
+        
+        return [
+            "Name" : Name ?? "",
+            "Department" : Department ?? "",
+            "PhoneMobile" : PhoneMobile ?? "",
+            "PhoneOffice" : PhoneOffice ?? "",
+            "PhoneOfficeAdd" : PhoneOfficeAdd ?? "",
+            "EmailPersonal" : EmailPersonal ?? "",
+            "EmailOffice" : EmailOffice ?? ""
+        ] as Parameters
+        
+    }
+    
+}
+
+struct Payment: Codable {
+    var Success: Bool?
+    var ErrorCode, TerminalKey, Status, PaymentId: String?
+    var OrderId: String?
+    var Amount: Int?
+    var PaymentURL: String?
 }
 
 enum LocationType: String, Codable {

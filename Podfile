@@ -17,6 +17,9 @@ target 'egorka' do
   pod 'Firebase/Messaging'
   pod 'Firebase/Analytics'
   
+  pod 'TinkoffASDKCore'
+  pod 'TinkoffASDKUI'
+  
 end
 
 post_install do |installer|

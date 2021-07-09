@@ -21,6 +21,7 @@ class MainPresenter: MainPresenterProtocol {
     
     var pickup: Location?
     var drop: Location?
+    var delivery: Delivery?
     
     required init(router: GeneralRouterProtocol, view: MainViewProtocol) {
         self.view = view
@@ -61,10 +62,10 @@ class MainPresenter: MainPresenterProtocol {
                 }
             }
             
-            bottomView.showTable(show: false, extra: 0)
+            bottomView.showTable(show: false)
             bottomView.showButtons(show: routeLaid)
             
-        } else {
+        } else if routeLaid {
             
             deleteRout(causes: .changeRegion)
             
@@ -72,9 +73,13 @@ class MainPresenter: MainPresenterProtocol {
                 self.moveMyLocation()
             }
             
+        } else {
+            
+            updateDrop()
+            
         }
         
-        bottomView.reloadCollection(types: [Delivery]())
+//        bottomView.reloadCollection(types: [Delivery]())
         
     }
     
@@ -141,14 +146,14 @@ class MainPresenter: MainPresenterProtocol {
         
         switch bottomView.getFocuseField() {
         case .pickup:
-            bottomView.changeIconPickupField(edit: true)
-            bottomView.showIconDropField(show: false)
+            bottomView.showClearPickup(show: true)
+            bottomView.showClearDrop(show: false)
         case .drop:
-            bottomView.changeIconPickupField(edit: false)
-            bottomView.showIconDropField(show: true)
+            bottomView.showClearPickup(show: false)
+            bottomView.showClearDrop(show: true)
         case .none:
-            bottomView.changeIconPickupField(edit: false)
-            bottomView.showIconDropField(show: false)
+            bottomView.showClearPickup(show: false)
+            bottomView.showClearDrop(show: false)
         }
         
     }
@@ -160,11 +165,9 @@ class MainPresenter: MainPresenterProtocol {
         
         switch bottomView.getFocuseField() {
         case .pickup:
-            bottomView.showWhere(show: false)
-            bottomView.showTable(show: true, extra: 60)
+            bottomView.showTable(show: true)
         case .drop:
-            bottomView.showWhere(show: true)
-            bottomView.showTable(show: true, extra: 120)
+            bottomView.showTable(show: true)
         case .none: break
         }
         
@@ -182,13 +185,10 @@ class MainPresenter: MainPresenterProtocol {
                 bottomView.transitionBottomView(state: .small)
             }
 
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                self.bottomView.changeIconPickupField(edit: false)
-                self.bottomView.showIconDropField(show: false)
-            }
+            bottomView.showClearPickup(show: false)
+            bottomView.showClearDrop(show: false)
             
-            bottomView.showTable(show: false, extra: 0)
-            bottomView.showWhere(show: true)
+            bottomView.showTable(show: false)
             bottomView.showButtons(show: routeLaid)
 
             keyboardHide = true
@@ -239,6 +239,8 @@ class MainPresenter: MainPresenterProtocol {
                     self.bottomView.setTextField(field: .pickup, text: suggestion.Name!)
                     self.bottomView.setSuggestions(suggestions: suggestions)
                     
+                    self.setRoute()
+                    
                 }
                 
             }
@@ -251,6 +253,10 @@ class MainPresenter: MainPresenterProtocol {
         
         routeLaid = false
         
+        delivery = nil
+        pickup = nil
+        drop = nil
+        
         view?.deleteRout()
         view?.showPin(show: true)
         
@@ -260,7 +266,7 @@ class MainPresenter: MainPresenterProtocol {
             case .pickup:
                 bottomView.setTextField(field: .drop, text: "")
                 bottomView.setTextField(field: .pickup, text: "")
-                bottomView.changeIconPickupField(edit: true)
+                bottomView.showClearPickup(show: true)
             case .drop:
                 bottomView.setTextField(field: .drop, text: "")
             case .none:
@@ -274,25 +280,31 @@ class MainPresenter: MainPresenterProtocol {
             bottomView.showButtons(show: false)
         }
         
+        bottomView.activeOrderButton(active: false)
         
     }
     
-    func pressPickupFieldButton() {
+    func pressClearPickupField() {
+        bottomView.setTextField(field: .pickup, text: "")
+    }
+    
+    func pressClearDropField() {
+        bottomView.setTextField(field: .drop, text: "")
+    }
+    
+    func pressMapDropField() {
         
-        if bottomView.getFocuseField() == .pickup && !keyboardHide {
-            bottomView.setTextField(field: .pickup, text: "")
-            bottomView.changeIconPickupField(edit: true)
+        routeLaid = false
+        
+        if let location = drop {
+            router?.openAddressMap(location: location)
         } else {
-            pressMyLocation()
+            drop = Location()
+            if let coordinate = locationHandler.location?.coordinate { drop?.Point = Point(coordinate: coordinate) }
+            router?.openAddressMap(location: drop!)
         }
         
-    }
-    
-    func pressDropFieldButton() {
-        
-        if bottomView.getFocuseField() == .drop && !keyboardHide {
-            bottomView.setTextField(field: .drop, text: "")
-        }
+        hideKeyboard()
         
     }
     
@@ -345,6 +357,15 @@ class MainPresenter: MainPresenterProtocol {
         
     }
     
+    func updateDrop() {
+        
+        if let point = drop?.Point?.Address {
+            bottomView.setTextField(field: .drop, text: point)
+            setRoute()
+        }
+        
+    }
+    
     func selectAddress(address: Dictionary.Suggestion) {
         
         if let name = address.Name {
@@ -362,8 +383,7 @@ class MainPresenter: MainPresenterProtocol {
                 
                 pickup = Location(suggestion: address, type: .Pickup, routeOrder: 1)
                 bottomView.setFieldEdit(field: .drop)
-                bottomView.showWhere(show: true)
-                bottomView.showTable(show: true, extra: 120)
+                bottomView.showTable(show: true)
                 
                 if let point = address.Point {
                     view?.setMapRegion(coordinate: CLLocationCoordinate2D(latitude: point.Latitude!, longitude: point.Longitude!))
@@ -431,39 +451,38 @@ class MainPresenter: MainPresenterProtocol {
         var types = [Delivery]()
         
         Network.calculateDelivery(locations: [pickup.getString(), drop.getString()], type: .Walk) { delivery in
-            
             types.append(delivery)
             self.updatePrices(types: types)
-            
         }
         
         Network.calculateDelivery(locations: [pickup.getString(), drop.getString()], type: .Car) { delivery in
-            
             types.append(delivery)
             self.updatePrices(types: types)
-            
         }
         
     }
     
     func updatePrices(types: [Delivery]) {
-        
         self.bottomView.reloadCollection(types: types)
         self.bottomView.showButtons(show: true)
         self.bottomView.transitionBottomView(state: .medium)
-        
     }
     
-    func openNewOrder(order: Delivery) {
-        
-        router?.openNewOrder(model: order)
-        
+    func selectDelivery(delivery: Delivery) {
+        self.delivery = delivery
+        self.bottomView.activeOrderButton(active: true)
+    }
+    
+    func openNewOrder() {
+        if let order = delivery { router?.openNewOrder(model: order) }
     }
     
     func openSideMenu() {
-        
         router?.openSideMenu()
-        
+    }
+    
+    func openMarketplaces() {
+        router?.openMarketplace()
     }
     
 }
